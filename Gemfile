@@ -22,7 +22,7 @@ gem 'mini_magick',                '>= 4.3.6'
 gem 'bootstrap-sass',             '>= 3.3.6'
 gem 'bootstrap-datepicker-rails'           # Datepicker for Bootstrap
 gem 'font-awesome-rails'
-gem 'jquery-ui-sass-rails',       '>= 4.0.3'
+# gem 'jquery-ui-sass-rails',       '>= 4.0.3' # Incompatible with Rails 5
 gem 'sdoc',                       '>= 0.4.0', group: :doc
 gem 'rails-i18n',                 '>= 4.0.2'
 # gem 'kaminari',                   '>= 0.16.3'  # Paging
@@ -42,7 +42,8 @@ gem 'cancancan'
 gem 'rolify',                     '>= 5.0.0'
 # gem 'bootstrap3_autocomplete_input'
 # gem 'deep_cloneable',             '>= 2.2.0'
-# gem 'redcarpet',                  '>= 3.3.4' # Markdown parser
+gem 'redcarpet',                  '>= 3.3.4' # Markdown parser
+gem 'comfortable_mexican_sofa', '~> 1.12.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
