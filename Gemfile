@@ -43,11 +43,14 @@ gem 'rolify',                     '>= 5.0.0'
 # gem 'bootstrap3_autocomplete_input'
 # gem 'deep_cloneable',             '>= 2.2.0'
 gem 'redcarpet',                  '>= 3.3.4' # Markdown parser
-gem 'comfortable_mexican_sofa', '~> 1.12.9'
+# gem 'comfortable_mexican_sofa', '~> 1.12.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # gem 'pry-byebug'
+  # gem 'spring',                 '1.6.2'
+  gem 'awesome_print', require: "awesome_print"
 end
 
 group :development do

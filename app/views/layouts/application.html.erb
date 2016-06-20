@@ -1,14 +1,96 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Schottenco</title>
-    <%= csrf_meta_tags %>
+    <title>
+      <%= full_title(yield(:title)) %>
+    </title>
 
+    <!-- Meta -->
+  	<meta charset="utf-8">
+
+    <meta name="description" content="<%= full_title(yield(:title)) %>">
+    <meta name="author" content="Schott & Co">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<%= image_url "favicon.ico" %>">
+
+  	<!-- Web Fonts -->
+  	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag :modernizr %>
+    <%= javascript_include_tag :jquery %>
+
+  	<link rel="stylesheet" href="/assets/css/app.css">
+  	<link rel="stylesheet" href="/assets/css/blocks.css">
+  	<link rel="stylesheet" href="/assets/css/style.css">
+
+  	<!-- CSS Header and Footer -->
+  	<link rel="stylesheet" href="/assets/css/headers/header-default.css">
+  	<link rel="stylesheet" href="/assets/css/footers/footer-v1.css">
+
+  	<!-- CSS Implementing Plugins -->
+  	<link rel="stylesheet" href="/assets/plugins/animate.css">
+  	<!-- <link rel="stylesheet" href="/assets/plugins/line-icons/line-icons.css"> -->
+  	<!-- <link rel="stylesheet" href="/assets/plugins/font-awesome/css/font-awesome.min.css"> -->
+  	<link rel="stylesheet" href="/assets/plugins/parallax-slider/css/parallax-slider.css">
+  	<link rel="stylesheet" href="/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+  	<!-- CSS Theme -->
+  	<link rel="stylesheet" href="/assets/css/theme-colors/default.css" id="style_color">
+  	<link rel="stylesheet" href="/assets/css/theme-skins/dark.css">
+
+  	<!-- CSS Customization -->
+  	<link rel="stylesheet" href="/assets/css/custom.css">
+
   </head>
 
-  <body>
+  <body class="header-fixed header-fixed-space-default">
+    <% unless Rails.env.production? %>
+      <div style="padding: 4px; background-color: #1685C8; color: white; text-align: center;">
+        -= <%= Rails.env %> =-
+      </div>
+    <% end %>
+
+	<div class="wrapper">
+    <%= render 'layouts/header' %>
+
+    <%= render 'layouts/flash' %>
+
     <%= yield %>
-  </body>
+
+    <%= render 'layouts/footer' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# render 'layouts/shim' %>
+
+    <%= debug(params) if Rails.env.development? %>
+	</div><!--/wrapper-->
+
+	<!-- JS Global Compulsory -->
+	<!-- <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script> -->
+	<!-- <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+	<!-- <script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script> -->
+	<script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+	<script type="text/javascript" src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/owl-carousel.js"></script>
+	<!-- <script type="text/javascript" src="assets/js/plugins/style-switcher.js"></script> -->
+	<script type="text/javascript" src="assets/js/plugins/parallax-slider.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			OwlCarousel.initOwlCarousel();
+			// StyleSwitcher.initStyleSwitcher();
+			ParallaxSlider.initParallaxSlider();
+		});
+	</script>
+</body>
 </html>
