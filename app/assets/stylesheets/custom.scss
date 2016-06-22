@@ -1,0 +1,22 @@
+.header .logo img {
+  width: 284px;
+  margin: 15px 0;
+}
+
+.header-fixed .header.header-fixed-shrink .logo img {
+  max-width: 284px;
+}
+
+
+@media (min-width: 992px) {
+	.header .navbar-nav > li > a {
+		padding: 9px 20px 9px 20px;
+	}
+	.header .navbar-nav > li.dropdown > a {
+		padding: 9px 30px 9px 20px;
+	}
+}
+
+.footer-logo {
+  width: 220px;
+}
