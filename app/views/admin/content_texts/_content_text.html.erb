@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= link_to content_text.name, [:admin, content_text] %>
+  </td>
+  <td>
+    <%= content_text.title %>
+  </td>
+  <td>
+    <%= markdown(content_text.body).html_safe %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_text],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

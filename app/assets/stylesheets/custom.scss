@@ -20,3 +20,20 @@
 .footer-logo {
   width: 220px;
 }
+
+
+// Admin
+
+.action_bar_right {
+  float: right;
+  // padding-top: 10px;
+
+  form {
+    display: inline;
+  }
+}
+
+.action_bar_left {
+  float: left;
+  padding-top: 10px;
+}

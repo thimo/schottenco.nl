@@ -1,0 +1,23 @@
+<% provide(:title, "Teksten") %>
+
+<div class="container">
+  <div class="action_bar_right">
+    <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_admin_content_text_path, class: "btn btn-default-transparent", title: "Tekst toevoegen" %>
+  </div>
+
+  <h1><%= yield(:title) %></h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Titel</th>
+        <th>Inhoud</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @content_texts %>
+    </tbody>
+  </table>
+</div>

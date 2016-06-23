@@ -50,6 +50,12 @@
 	<div class="wrapper">
     <%= render 'layouts/header' %>
 
+    <div class="container">
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :tag => :li, :separator => "" %>
+      </ol>
+    </div>
+
     <%= render 'layouts/flash' %>
 
     <%= yield %>
