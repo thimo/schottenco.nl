@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  add_breadcrumb "Home", "/"
+  add_breadcrumb "Admin", "/admin"
   before_action :admin_user
 
   def index

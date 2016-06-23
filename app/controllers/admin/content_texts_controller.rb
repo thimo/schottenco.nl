@@ -1,4 +1,5 @@
 class Admin::ContentTextsController < AdminController
+  add_breadcrumb "Content"
   add_breadcrumb "Teksten", :admin_content_texts_path
 
   def index
