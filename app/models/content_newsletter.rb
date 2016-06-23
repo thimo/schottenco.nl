@@ -1,0 +1,2 @@
+class ContentNewsletter < ApplicationRecord
+end

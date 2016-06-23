@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527140312) do
+ActiveRecord::Schema.define(version: 20160622135053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,50 @@ ActiveRecord::Schema.define(version: 20160527140312) do
     t.datetime "updated_at"
     t.index ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true, using: :btree
     t.index ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position", using: :btree
+  end
+
+  create_table "content_blogs", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "content_news", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "content_newsletters", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "content_pages", force: :cascade do |t|
+    t.string   "url"
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "content_texts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,0 +1,12 @@
+<% provide(:title, "Tekst aanpassen") %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= horizontal_form [:admin, @content_text] do |f| %>
+  <%= render 'fields', f: f %>
+
+  <div class="form-actions col-sm-offset-3">
+    <%= f.button :submit, 'Bijwerken', class: "btn-u" %>
+    <%= link_to 'Annuleren', admin_content_texts_path, class: "btn-u btn-default" %>
+  </div>
+<% end %>
