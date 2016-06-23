@@ -1,0 +1,2 @@
+class ContentNews < ApplicationRecord
+end
