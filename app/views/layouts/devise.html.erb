@@ -1,0 +1,17 @@
+<% content_for :content do %>
+<div class="container content">
+  <div class="row">
+  	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div class="reg-page">
+        <div class="reg-header">
+					<h2><%= yield(:title) %></h2>
+				</div>
+
+        <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+      </div>
+  	</div>
+  </div>
+</div>
+<% end %>
+
+<%= render template: "layouts/application" %>

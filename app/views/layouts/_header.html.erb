@@ -8,7 +8,12 @@
         <li class="topbar-devider"></li>
         <li><a href="page_faq.html">Nieuwsbrief</a></li>
         <li class="topbar-devider"></li>
-        <li><a href="page_login.html">Inloggen</a></li>
+        <li>
+          <%= link_to "Inloggen", user_session_path %>
+        </li>
+        <!-- <li>
+          <%= link_to "Uitloggen", destroy_user_session_path %>
+        </li> -->
       </ul>
     </div>
 
