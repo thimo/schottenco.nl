@@ -26,12 +26,26 @@
   background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442;
+
+  hr {
+    border-top-color: #e4b9c0;
+  }
+  .alert-link {
+    color: #843534;
+  }
 }
-.alert-alert hr {
-  border-top-color: #e4b9c0;
-}
-.alert-alert .alert-link {
-  color: #843534;
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+
+  hr {
+    border-top-color: #c9e2b3;
+  }
+  .alert-link {
+    color: #2b542c;
+  }
 }
 
 .reg-footer {
