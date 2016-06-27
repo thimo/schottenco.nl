@@ -1,0 +1,22 @@
+<% provide(:title, "Nieuwsbrieven") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_admin_content_newsletter_path, class: "btn-u btn-u-default", title: "Nieuwsbrief toevoegen" %>
+</div>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Datum</th>
+      <th>Titel</th>
+      <th>Inleiding</th>
+      <th>Inhoud</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @content_newsletters %>
+  </tbody>
+</table>

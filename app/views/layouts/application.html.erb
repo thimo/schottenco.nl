@@ -28,11 +28,11 @@
   </head>
 
   <body class="header-fixed header-fixed-space-default">
-    <!-- <% unless Rails.env.production? %>
-      <div style="padding: 4px; background-color: #1685C8; color: white; text-align: center;">
-        -= <%= Rails.env %> =-
-      </div>
-    <% end %> -->
+  <% unless Rails.env.production? %>
+    <div style="padding: 4px; background-color: #E51A55; color: white; text-align: center;">
+      -= <%= Rails.env %> =-
+    </div>
+  <% end %>
 
 	<div class="wrapper">
     <%= render 'layouts/header' %>
@@ -52,7 +52,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= debug(params) if Rails.env.development? %>
-	</div><!--/wrapper-->
+	</div>
 
 	<!-- JS Implementing Plugins -->
 	<script type="text/javascript" src="/assets/plugins/back-to-top.js"></script>

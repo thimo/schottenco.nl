@@ -1,7 +1,7 @@
-<% provide(:title, "Tekst #{@content_text.name}") %>
+<% provide(:title, "Blog artikel #{@content_blog.name}") %>
 
 <div class="action_bar_right">
-  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_text_path(@content_text), class: "btn-u btn-u-default", title: "Aanpassen" %>
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_blog_path(@content_blog), class: "btn-u btn-u-default", title: "Aanpassen" %>
 </div>
 
 <h1>
@@ -11,16 +11,16 @@
 <div class="row form-horizontal">
   <label class="col-sm-3 control-label">Naam</label>
   <p class="col-sm-9 form-control-static">
-    <%= @content_text.name %>
+    <%= @content_blog.name %>
   </p>
 
   <label class="col-sm-3 control-label">Titel</label>
   <p class="col-sm-9 form-control-static">
-    <%= @content_text.title %>
+    <%= @content_blog.title %>
   </p>
 
   <label class="col-sm-3 control-label">Inhoud</label>
   <div class="col-sm-9 form-control-static">
-    <%= markdown(@content_text.body).html_safe %>
+    <%= markdown(@content_blog.body).html_safe %>
   </div>
 </div>

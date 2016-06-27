@@ -1,2 +1,0 @@
-class ContentNews < ApplicationRecord
-end

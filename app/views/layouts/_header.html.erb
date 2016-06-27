@@ -9,10 +9,16 @@
         <li><a href="page_faq.html">Nieuwsbrief</a></li>
         <li class="topbar-devider"></li>
         <li>
-          <%= link_to "Inloggen", user_session_path %>
+          <%= link_to "Inloggen", new_user_session_path unless user_signed_in? %>
+          <%= link_to "Uitloggen", destroy_user_session_path,  method: :delete if user_signed_in? %>
         </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="topbar-devider"></li>
+          <li>
+            <%= link_to "Admin", admin_path %>
+          </li>
+        <% end %>
         <!-- <li>
-          <%= link_to "Uitloggen", destroy_user_session_path %>
         </li> -->
       </ul>
     </div>

@@ -4,26 +4,23 @@ class Admin::ContentTextsController < AdminController
 
   def index
     @content_texts = ContentText.all.order(:name)
-    # authorize @content_texts
   end
 
   def show
     @content_text = ContentText.find(params[:id])
-    # authorize @content_text
 
     add_breadcrumb @content_text.name
   end
 
   def new
     @content_text = ContentText.new
-    # authorize @content_text
 
     add_breadcrumb "Nieuw"
   end
 
   def create
     @content_text = ContentText.new(content_text_params)
-    # authorize @content_text
+
     if @content_text.save
       flash[:success] = 'Tekst is aangemaakt.'
       redirect_to [:admin, @content_text]
@@ -34,14 +31,12 @@ class Admin::ContentTextsController < AdminController
 
   def edit
     @content_text = ContentText.find(params[:id])
-    # authorize @content_text
 
     add_breadcrumb @content_text.name
   end
 
   def update
     @content_text = ContentText.find(params[:id])
-    # authorize @content_text
 
     if @content_text.update_attributes(content_text_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
@@ -53,7 +48,6 @@ class Admin::ContentTextsController < AdminController
 
   def destroy
     @content_text = ContentText.find(params[:id])
-    # authorize @content_text
 
     flash[:success] = "Tekst \"#{@content_text.name}\" verwijderd."
     @content_text.destroy

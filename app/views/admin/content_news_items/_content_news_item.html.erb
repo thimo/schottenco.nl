@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= link_to content_news_item.published_at, [:admin, content_news_item] %>
+  </td>
+  <td>
+    <%= content_news_item.title %>
+  </td>
+  <td>
+    <%= markdown(content_news_item.intro).html_safe %>
+  </td>
+  <td>
+    <%= markdown(content_news_item.body).html_safe %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_news_item],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

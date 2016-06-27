@@ -7,7 +7,7 @@
 <div class="container mb-60">
   <div class="row">
     <div class="col-md-9">
-      <%= content_for?(:news_content) ? yield(:news_content) : yield %>
+      <%= yield %>
     </div>
 
     <div class="col-md-3">
@@ -19,6 +19,22 @@
         <ul class="list-unstyled link-list">
           <li>
             <%= link_to "Teksten", admin_content_texts_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Pagina's", admin_content_pages_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Blog artikelen", admin_content_blogs_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Nieuwsberichten", admin_content_news_items_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Nieuwsbrieven", admin_content_newsletters_path %>
             <i class="fa fa-angle-right"></i>
           </li>
         </ul>

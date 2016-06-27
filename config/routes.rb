@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#index'
+  root to: 'content_pages#index'
 
   get 'admin' => 'admin#show'
   namespace :admin do
     resources :content_texts
+    resources :content_pages
+    resources :content_blogs
+    resources :content_news_items
+    resources :content_newsletters
   end
 
-  get '/*slug', to: 'pages#show' #, as: :page
+  get '/*slug', to: 'content_pages#show' #, as: :page
 
 end
