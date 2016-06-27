@@ -2,7 +2,8 @@
   <%= render 'shared/error_messages', object: f.object %>
 </div>
 
-<%= f.input :published_at, label: "Datum" %>
+<%= f.input :published_at, label: "Datum", as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>
+
 <%= f.input :title, label: "Titel" %>
 <%= f.input :intro, label: "Inleiding" %>
-<%= f.input :body, label: "Inhoud" %>
+<%= f.input :body, label: "Inhoud", hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de tekst'.html_safe %>

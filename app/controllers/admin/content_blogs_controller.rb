@@ -13,7 +13,7 @@ class Admin::ContentBlogsController < AdminController
   end
 
   def new
-    @content_blog = ContentBlog.new
+    @content_blog = ContentBlog.new(defaults)
 
     add_breadcrumb "Nieuw"
   end
@@ -58,5 +58,9 @@ class Admin::ContentBlogsController < AdminController
 
     def content_blog_params
       params.require(:content_blog).permit(:name, :title, :body)
+    end
+
+    def defaults
+      {published_at: Time.zone.now}
     end
 end

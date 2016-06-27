@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker/core
-// require bootstrap-datepicker/locales/bootstrap-datepicker.nl.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.nl.js
 // require bootstrap3-typeahead.min
 // require bootstrap3-autocomplete-input.min
 //= require turbolinks
@@ -29,7 +29,7 @@ $(document).ready(function(){
     var fieldTypes = ".has-error input[type=text], .has-error input[type=email], .has-error input[type=number], .has-error textarea";
     $(fieldTypes).first().focus().select();
   } else {
-    var fieldTypes = "form input[type=text], form input[type=email], form input[type=number], form textarea";
+    var fieldTypes = "form input[type=text], form input[type=email], form input[type=number], form input[type=url], form textarea";
     $(fieldTypes).filter("[data-provide!=datepicker]").first().focus().select();
   }
 });

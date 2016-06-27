@@ -13,7 +13,7 @@ class Admin::ContentNewsItemsController < AdminController
   end
 
   def new
-    @content_news_item = ContentNewsItem.new
+    @content_news_item = ContentNewsItem.new(defaults)
 
     add_breadcrumb "Nieuw"
   end
@@ -58,5 +58,9 @@ class Admin::ContentNewsItemsController < AdminController
 
     def content_news_item_params
       params.require(:content_news_item).permit(:name, :title, :body)
+    end
+    
+    def defaults
+      {published_at: Time.zone.now}
     end
 end
