@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'content_pages#index'
+  root to: 'content_pages#placeholder'
 
   get 'admin' => 'admin#show'
   namespace :admin do
