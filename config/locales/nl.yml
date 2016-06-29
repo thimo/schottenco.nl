@@ -1,0 +1,12 @@
+nl:
+  activerecord:
+  models:
+    survey_config: Test
+  attributes:
+    user:
+      first_name: "Voornaam"
+      last_name: "Achternaam"
+      name: "Naam"
+      email: "E-mail"
+      password: "Wachtwoord"
+      password_confirmation: "Bevestiging"

@@ -10,6 +10,25 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+ @charset "utf-8";
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ // @import "jquery.ui.core";
+ @import "bootstrap-datepicker3";
+ // @import "jquery.Jcrop";
+ // @import "bootstrap-toggle";
+
+ @import "font-awesome";
+ @import "theme/app";
+ @import "theme/blocks";
+ @import "theme/style";
+ @import "theme/header-default";
+ @import "theme/footer-v2";
+ @import "theme/page_log_reg_v1";
+ @import "theme/blue";
+ @import "theme/animate";
+
+ @import "custom";

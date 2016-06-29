@@ -1,14 +1,75 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Schottenco</title>
-    <%= csrf_meta_tags %>
+    <title>
+      <%= full_title(yield(:title)) %>
+    </title>
 
+    <!-- Meta -->
+  	<meta charset="utf-8">
+
+    <meta name="description" content="<%= full_title(yield(:title)) %>">
+    <meta name="author" content="Schott & Co">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<%= image_url "favicon.ico" %>">
+
+  	<!-- Web Fonts -->
+  	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag :modernizr %>
+    <%= javascript_include_tag :jquery %>
+
+  	<link rel="stylesheet" href="/plugins/parallax-slider/css/parallax-slider.css">
+  	<link rel="stylesheet" href="/plugins/owl-carousel/owl-carousel/owl.carousel.css">
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <body class="header-fixed header-fixed-space-default">
+  <% unless Rails.env.production? %>
+    <div style="padding: 4px; background-color: #E51A55; color: white; text-align: center;">
+      -= <%= Rails.env %> =-
+    </div>
+  <% end %>
+
+	<div class="wrapper">
+    <%= render 'layouts/header' %>
+
+    <!-- TODO niet zichtbaar als breadcrumb leeg -->
+    <!-- <div class="container">
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :tag => :li, :separator => "" %>
+      </ol>
+    </div> -->
+
+    <%= render 'layouts/flash' %>
+
+    <%= content_for?(:content) ? yield(:content) : yield %>
+
+    <%= render 'layouts/footer' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= debug(params) if Rails.env.development? %>
+	</div>
+
+	<!-- JS Implementing Plugins -->
+	<script type="text/javascript" src="/plugins/back-to-top.js"></script>
+	<script type="text/javascript" src="/plugins/smoothScroll.js"></script>
+	<script type="text/javascript" src="/plugins/parallax-slider/js/jquery.cslider.js"></script>
+	<script type="text/javascript" src="/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+	<!-- JS Customization -->
+	<script type="text/javascript" src="/js/custom.js"></script>
+	<!-- JS Page Level -->
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/plugins/owl-carousel.js"></script>
+	<script type="text/javascript" src="/js/plugins/parallax-slider.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			App.init();
+			OwlCarousel.initOwlCarousel();
+			ParallaxSlider.initParallaxSlider();
+		});
+	</script>
+</body>
 </html>

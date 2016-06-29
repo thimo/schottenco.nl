@@ -1,0 +1,47 @@
+<!-- <% content_for :stylesheets do %>
+  #top_menu {display: none}
+  #right_menu {float: right; background-color: yellow; color: black}
+<% end %> -->
+
+<% content_for :content do %>
+<div class="container mb-60">
+  <div class="row">
+    <div class="col-md-9">
+      <%= yield %>
+    </div>
+
+    <div class="col-md-3">
+      <div class="posts margin-bottom-40 footer-v2">
+        <div class="headline headline-md">
+          <h2>Content</h2>
+        </div>
+
+        <ul class="list-unstyled link-list">
+          <li>
+            <%= link_to "Teksten", admin_content_texts_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Pagina's", admin_content_pages_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Blog artikelen", admin_content_blogs_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Nieuwsberichten", admin_content_news_items_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <%= link_to "Nieuwsbrieven", admin_content_newsletters_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render template: "layouts/application" %>

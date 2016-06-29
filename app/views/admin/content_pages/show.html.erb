@@ -1,0 +1,26 @@
+<% provide(:title, "Pagina #{@content_page.name}") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_page_path(@content_page), class: "btn-u btn-u-default", title: "Aanpassen" %>
+</div>
+
+<h1>
+  <%= yield(:title) %>
+</h1>
+
+<div class="row form-horizontal">
+  <label class="col-sm-3 control-label">Naam</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @content_page.name %>
+  </p>
+
+  <label class="col-sm-3 control-label">Titel</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @content_page.title %>
+  </p>
+
+  <label class="col-sm-3 control-label">Inhoud</label>
+  <div class="col-sm-9 form-control-static">
+    <%= markdown(@content_page.body).html_safe %>
+  </div>
+</div>

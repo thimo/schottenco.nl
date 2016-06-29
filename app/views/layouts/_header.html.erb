@@ -1,0 +1,61 @@
+<div class="header header-sticky">
+  <div class="container">
+    <%= link_to image_tag("schottenco_logo-284@2x.png", alt: "Schott & Co"), root_path, class: "logo" %>
+
+    <div class="topbar">
+      <!-- <ul class="loginbar pull-right">
+        <li><a href="page_faq.html">Contact</a></li>
+        <li class="topbar-devider"></li>
+        <li><a href="page_faq.html">Nieuwsbrief</a></li>
+        <li class="topbar-devider"></li>
+        <li>
+          <%= link_to "Inloggen", new_user_session_path unless user_signed_in? %>
+          <%= link_to "Uitloggen", destroy_user_session_path,  method: :delete if user_signed_in? %>
+        </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="topbar-devider"></li>
+          <li>
+            <%= link_to "Admin", admin_path %>
+          </li>
+        <% end %>
+      </ul> -->
+    </div>
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="fa fa-bars"></span>
+    </button>
+  </div>
+
+  <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li>
+          <a>
+            Opleiding
+          </a>
+        </li>
+        <li>
+          <a>
+            Training
+          </a>
+        </li>
+        <li>
+          <a>
+            Vorming
+          </a>
+        </li>
+        <!-- <li>
+          <a href="/agenda">
+            Agenda
+          </a>
+        </li>
+        <li>
+          <a href="/blog">
+            Blog
+          </a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</div>
