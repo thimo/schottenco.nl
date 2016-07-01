@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -49,15 +49,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # gem 'pry-byebug'
-  # gem 'spring',                 '1.6.2'
   gem 'awesome_print', require: "awesome_print"
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
@@ -70,10 +67,8 @@ group :development do
   gem 'meta_request'
   gem 'better_errors' # https://github.com/charliesome/better_errors
   gem 'binding_of_caller'
-  gem 'quiet_assets'
   gem 'bullet'
   gem 'rack-mini-profiler'
-  # gem 'terminal-notifier-guard'
 end
 
 group :test do
@@ -84,7 +79,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'rails_12factor',         '0.0.2'
+  gem 'rails_12factor',         '>= 0.0.2'
   gem 'exception_notification'
 end
 
