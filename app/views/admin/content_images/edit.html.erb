@@ -1,0 +1,12 @@
+<% provide(:title, "Plaatje aanpassen") %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= horizontal_form [:admin, @content_image] do |f| %>
+  <%= render 'fields', f: f %>
+
+  <div class="form-actions col-sm-offset-3">
+    <%= f.button :submit, 'Bijwerken' %>
+    <%= link_to 'Annuleren', admin_content_images_path, class: "btn-u btn-u-default" %>
+  </div>
+<% end %>

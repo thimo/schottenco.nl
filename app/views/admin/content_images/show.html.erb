@@ -1,0 +1,18 @@
+<% provide(:title, "Plaatje #{@content_image.name}") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_image_path(@content_image), class: "btn-u btn-u-default", title: "Aanpassen" %>
+</div>
+
+<h1>
+  <%= yield(:title) %>
+</h1>
+
+<div class="row form-horizontal">
+  <label class="col-sm-3 control-label">Naam</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @content_image.name %>
+  </p>
+
+  <%= @content_image.image %>
+</div>

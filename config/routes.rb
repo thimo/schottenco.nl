@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :content_blogs
     resources :content_news_items
     resources :content_newsletters
+    resources :content_images
   end
 
   get '/*slug', to: 'content_pages#show' #, as: :page
