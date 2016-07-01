@@ -1,2 +1,20 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<% provide(:title, @content_page.title) %>
+
+<div class="container mb-30">
+  <div class="row">
+      <div class="col-md-9">
+        <h2><%= @content_page.title %></h2>
+
+        <% unless @content_page.intro.blank? %>
+        <div class="lead">
+          <%= markdown(@content_page.intro).html_safe %>
+        </div>
+        <% end %>
+
+        <%= markdown(@content_page.body).html_safe %>
+      </div>
+
+      <div class="col-md-3">
+      </div>
+  </div>
+</div>

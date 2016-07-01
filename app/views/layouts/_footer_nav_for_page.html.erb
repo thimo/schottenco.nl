@@ -1,0 +1,22 @@
+<%
+menu_item = ContentPage.find_by(url: url)
+menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
+%>
+
+<div class="mb-20">
+  <div class="headline">
+    <h2 class="heading-sm">
+      <% menu_title = menu_item.menu_title.blank? ? menu_item.title : menu_item.menu_title %>
+      <%= menu_title %>
+    </h2>
+  </div>
+  <ul class="list-unstyled link-list">
+    <% menu_childs.each do |menu_child| %>
+      <% menu_title = menu_child.menu_title.blank? ? menu_child.title : menu_child.menu_title %>
+      <li>
+        <a href="/<%= menu_child.url %>"><%= menu_title %></a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+    <% end %>
+  </ul>
+</div>

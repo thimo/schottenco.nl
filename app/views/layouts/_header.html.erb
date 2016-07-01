@@ -30,21 +30,10 @@
   <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
     <div class="container">
       <ul class="nav navbar-nav">
-        <li>
-          <a href="/opleiding">
-            Opleiding
-          </a>
-        </li>
-        <li>
-          <a href="/training">
-            Training
-          </a>
-        </li>
-        <li href="/vorming">
-          <a>
-            Vorming
-          </a>
-        </li>
+        <%= render "layouts/header_nav_for_page", url: "opleiding" %>
+        <%= render "layouts/header_nav_for_page", url: "training" %>
+        <%= render "layouts/header_nav_for_page", url: "vorming" %>
+
         <li>
           <a href="/agenda">
             Agenda
@@ -59,3 +48,12 @@
     </div>
   </div>
 </div>
+
+<% breadcrumbs = render_breadcrumbs :tag => :li, :separator => "" %>
+<% unless breadcrumbs.blank? %>
+<div class="container">
+  <ol class="breadcrumb">
+    <%= breadcrumbs %>
+  </ol>
+</div>
+<% end %>

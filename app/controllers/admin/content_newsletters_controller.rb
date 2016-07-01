@@ -57,7 +57,7 @@ class Admin::ContentNewslettersController < AdminController
   private
 
     def content_newsletter_params
-      params.require(:content_newsletter).permit(:name, :title, :body)
+      params.require(:content_newsletter).permit(:published_at, :title, :intro, :body)
     end
 
     def defaults

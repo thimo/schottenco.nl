@@ -24,3 +24,63 @@ end
 ContentText.find_or_create_by(name: 'footer_newsletter') do |text|
   text.body = 'Op de hoogte blijven? Stuur ons een mail en ontvang onze nieuwsbrief: [nieuwsbrief@schottenco.nl](mailto:nieuwsbrief@schottenco.nl).'
 end
+
+ContentPage.find_or_create_by(url: 'opleiding') do |page|
+  page.title = 'Opleiding'
+  page.body = 'Inhoud voor Opleiding'
+end
+ContentPage.find_or_create_by(url: 'opleiding/voedingscoach_gewichtsconsulent') do |page|
+  page.title = 'Opleiding Voedingscoach / Gewichtsconsulent'
+  page.menu_title = 'Voedingscoach / Gewichtsconsulent'
+  page.body = 'Inhoud voor Opleiding Voedingscoach / Gewichtsconsulent'
+end
+ContentPage.find_or_create_by(url: 'opleiding/functional-personal-trainer') do |page|
+  page.title = 'Opleiding Functional Personal Trainer'
+  page.menu_title = 'Functional Personal Trainer'
+  page.body = 'Inhoud voor Functional Personal Trainer'
+end
+ContentPage.find_or_create_by(url: 'opleiding/life-coach') do |page|
+  page.title = 'Opleiding Life Coach'
+  page.menu_title = 'Life Coach'
+  page.body = 'Inhoud voor Opleiding Life Coach'
+end
+ContentPage.find_or_create_by(url: 'opleiding/vitaalcoach') do |page|
+  page.title = 'Opleiding Vitaalcoach'
+  page.menu_title = 'Vitaalcoach'
+  page.body = 'Inhoud voor Vitaalcoach'
+end
+
+ContentPage.find_or_create_by(url: 'training') do |page|
+  page.title = 'Training'
+  page.body = 'Inhoud voor Training'
+end
+ContentPage.find_or_create_by(url: 'training/mentale-kracht') do |page|
+  page.title = 'Training Mentale Kracht'
+  page.menu_title = 'Mentale Kracht'
+  page.body = 'Inhoud voor Training Mentale Kracht'
+end
+ContentPage.find_or_create_by(url: 'training/vivo-forto') do |page|
+  page.title = 'Training Vivo Forto'
+  page.menu_title = 'Vivo Forto'
+  page.body = 'Inhoud voor Training Vivo Forto'
+end
+
+ContentPage.find_or_create_by(url: 'vorming') do |page|
+  page.title = 'Vorming'
+  page.body = 'Inhoud voor Vorming'
+end
+ContentPage.find_or_create_by(url: 'vorming/gems-trainingen') do |page|
+  page.title = 'Vorming GEMS Trainingen'
+  page.menu_title = 'GEMS Trainingen'
+  page.body = 'Inhoud voor Vorming GEMS Trainingen'
+end
+ContentPage.find_or_create_by(url: 'vorming/gems-fat-switch') do |page|
+  page.title = 'Vorming GEMS Fat Switch'
+  page.menu_title = 'GEMS Fat Switch'
+  page.body = 'Inhoud voor Vorming GEMS Fat Switch'
+end
+ContentPage.find_or_create_by(url: 'vorming/gems-atletiek-en-looptraining') do |page|
+  page.title = 'Vorming GEMS Atletiek en Looptraining'
+  page.menu_title = 'GEMS Atletiek en Looptraining'
+  page.body = 'Inhoud voor Vorming GEMS Atletiek en Looptraining'
+end

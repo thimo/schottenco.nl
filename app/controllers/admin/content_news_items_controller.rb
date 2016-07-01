@@ -57,9 +57,9 @@ class Admin::ContentNewsItemsController < AdminController
   private
 
     def content_news_item_params
-      params.require(:content_news_item).permit(:name, :title, :body)
+      params.require(:content_news_item).permit(:published_at, :title, :intro, :body)
     end
-    
+
     def defaults
       {published_at: Time.zone.now}
     end

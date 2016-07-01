@@ -35,13 +35,6 @@
 	<div class="wrapper">
     <%= render 'layouts/header' %>
 
-    <!-- TODO niet zichtbaar als breadcrumb leeg -->
-    <!-- <div class="container">
-      <ol class="breadcrumb">
-        <%= render_breadcrumbs :tag => :li, :separator => "" %>
-      </ol>
-    </div> -->
-
     <%= render 'layouts/flash' %>
 
     <%= content_for?(:content) ? yield(:content) : yield %>

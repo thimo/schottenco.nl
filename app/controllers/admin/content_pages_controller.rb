@@ -9,7 +9,7 @@ class Admin::ContentPagesController < AdminController
   def show
     @content_page = ContentPage.find(params[:id])
 
-    add_breadcrumb @content_page.name
+    add_breadcrumb @content_page.url
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::ContentPagesController < AdminController
   def edit
     @content_page = ContentPage.find(params[:id])
 
-    add_breadcrumb @content_page.name
+    add_breadcrumb @content_page.url
   end
 
   def update
@@ -57,6 +57,6 @@ class Admin::ContentPagesController < AdminController
   private
 
     def content_page_params
-      params.require(:content_page).permit(:name, :title, :body)
+      params.require(:content_page).permit(:url, :title, :menu_type, :menu_title, :intro, :body)
     end
 end

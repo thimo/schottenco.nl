@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627100319) do
+ActiveRecord::Schema.define(version: 20160630152317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,11 @@ ActiveRecord::Schema.define(version: 20160627100319) do
     t.string   "title"
     t.text     "intro"
     t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "menu_title"
+    t.integer  "menu_type",  default: 0
+    t.index ["url"], name: "index_content_pages_on_url", unique: true, using: :btree
   end
 
   create_table "content_texts", force: :cascade do |t|
@@ -57,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160627100319) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_content_texts_on_name", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|

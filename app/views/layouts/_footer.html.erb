@@ -3,65 +3,131 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 md-margin-bottom-40">
-          <%= link_to image_tag("schottenco_logo-220@2x.png", alt: "Schott & Co", class: "footer-logo"), root_path %>
+          <div class="mb-20">
+            <%= link_to image_tag("schottenco_logo-220@2x.png", alt: "Schott & Co", class: "footer-logo"), root_path %>
 
-          <%= text_body :footer_company_description %>
-        </div>
+            <%= text_body :footer_company_description %>
+          </div>
 
-        <div class="col-md-3 md-margin-bottom-40">
-          <div class="headline"><h2 class="heading-sm">Adres</h2></div>
+          <div class="headline">
+            <h2 class="heading-sm">Contact</h2>
+          </div>
           <%= text_body :footer_address %>
-          <!-- <div class="headline"><h2 class="heading-sm">Opleiding</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">Voedingscoach / gewichtsconsulent</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Functional Personal Trainer</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Life Coach</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">VitaalCoach</a><i class="fa fa-angle-right"></i></li>
-          </ul>
-          <div class="headline"><h2 class="heading-sm">Training</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">Mentale kracht</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Vivo Forto</a><i class="fa fa-angle-right"></i></li>
-          </ul>
-          <div class="headline"><h2 class="heading-sm">Vorming</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">GEMS Trainingen</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">GEMS Fat Switch</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">GEMS Atletiek en looptraining</a><i class="fa fa-angle-right"></i></li>
-          </ul> -->
-        </div>
-
-        <div class="col-md-3 md-margin-bottom-40">
-          <div class="headline"><h2 class="heading-sm">Contact</h2></div>
           <%= text_body :footer_contact %>
-          <!-- <div class="headline"><h2 class="heading-sm">Portfolio</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">Voedingscoach / gewichtsconsulent</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Functional Personal Trainer</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Life Coach</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">VitaalCoach</a><i class="fa fa-angle-right"></i></li>
-          </ul> -->
         </div>
 
         <div class="col-md-3 md-margin-bottom-40">
-          <div class="headline"><h2 class="heading-sm">Nieuwsbrief</h2></div>
-          <%= text_body :footer_newsletter %>
-          <!-- <div class="headline"><h2 class="heading-sm">Binnenkort</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">Voedingscoach / gewichtsconsulent</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Functional Personal Trainer</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Life Coach</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">VitaalCoach</a><i class="fa fa-angle-right"></i></li>
-          </ul>
-          <div class="headline"><h2 class="heading-sm">Laatste nieuws</h2></div>
-          <ul class="list-unstyled link-list">
-            <li><a href="#">Voedingscoach / gewichtsconsulent</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Functional Personal Trainer</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">Life Coach</a><i class="fa fa-angle-right"></i></li>
-            <li><a href="#">VitaalCoach</a><i class="fa fa-angle-right"></i></li>
-          </ul> -->
+          <%= render "layouts/footer_nav_for_page", url: "opleiding" %>
+          <%= render "layouts/footer_nav_for_page", url: "training" %>
+          <%= render "layouts/footer_nav_for_page", url: "vorming" %>
         </div>
 
+        <div class="col-md-3 md-margin-bottom-40">
+          <div class="mb-20">
+            <div class="headline">
+              <h2 class="heading-sm">Binnenkort</h2>
+            </div>
+            <ul class="list-unstyled blog-latest-posts">
+							<li>
+								<h3><a href="#">Wireframe for the news view...</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 5 Jan, 2015</small>
+							</li>
+							<li>
+								<h3><a href="#">It is a long established fact that a reader</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 17 Jan, 2015</small>
+							</li>
+							<li>
+								<h3><a href="#">The point of using Lorem Ipsum</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 19 Jan, 2015</small>
+							</li>
+							<li>
+								<h3><a href="#">Many desktop publishing packages...</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 23 Jan, 2015</small>
+							</li>
+						</ul>
+          </div>
+
+          <div class="mb-20">
+            <div class="headline">
+              <h2 class="heading-sm">Laatste nieuws</h2>
+            </div>
+            <ul class="list-unstyled link-list">
+              <li>
+                <a href="#">Voedingscoach / gewichtsconsulent</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">Functional Personal Trainer</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">Life Coach</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">VitaalCoach</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-20">
+            <div class="headline">
+              <h2 class="heading-sm">Portfolio</h2>
+            </div>
+            <ul class="list-unstyled link-list">
+              <li>
+                <a href="#">Voedingscoach / gewichtsconsulent</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">Functional Personal Trainer</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">Life Coach</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="#">VitaalCoach</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3 md-margin-bottom-40">
+          <div class="mb-20">
+            <div class="headline">
+              <h2 class="heading-sm">Blog</h2>
+            </div>
+
+            <ul class="list-unstyled blog-latest-posts">
+							<li>
+								<h3><a href="#">Wireframe for the news view...</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 5 Jan, 2015 / <a href="#">Web,</a> <a href="#">Webdesign</a></small>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam odio leo.</p>
+							</li>
+							<li>
+								<h3><a href="#">It is a long established fact that a reader</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 17 Jan, 2015 / <a href="#">Artificial Intelligence</a></small>
+								<p>Pellentesque efficitur blandit dui, porta cursus velit imperdiet sit amet.</p>
+							</li>
+							<li>
+								<h3><a href="#">The point of using Lorem Ipsum</a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> 19 Jan, 2015 / <a href="#">Hi-Tech,</a> <a href="#">Technology</a></small>
+								<p>Phasellus ullamcorper pellentesque ex. Cras venenatis elit orci, vitae dictum elit egestas a. Nunc nec auctor mauris, semper scelerisque nibh.</p>
+							</li>
+						</ul>
+          </div>
+
+          <div class="mb-20">
+            <div class="headline">
+              <h2 class="heading-sm">Nieuwsbrief</h2>
+            </div>
+            <%= text_body :footer_newsletter %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
