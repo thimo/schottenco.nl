@@ -9,7 +9,7 @@ class Admin::ContentNewsItemsController < AdminController
   def show
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    add_breadcrumb @content_news_item.name
+    add_breadcrumb @content_news_item.title
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::ContentNewsItemsController < AdminController
   def edit
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    add_breadcrumb @content_news_item.name
+    add_breadcrumb @content_news_item.title
   end
 
   def update
@@ -49,7 +49,7 @@ class Admin::ContentNewsItemsController < AdminController
   def destroy
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    flash[:success] = "Nieuwsbericht \"#{@content_news_item.name}\" verwijderd."
+    flash[:success] = "Nieuwsbericht \"#{@content_news_item.title}\" verwijderd."
     @content_news_item.destroy
     redirect_to admin_content_news_items_url
   end

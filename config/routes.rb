@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get '/*slug', to: 'content_pages#show' #, as: :page
 
+  get '/nieuws/:id', to: 'content_news_item#show', as: 'content_news_item'
+  get '/blog/:id', to: 'content_blog#show', as: 'content_blog'
 end

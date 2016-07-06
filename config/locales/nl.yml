@@ -1,4 +1,6 @@
 nl:
+  company:
+    name: Schott & Co
   activerecord:
   models:
     survey_config: Test
@@ -10,3 +12,7 @@ nl:
       email: "E-mail"
       password: "Wachtwoord"
       password_confirmation: "Bevestiging"
+  form:
+    an_error:
+      one: een fout
+      other: enkele fouten

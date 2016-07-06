@@ -14,5 +14,9 @@
     <%= @content_image.name %>
   </p>
 
-  <%= @content_image.image %>
+  <div class="col-sm-9 col-sm-offset-3">
+    <%= link_to @content_image.image_url.to_s do %>
+      <%= image_tag @content_image.image_url(:thumb).to_s %>
+    <% end %>
+  </div>
 </div>

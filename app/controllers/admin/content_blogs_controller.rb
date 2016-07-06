@@ -9,7 +9,7 @@ class Admin::ContentBlogsController < AdminController
   def show
     @content_blog = ContentBlog.find(params[:id])
 
-    add_breadcrumb @content_blog.name
+    add_breadcrumb @content_blog.title
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::ContentBlogsController < AdminController
   def edit
     @content_blog = ContentBlog.find(params[:id])
 
-    add_breadcrumb @content_blog.name
+    add_breadcrumb @content_blog.title
   end
 
   def update
@@ -49,7 +49,7 @@ class Admin::ContentBlogsController < AdminController
   def destroy
     @content_blog = ContentBlog.find(params[:id])
 
-    flash[:success] = "Blog artikel \"#{@content_blog.name}\" verwijderd."
+    flash[:success] = "Blog artikel \"#{@content_blog.title}\" verwijderd."
     @content_blog.destroy
     redirect_to admin_content_blogs_url
   end

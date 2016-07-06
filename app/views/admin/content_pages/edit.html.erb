@@ -10,3 +10,19 @@
     <%= link_to 'Annuleren', admin_content_pages_path, class: "btn-u btn-u-default" %>
   </div>
 <% end %>
+
+<% content_for :sidebar do %>
+<div class="posts margin-bottom-40 footer-v2">
+  <div class="headline headline-md">
+    <h2>Plaatjes</h2>
+  </div>
+
+  <% @content_page.content_images.each do |content_image| %>
+    <%= content_image %>
+  <% end %>
+
+  <p>
+    Om plaatjes toe te voegen, bewaar je huidige aanpassingen door op "Bijwerken" te klikken en voeg daarvandaan de plaatjes toe.
+  </p>
+</div>
+<% end %>

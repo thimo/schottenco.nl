@@ -3,7 +3,7 @@
     <%= link_to content_image.name, [:admin, content_image] %>
   </td>
   <td>
-    <%= content_image.image %>
+    <%= image_tag content_image.image_url(:thumb).to_s %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_image_url(content_image) %>

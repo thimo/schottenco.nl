@@ -9,7 +9,7 @@ class Admin::ContentNewslettersController < AdminController
   def show
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    add_breadcrumb @content_newsletter.name
+    add_breadcrumb @content_newsletter.title
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::ContentNewslettersController < AdminController
   def edit
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    add_breadcrumb @content_newsletter.name
+    add_breadcrumb @content_newsletter.title
   end
 
   def update
@@ -49,7 +49,7 @@ class Admin::ContentNewslettersController < AdminController
   def destroy
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    flash[:success] = "Nieuwsbrief \"#{@content_newsletter.name}\" verwijderd."
+    flash[:success] = "Nieuwsbrief \"#{@content_newsletter.title}\" verwijderd."
     @content_newsletter.destroy
     redirect_to admin_content_newsletters_url
   end

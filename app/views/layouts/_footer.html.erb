@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3 md-margin-bottom-40">
           <div class="mb-20">
-            <%= link_to image_tag("schottenco_logo-220@2x.png", alt: "Schott & Co", class: "footer-logo"), root_path %>
+            <%= link_to image_tag("schottenco_logo-220@2x.png", alt: I18n.t('company.name'), class: "footer-logo"), root_path %>
 
             <%= text_body :footer_company_description %>
           </div>
@@ -51,23 +51,13 @@
             <div class="headline">
               <h2 class="heading-sm">Laatste nieuws</h2>
             </div>
-            <ul class="list-unstyled link-list">
-              <li>
-                <a href="#">Voedingscoach / gewichtsconsulent</a>
-                <i class="fa fa-angle-right"></i>
-              </li>
-              <li>
-                <a href="#">Functional Personal Trainer</a>
-                <i class="fa fa-angle-right"></i>
-              </li>
-              <li>
-                <a href="#">Life Coach</a>
-                <i class="fa fa-angle-right"></i>
-              </li>
-              <li>
-                <a href="#">VitaalCoach</a>
-                <i class="fa fa-angle-right"></i>
-              </li>
+            <ul class="list-unstyled blog-latest-posts">
+              <% ContentNewsItem.all.limit(5).each do |content_news_item| %>
+                <li>
+                  <h3><%= link_to content_news_item.title, content_news_item_path(content_news_item) %></h3>
+  								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
+                </li>
+              <% end %>
             </ul>
           </div>
 
@@ -103,21 +93,13 @@
             </div>
 
             <ul class="list-unstyled blog-latest-posts">
-							<li>
-								<h3><a href="#">Wireframe for the news view...</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 5 Jan, 2015 / <a href="#">Web,</a> <a href="#">Webdesign</a></small>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam odio leo.</p>
-							</li>
-							<li>
-								<h3><a href="#">It is a long established fact that a reader</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 17 Jan, 2015 / <a href="#">Artificial Intelligence</a></small>
-								<p>Pellentesque efficitur blandit dui, porta cursus velit imperdiet sit amet.</p>
-							</li>
-							<li>
-								<h3><a href="#">The point of using Lorem Ipsum</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 19 Jan, 2015 / <a href="#">Hi-Tech,</a> <a href="#">Technology</a></small>
-								<p>Phasellus ullamcorper pellentesque ex. Cras venenatis elit orci, vitae dictum elit egestas a. Nunc nec auctor mauris, semper scelerisque nibh.</p>
-							</li>
+              <% ContentBlog.all.limit(5).each do |content_blog| %>
+                <li>
+                  <h3><%= link_to content_blog.title, content_blog_path(content_blog) %></h3>
+  								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_blog.published_at.to_date, format: :long %></small>
+                  <%= markdown(content_blog.intro).html_safe %>
+                </li>
+              <% end %>
 						</ul>
           </div>
 
@@ -136,7 +118,7 @@
     <div class="container">
       <p class="text-center">Copyright ©
         <%= Time.now.year %>
-        <a href="/">Schott & Co</a>. Alle rechten voorbehouden
+        <a href="/"><%= I18n.t('company.name') %></a>. Alle rechten voorbehouden
       </p>
     </div>
   </div>
