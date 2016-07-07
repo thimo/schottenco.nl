@@ -3,7 +3,7 @@ class Admin::ContentPagesController < AdminController
   add_breadcrumb "Pagina's", :admin_content_pages_path
 
   def index
-    @content_pages = ContentPage.all.order(:url)
+    @content_pages = ContentPage.asc
   end
 
   def show
@@ -49,7 +49,7 @@ class Admin::ContentPagesController < AdminController
   def destroy
     @content_page = ContentPage.find(params[:id])
 
-    flash[:success] = "Pagina \"#{@content_page.name}\" verwijderd."
+    flash[:success] = "Pagina is verwijderd."
     @content_page.destroy
     redirect_to admin_content_pages_url
   end

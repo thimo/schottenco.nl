@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704144851) do
+ActiveRecord::Schema.define(version: 20160706101119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agenda_items", force: :cascade do |t|
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.string   "title"
+    t.text     "intro"
+    t.text     "body"
+    t.string   "external_url"
+    t.integer  "registration_type", default: 0
+    t.integer  "content_page_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "location_id"
+    t.index ["content_page_id"], name: "index_agenda_items_on_content_page_id", using: :btree
+    t.index ["location_id"], name: "index_agenda_items_on_location_id", using: :btree
+    t.index ["starts_at"], name: "index_agenda_items_on_starts_at", using: :btree
+  end
 
   create_table "content_blogs", force: :cascade do |t|
     t.datetime "published_at"
@@ -73,6 +90,16 @@ ActiveRecord::Schema.define(version: 20160704144851) do
     t.index ["name"], name: "index_content_texts_on_name", unique: true, using: :btree
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -91,4 +118,6 @@ ActiveRecord::Schema.define(version: 20160704144851) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "agenda_items", "content_pages"
+  add_foreign_key "agenda_items", "locations"
 end

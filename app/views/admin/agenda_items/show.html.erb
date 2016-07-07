@@ -1,0 +1,62 @@
+<% provide(:title, "Agenda item #{@agenda_item.title}") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_agenda_item_path(@agenda_item), class: "btn-u btn-u-default", title: "Aanpassen" %>
+</div>
+
+<h1>
+  <%= yield(:title) %>
+</h1>
+
+<div class="row form-horizontal">
+  <label class="col-sm-3 control-label">Datum</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @agenda_item.starts_at %>
+    <% unless @agenda_item.ends_at.blank? %>
+      - <%= @agenda_item.ends_at %>
+    <% end %>
+  </p>
+
+  <label class="col-sm-3 control-label">Titel</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @agenda_item.title %>
+  </p>
+
+  <% unless @agenda_item.intro.blank? %>
+  <label class="col-sm-3 control-label">Introductie</label>
+  <p class="col-sm-9 form-control-static">
+    <%= markdown(@agenda_item.intro).html_safe %>
+  </p>
+  <% end %>
+
+  <label class="col-sm-3 control-label">Inhoud</label>
+  <div class="col-sm-9 form-control-static">
+    <%= markdown(@agenda_item.body).html_safe %>
+  </div>
+
+  <% unless @agenda_item.external_url.blank? %>
+  <label class="col-sm-3 control-label">Externe URL</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @agenda_item.external_url %>
+  </p>
+  <% end %>
+
+  <% unless @agenda_item.content_page.nil? %>
+  <label class="col-sm-3 control-label"><%= t 'activerecord.attributes.agenda_item.content_page' %></label>
+  <p class="col-sm-9 form-control-static">
+    <%= link_to @agenda_item.content_page.title, '/' + @agenda_item.content_page.url %>
+  </p>
+  <% end %>
+
+  <% unless @agenda_item.location.nil? %>
+  <label class="col-sm-3 control-label"><%= t 'activerecord.attributes.agenda_item.location' %></label>
+  <div class="col-sm-9 form-control-static">
+    <div><%= @agenda_item.location.name %></div>
+    <div><%= @agenda_item.location.address %></div>
+    <div><%= @agenda_item.location.city %></div>
+    <div><%= @agenda_item.location.zip %></div>
+    <div><%= @agenda_item.location.phone %></div>
+  </div>
+  <% end %>
+
+</div>

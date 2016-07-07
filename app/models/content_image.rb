@@ -4,4 +4,6 @@ class ContentImage < ApplicationRecord
   belongs_to :imageable, polymorphic: true
 
   validates_presence_of :name, :image
+
+  scope :asc, -> {order(name: :asc)}
 end

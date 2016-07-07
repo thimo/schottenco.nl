@@ -3,5 +3,5 @@ class ContentBlog < ApplicationRecord
 
   validates_presence_of :published_at, :title, :body
 
-  default_scope {order(published_at: :desc)}
+  scope :desc, -> {order(published_at: :desc)}
 end

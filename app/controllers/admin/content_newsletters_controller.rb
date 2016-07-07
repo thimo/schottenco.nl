@@ -3,7 +3,7 @@ class Admin::ContentNewslettersController < AdminController
   add_breadcrumb "Nieuwsbrieven", :admin_content_newsletters_path
 
   def index
-    @content_newsletters = ContentNewsletter.all.order(:published_at)
+    @content_newsletters = ContentNewsletter.desc
   end
 
   def show
@@ -49,7 +49,7 @@ class Admin::ContentNewslettersController < AdminController
   def destroy
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    flash[:success] = "Nieuwsbrief \"#{@content_newsletter.title}\" verwijderd."
+    flash[:success] = "Nieuwsbrief is verwijderd."
     @content_newsletter.destroy
     redirect_to admin_content_newsletters_url
   end

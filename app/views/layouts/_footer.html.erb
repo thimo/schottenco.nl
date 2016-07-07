@@ -28,22 +28,12 @@
               <h2 class="heading-sm">Binnenkort</h2>
             </div>
             <ul class="list-unstyled blog-latest-posts">
-							<li>
-								<h3><a href="#">Wireframe for the news view...</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 5 Jan, 2015</small>
+              <% AgendaItem.unscoped.up_next.each do |agenda_item| %>
+              <li>
+								<h3><a href="#"><%= agenda_item.title %></a></h3>
+								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l agenda_item.starts_at.to_date, format: :long %></small>
 							</li>
-							<li>
-								<h3><a href="#">It is a long established fact that a reader</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 17 Jan, 2015</small>
-							</li>
-							<li>
-								<h3><a href="#">The point of using Lorem Ipsum</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 19 Jan, 2015</small>
-							</li>
-							<li>
-								<h3><a href="#">Many desktop publishing packages...</a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> 23 Jan, 2015</small>
-							</li>
+              <% end %>
 						</ul>
           </div>
 
@@ -52,9 +42,9 @@
               <h2 class="heading-sm">Laatste nieuws</h2>
             </div>
             <ul class="list-unstyled blog-latest-posts">
-              <% ContentNewsItem.all.limit(5).each do |content_news_item| %>
+              <% ContentNewsItem.desc.limit(5).each do |content_news_item| %>
                 <li>
-                  <h3><%= link_to content_news_item.title, content_news_item_path(content_news_item) %></h3>
+                  <h3><%= link_to content_news_item.title, content_news_items_path(content_news_item) %></h3>
   								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
                 </li>
               <% end %>
@@ -93,9 +83,9 @@
             </div>
 
             <ul class="list-unstyled blog-latest-posts">
-              <% ContentBlog.all.limit(5).each do |content_blog| %>
+              <% ContentBlog.desc.limit(5).each do |content_blog| %>
                 <li>
-                  <h3><%= link_to content_blog.title, content_blog_path(content_blog) %></h3>
+                  <h3><%= link_to content_blog.title, content_blogs_path(content_blog) %></h3>
   								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_blog.published_at.to_date, format: :long %></small>
                   <%= markdown(content_blog.intro).html_safe %>
                 </li>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#show'
   namespace :admin do
+    resources :agenda_items
+    resources :locations
     resources :content_texts
     resources :content_pages
     resources :content_blogs
@@ -12,8 +14,11 @@ Rails.application.routes.draw do
     resources :content_images
   end
 
+  get '/nieuws/:id', to: 'content_news_items#show', as: 'content_news_items'
+  get '/blog/:id', to: 'content_blogs#show', as: 'content_blogs'
+  get '/agenda/index', to: 'agenda_items#index', as: 'agenda_items'
+  get '/agenda/:id', to: 'agenda_item#show', as: 'agenda_item'
+
   get '/*slug', to: 'content_pages#show' #, as: :page
 
-  get '/nieuws/:id', to: 'content_news_item#show', as: 'content_news_item'
-  get '/blog/:id', to: 'content_blog#show', as: 'content_blog'
 end

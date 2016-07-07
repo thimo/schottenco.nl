@@ -2,6 +2,51 @@ nl:
   company:
     name: Schott & Co
   activerecord:
+    attributes:
+      agenda_item:
+        starts_at: Startdatum
+        ends_at: Einddatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+        registration_type: Registratie
+        external_url: Externe URL
+        content_page: Content pagina
+      location:
+        name: Naam
+        address: Adres
+        zip: Postcode
+        city: Plaats
+        phone: Telefoon
+      content_text:
+        name: Naam
+        body: Inhoud
+      content_page:
+        url: URL
+        title: Titel
+        menu_type:
+        menu_title: Titel in menu
+        intro: Introductie
+        body: Inhoud
+      content_image:
+        name: Naam
+        image: Plaatje
+      content_blog:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+      content_news_item:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+      content_newsletter:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+
   models:
     survey_config: Test
   attributes:
@@ -16,3 +61,13 @@ nl:
     an_error:
       one: een fout
       other: enkele fouten
+  enums:
+    agenda_item:
+      registration_type:
+        disabled: Uitgeschakeld
+        internal: Interne aanmelding
+        external: Externe aanmelding (via link)
+    content_page:
+      menu_type:
+        menu_hidden: Niet zichtbaar in navigatie
+        menu_visible: Zichtbaar in navigatie en footer

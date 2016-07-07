@@ -2,9 +2,9 @@
   <%= render 'shared/error_messages', object: f.object %>
 </div>
 
-<%= f.input :url, label: "URL" %>
-<%= f.input :title, label: "Titel" %>
-<%= f.input :menu_type, label: "Navigatiemenu", as: :radio_buttons %>
-<%= f.input :menu_title, label: "Titel in menu", hint: 'Alleen invullen als deze afwijkt van het normale (langere) titel' %>
-<%= f.input :intro, label: "Inleiding" %>
-<%= f.input :body, label: "Inhoud", hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de tekst'.html_safe %>
+<%= f.input :url %>
+<%= f.input :title %>
+<%= f.input :menu_type, as: :radio_buttons %>
+<%= f.input :menu_title, hint: 'Alleen invullen als deze afwijkt van het normale (langere) titel' %>
+<%= f.input :intro %>
+<%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de tekst'.html_safe %>

@@ -1,0 +1,12 @@
+<% provide(:title, 'Agenda item') %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= horizontal_form [:admin, @agenda_item] do |f| %>
+  <%= render 'fields', f: f %>
+
+  <div class="form-actions col-sm-offset-3">
+    <%= f.button :submit, 'Aanmaken' %>
+    <%= link_to 'Annuleren', admin_agenda_items_path, class: "btn-u btn-u-default" %>
+  </div>
+<% end %>

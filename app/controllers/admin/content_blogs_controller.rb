@@ -3,7 +3,7 @@ class Admin::ContentBlogsController < AdminController
   add_breadcrumb "Blog artikelen", :admin_content_blogs_path
 
   def index
-    @content_blogs = ContentBlog.all.order(:published_at)
+    @content_blogs = ContentBlog.desc
   end
 
   def show
@@ -49,7 +49,7 @@ class Admin::ContentBlogsController < AdminController
   def destroy
     @content_blog = ContentBlog.find(params[:id])
 
-    flash[:success] = "Blog artikel \"#{@content_blog.title}\" verwijderd."
+    flash[:success] = "Blog artikel is verwijderd."
     @content_blog.destroy
     redirect_to admin_content_blogs_url
   end

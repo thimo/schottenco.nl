@@ -3,7 +3,7 @@ class Admin::ContentImagesController < AdminController
   add_breadcrumb "Plaatjes", :admin_content_images_path
 
   def index
-    @content_images = ContentImage.all.order(:name)
+    @content_images = ContentImage.asc
   end
 
   def show
@@ -49,7 +49,7 @@ class Admin::ContentImagesController < AdminController
   def destroy
     @content_image = ContentImage.find(params[:id])
 
-    flash[:success] = "Plaatje \"#{@content_image.name}\" verwijderd."
+    flash[:success] = "Plaatje is verwijderd."
     @content_image.destroy
     redirect_to admin_content_images_url
   end

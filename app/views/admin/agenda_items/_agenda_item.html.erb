@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= agenda_item.starts_at %>
+    <%= " - #{agenda_item.ends_at}" unless agenda_item.ends_at.blank? %>
+  </td>
+  <td>
+    <%= link_to agenda_item.title, [:admin, agenda_item] %>
+  </td>
+  <td>
+    <% unless agenda_item.location.nil? %>
+    <%= agenda_item.location.name %>, <%= agenda_item.location.city %>
+    <% end %>
+  </td>
+  <td>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, agenda_item],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

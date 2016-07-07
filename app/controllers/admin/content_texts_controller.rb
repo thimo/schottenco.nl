@@ -3,7 +3,7 @@ class Admin::ContentTextsController < AdminController
   add_breadcrumb "Teksten", :admin_content_texts_path
 
   def index
-    @content_texts = ContentText.all.order(:name)
+    @content_texts = ContentText.asc
   end
 
   def show
@@ -49,7 +49,7 @@ class Admin::ContentTextsController < AdminController
   def destroy
     @content_text = ContentText.find(params[:id])
 
-    flash[:success] = "Tekst \"#{@content_text.name}\" verwijderd."
+    flash[:success] = "Tekst is verwijderd."
     @content_text.destroy
     redirect_to admin_content_texts_url
   end
