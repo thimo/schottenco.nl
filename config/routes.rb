@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   get '/nieuws/:id', to: 'content_news_items#show', as: 'content_news_items'
   get '/blog/:id', to: 'content_blogs#show', as: 'content_blogs'
-  get '/agenda/index', to: 'agenda_items#index', as: 'agenda_items'
-  get '/agenda/:id', to: 'agenda_item#show', as: 'agenda_item'
+  get '/agenda', to: 'agenda_items#index', as: 'agenda_items'
+  get '/agenda/:id', to: 'agenda_items#show', as: 'agenda_item'
 
   get '/*slug', to: 'content_pages#show' #, as: :page
 

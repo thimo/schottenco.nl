@@ -15,6 +15,9 @@ class Admin::ContentImagesController < AdminController
   def new
     @content_image = ContentImage.new
 
+    @content_image.imageable_id = params[:imageable_id] unless params[:imageable_id].blank?
+    @content_image.imageable_type = params[:imageable_type] unless params[:imageable_type].blank?
+
     add_breadcrumb "Nieuw"
   end
 
@@ -23,7 +26,11 @@ class Admin::ContentImagesController < AdminController
 
     if @content_image.save
       flash[:success] = 'Plaatje is aangemaakt.'
-      redirect_to [:admin, @content_image]
+      if @content_image.imageable.nil?
+        redirect_to [:admin, @content_image]
+      else
+        redirect_to [:admin, @content_image.imageable] unless @content_image.imageable.nil?
+      end
     else
       render 'new'
     end
@@ -57,6 +64,6 @@ class Admin::ContentImagesController < AdminController
   private
 
     def content_image_params
-      params.require(:content_image).permit(:name, :image)
+      params.require(:content_image).permit(:name, :image, :imageable_id, :imageable_type)
     end
 end

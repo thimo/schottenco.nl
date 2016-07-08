@@ -1,9 +1,9 @@
 <% provide(:title, @content_page.title) %>
 
-<div class="container mb-30">
+<div class="container mb-60">
   <div class="row">
       <div class="col-md-9">
-        <h2><%= @content_page.title %></h2>
+        <h2><%= yield(:title) %></h2>
 
         <% unless @content_page.intro.blank? %>
         <div class="lead">

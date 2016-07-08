@@ -28,7 +28,7 @@
               <h2 class="heading-sm">Binnenkort</h2>
             </div>
             <ul class="list-unstyled blog-latest-posts">
-              <% AgendaItem.unscoped.up_next.each do |agenda_item| %>
+              <% AgendaItem.unscoped.up_next.limit(3).each do |agenda_item| %>
               <li>
 								<h3><a href="#"><%= agenda_item.title %></a></h3>
 								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l agenda_item.starts_at.to_date, format: :long %></small>
