@@ -17,12 +17,19 @@
     <h2>Plaatjes</h2>
   </div>
 
-  <% @content_page.content_images.each do |content_image| %>
-    <%= content_image %>
-  <% end %>
+  <ul class="list-unstyled blog-latest-posts">
+    <% @content_page.content_images.each do |content_image| %>
+      <li>
+        <%= link_to content_image.image_url.to_s, target: "_blank" do %>
+          <%= image_tag content_image.image_url(:thumb).to_s %>
+          <div><%= content_image.name %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 
   <p>
-    Om plaatjes toe te voegen, bewaar je huidige aanpassingen door op "Bijwerken" te klikken en voeg daarvandaan de plaatjes toe.
+    Plaatjes toevoegen kan op de volgende pagina, klik daarvoor eerst op "Bijwerken".
   </p>
 </div>
 <% end %>
