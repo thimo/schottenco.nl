@@ -16,7 +16,7 @@ nl:
       not_found_in_database: "Ongeldig e-mailadres of wachtwoord."
       timeout: "Je sessie is verlopen, log alsjeblieft opnieuw in om verder te gaan."
       unauthenticated: "Log in of meld je aan om verder te gaan."
-      unconfirmed: "Bevestig je account voordat je verder kunt gaan"
+      unconfirmed: "Bevestig je account voordat je verder kunt gaan."
     mailer:
       confirmation_instructions:
         subject: "Bevestigingsinstructies"

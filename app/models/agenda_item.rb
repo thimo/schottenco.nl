@@ -8,5 +8,5 @@ class AgendaItem < ApplicationRecord
   scope :desc, -> {order(starts_at: :desc)}
   scope :up_next, -> {order(starts_at: :asc).where(starts_at: 1.day.ago..1.year.from_now) }
 
-  enum registration_type: {disabled: 0, internal: 1, external: 2}
+  enum registration_type: {registration_disabled: 0, registration_internal: 1, registration_external: 2}
 end

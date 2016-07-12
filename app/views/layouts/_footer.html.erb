@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-3 md-margin-bottom-40">
           <div class="mb-20">
-            <%= link_to image_tag("schottenco_logo-220@2x.png", alt: I18n.t('company.name'), class: "footer-logo"), root_path %>
+            <%= link_to image_tag("schottenco_logo.svg", alt: I18n.t('company.name'), class: "footer-logo"), root_path %>
 
             <%= text_body :footer_company_description %>
           </div>
@@ -30,8 +30,10 @@
             <ul class="list-unstyled blog-latest-posts">
               <% AgendaItem.unscoped.up_next.limit(3).each do |agenda_item| %>
               <li>
-								<h3><a href="#"><%= agenda_item.title %></a></h3>
-								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l agenda_item.starts_at.to_date, format: :long %></small>
+								<h3>
+                  <%= link_to agenda_item.title, agenda_item %>
+                </h3>
+								<small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l agenda_item.starts_at.to_date, format: :long %></small>
 							</li>
               <% end %>
 						</ul>
@@ -45,7 +47,7 @@
               <% ContentNewsItem.desc.limit(5).each do |content_news_item| %>
                 <li>
                   <h3><%= link_to content_news_item.title, content_news_items_path(content_news_item) %></h3>
-  								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
+  								<small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
                 </li>
               <% end %>
             </ul>
@@ -68,10 +70,6 @@
                 <a href="#">Life Coach</a>
                 <i class="fa fa-angle-right"></i>
               </li>
-              <li>
-                <a href="#">VitaalCoach</a>
-                <i class="fa fa-angle-right"></i>
-              </li>
             </ul>
           </div>
         </div>
@@ -86,7 +84,7 @@
               <% ContentBlog.desc.limit(5).each do |content_blog| %>
                 <li>
                   <h3><%= link_to content_blog.title, content_blogs_path(content_blog) %></h3>
-  								<small><i class="fa fa-calendar-o mr-05"></i> <%= I18n.l content_blog.published_at.to_date, format: :long %></small>
+  								<small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_blog.published_at.to_date, format: :long %></small>
                   <%= markdown(content_blog.intro).html_safe %>
                 </li>
               <% end %>

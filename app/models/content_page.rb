@@ -7,4 +7,8 @@ class ContentPage < ApplicationRecord
   enum menu_type: {menu_hidden: 0, menu_visible: 1}
 
   scope :asc, -> {order(url: :asc)}
+
+  def title_for_menu
+    self.menu_title.blank? ? self.title : self.menu_title
+  end
 end

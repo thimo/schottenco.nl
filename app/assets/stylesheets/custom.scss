@@ -25,6 +25,10 @@
   margin-top: 0px;
 }
 
+li.active {
+  font-weight: bold;
+}
+
 // Extra alert CSS to support Devise
 .alert-alert {
   background-color: #f2dede;

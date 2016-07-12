@@ -24,9 +24,9 @@
 
   <% unless @agenda_item.intro.blank? %>
   <label class="col-sm-3 control-label">Introductie</label>
-  <p class="col-sm-9 form-control-static">
+  <div class="col-sm-9 form-control-static">
     <%= markdown(@agenda_item.intro).html_safe %>
-  </p>
+  </div>
   <% end %>
 
   <label class="col-sm-3 control-label">Inhoud</label>

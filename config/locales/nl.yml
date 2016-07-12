@@ -12,6 +12,7 @@ nl:
         registration_type: Registratie
         external_url: Externe URL
         content_page: Content pagina
+        location: Locatie
       location:
         name: Naam
         address: Adres
@@ -46,6 +47,11 @@ nl:
         title: Titel
         intro: Introductie
         body: Inhoud
+      user:
+        email: E-mail
+        password: Wachtwoord
+        password_confirmation: Bevestig wachtwoord
+        remember_me: Login onthouden
 
   models:
     survey_config: Test

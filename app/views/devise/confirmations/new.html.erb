@@ -1,4 +1,4 @@
-<% provide(:title, "Bevestigingsinstructies opnieuw versturen") %>
+<% provide(:title, "Bevestigingsinstructies") %>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -9,7 +9,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Bevestigingsinstructies opnieuw versturen" %>
+    <%= f.button :submit, "Opnieuw versturen" %>
   </div>
 <% end %>
 

@@ -1,6 +1,6 @@
 <div class="header header-sticky">
   <div class="container">
-    <%= link_to image_tag("schottenco_logo-284@2x.png", alt: I18n.t('company.name')), root_path, class: "logo" %>
+    <%= link_to image_tag("schottenco_logo.svg", alt: I18n.t('company.name')), root_path, class: "logo" %>
 
     <div class="topbar">
       <ul class="loginbar pull-right">
@@ -35,14 +35,10 @@
         <%= render "layouts/header_nav_for_page", url: "vorming" %>
 
         <li>
-          <a href="/agenda">
-            Agenda
-          </a>
+          <%= link_to "Agenda", agenda_items_path %>
         </li>
         <li>
-          <a href="/blog">
-            Blog
-          </a>
+          <%= link_to "Blog", blogs_path %>
         </li>
       </ul>
     </div>

@@ -1,2 +1,47 @@
-<h1>AgendaItems#show</h1>
-<p>Find me in app/views/agenda_items/show.html.erb</p>
+<% provide(:title, "#{@agenda_item.title}") %>
+
+<div class="container mb-60">
+  <div class="row">
+    <div class="col-md-9">
+      <h2><%= yield(:title) %></h2>
+
+      <p>
+        <small>
+          <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(@agenda_item.starts_at, format: :long) %>
+          <% unless @agenda_item.ends_at.blank? %>
+            - <%= I18n.l(@agenda_item.ends_at, format: :long) %>
+          <% end %>
+          <% unless @agenda_item.location.nil? %>
+            <i class="fa fa-map-marker mr-05 ml-10"></i><%= @agenda_item.location.name %>, <%= @agenda_item.location.city %>
+          <% end %>
+        </small>
+      </p>
+
+      <% unless @agenda_item.intro.blank? %>
+      <div class="lead">
+        <%= markdown(@agenda_item.intro).html_safe %>
+      </div>
+      <% end %>
+
+      <%= markdown(@agenda_item.body).html_safe unless @agenda_item.body.blank? %>
+
+      <% unless @agenda_item.content_page.nil? %>
+        <p>
+          Lees meer: <%= link_to @agenda_item.content_page.title, "/#{@agenda_item.content_page.url}" %>
+        </p>
+      <% end %>
+
+      <% if @agenda_item.registration_internal?  %>
+      <p>
+        Meld je hier aan: <%= link_to "yo" %>
+      </p>
+      <% end %>
+
+      <% unless @agenda_item.external_url.blank? %>
+      <p>
+        <%= link_to "Meer info of aanmelden", @agenda_item.external_url, target: "_blank" %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>

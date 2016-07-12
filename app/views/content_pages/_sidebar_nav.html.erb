@@ -3,18 +3,20 @@ menu_item = ContentPage.find_by(url: url)
 menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
 %>
 
-<div class="mb-20">
+<% if menu_childs.count > 0 %>
+<div class="posts margin-bottom-40 footer-v2">
   <div class="headline">
-    <h2 class="heading-sm">
+    <h2>
       <%= menu_item.title_for_menu %>
     </h2>
   </div>
   <ul class="list-unstyled link-list">
     <% menu_childs.each do |menu_child| %>
-      <li>
+      <li class="<%= 'active' if menu_child == current_page %>">
         <a href="/<%= menu_child.url %>"><%= menu_child.title_for_menu %></a>
         <i class="fa fa-angle-right"></i>
       </li>
     <% end %>
   </ul>
 </div>
+<% end %>

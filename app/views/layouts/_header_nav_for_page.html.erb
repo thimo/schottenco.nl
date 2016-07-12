@@ -5,13 +5,11 @@ menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: Cont
 
 <li class="<%= 'dropdown' if menu_childs.count > 0 %>">
   <a href="/<%= menu_item.url %>">
-    <% menu_title = menu_item.menu_title.blank? ? menu_item.title : menu_item.menu_title %>
-    <%= menu_title %>
+    <%= menu_item.title_for_menu %>
   </a>
   <ul class="dropdown-menu">
   <% menu_childs.each do |menu_child| %>
-    <% menu_title = menu_child.menu_title.blank? ? menu_child.title : menu_child.menu_title %>
-    <li><a href="/<%= menu_child.url %>"><%= menu_title %></a></li>
+    <li><a href="/<%= menu_child.url %>"><%= menu_child.title_for_menu %></a></li>
   <% end %>
   </ul>
 </li>
