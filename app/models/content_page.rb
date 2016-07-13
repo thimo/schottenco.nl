@@ -11,4 +11,9 @@ class ContentPage < ApplicationRecord
   def title_for_menu
     self.menu_title.blank? ? self.title : self.menu_title
   end
+
+  def top_level_path
+    self.url.split("/")[0]
+  end
+
 end

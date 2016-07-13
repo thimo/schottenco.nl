@@ -3,7 +3,7 @@ menu_item = ContentPage.find_by(url: url)
 menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
 %>
 
-<li class="<%= 'dropdown' if menu_childs.count > 0 %>">
+<li class="<%= 'dropdown' if menu_childs.count > 0 %> <%= 'active' if controller.controller_path == 'content_pages' && !@content_page.nil? && @content_page.top_level_path == menu_item.url %>">
   <a href="/<%= menu_item.url %>">
     <%= menu_item.title_for_menu %>
   </a>

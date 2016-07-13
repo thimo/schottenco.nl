@@ -21,7 +21,7 @@
 </div>
 
 <% content_for :sidebar do %>
-  <%= render "sidebar_nav", url: @content_page.url.split('/')[0], current_page: @content_page %>
+  <%= render "sidebar_nav", url: @content_page.top_level_path, current_page: @content_page %>
 
   <%= render "sidebar_agenda", current_page: @content_page %>
 <% end %>

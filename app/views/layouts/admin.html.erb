@@ -12,12 +12,16 @@
         </div>
 
         <ul class="list-unstyled link-list">
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/agenda_items' %>">
             <%= link_to "Agenda", admin_agenda_items_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/locations' %>">
             <%= link_to "Locaties", admin_locations_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/users' %>">
+            <%= link_to "Gebruikers", admin_users_path %>
             <i class="fa fa-angle-right"></i>
           </li>
         </ul>
@@ -29,27 +33,27 @@
         </div>
 
         <ul class="list-unstyled link-list">
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_texts' %>">
             <%= link_to "Teksten", admin_content_texts_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_pages' %>">
             <%= link_to "Pagina's", admin_content_pages_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_images' %>">
             <%= link_to "Plaatjes", admin_content_images_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_blogs' %>">
             <%= link_to "Blog artikelen", admin_content_blogs_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_news_items' %>">
             <%= link_to "Nieuwsberichten", admin_content_news_items_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_newsletters' %>">
             <%= link_to "Nieuwsbrieven", admin_content_newsletters_path %>
             <i class="fa fa-angle-right"></i>
           </li>
