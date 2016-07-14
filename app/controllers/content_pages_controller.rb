@@ -1,6 +1,7 @@
 class ContentPagesController < ApplicationController
   # load_and_authorize_resource
   skip_authorization_check
+  layout "application", only: [:index, :placeholder]
 
   def index
   end

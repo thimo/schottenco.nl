@@ -1,32 +1,72 @@
-<!--=== Slider ===-->
-<div class="slider-inner">
-  <div id="da-slider" class="da-slider">
-    <div class="da-slide">
-      <h2><i>CLEAN &amp; FRESH</i> <br /> <i>FULLY RESPONSIVE</i> <br /> <i>DESIGN</i></h2>
-      <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-      <div class="da-img"><img class="img-responsive" src="assets/plugins/parallax-slider/img/1.png" alt=""></div>
-    </div>
-    <div class="da-slide">
-      <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
-      <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
-      <div class="da-img">
-        <!-- <iframe src="http://player.vimeo.com/video/47911018" width="530" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
+<div id="banner" class="banner clearfix">
+  <div class="slideshow">
+    <div class="slider-banner-container">
+      <div class="slider-banner-fullwidth">
+        <ul class="slides">
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-saveperformance="on" data-title="Vitaliteit">
+            <img src="<%= asset_path 'slider/vitality.jpg' %>" alt="slidebg2" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover">
+            <div class="tp-caption dark-translucent-bg" data-x="center" data-y="bottom" data-speed="600" data-start="600">
+            </div>
+            <div class="tp-caption sfb fadeout text-center" data-x="center" data-y="270" data-speed="500" data-start="1000" data-easing="easeOutQuad">
+              <div class="large_white">
+                Vitaliteit
+              </div>
+              <hr />
+              <div class="medium_white">
+                Vitaliteit is een cadeau dat je nu aan jezelf geeft om later uit te pakken.
+              </div>
+            </div>
+          </li>
+
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-saveperformance="on" data-title="Sporten en bewegen">
+            <img src="<%= asset_path 'slider/kettlebell.jpg' %>" alt="slidebg1" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover">
+            <div class="tp-caption dark-translucent-bg" data-x="center" data-y="bottom" data-speed="600" data-start="600">
+            </div>
+            <div class="tp-caption sfb fadeout" data-x="left" data-y="250" data-speed="500" data-start="1000" data-easing="easeOutQuad">
+              <div class="large_white">Sporten en bewegen</div>
+              <hr />
+              <div class="medium_white">
+                Sport is de speelgoedafdeling van het leven.<br />
+                Je lichaam bestaat voor 85% uit een bewegingsapparaat. Use it or lose it!
+              </div>
+            </div>
+          </li>
+
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-saveperformance="on" data-title="Eten">
+            <img src="<%= asset_path 'slider/food-colors.jpg' %>" alt="slidebg1" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover">
+            <div class="tp-caption dark-translucent-bg" data-x="center" data-y="bottom" data-speed="600" data-start="600">
+            </div>
+            <div class="tp-caption sfb fadeout text-center" data-x="center" data-y="270" data-speed="500" data-start="1000" data-easing="easeOutQuad">
+              <div class="large_white">Eten</div>
+              <hr />
+              <div class="medium_white">
+                Gezond en lekker eten is het mooiste wat er is, kies voor voeden in plaats van vullen.
+              </div>
+            </div>
+            <div class="tp-caption sfb fadeout large_white tp-resizeme" data-x="left" data-y="330" data-speed="500" data-start="1300" data-easing="easeOutQuad">
+            </div>
+          </li>
+
+          <li data-transition="fade" data-slotamount="1" data-masterspeed="500" data-saveperformance="on" data-title="Coaching">
+            <img src="<%= asset_path 'slider/personal-development-2.jpg' %>" alt="slidebg1" data-bgposition="center center" data-bgrepeat="no-repeat" data-bgfit="cover">
+            <div class="tp-caption dark-translucent-bg" data-x="center" data-y="bottom" data-speed="600" data-start="600">
+            </div>
+            <div class="tp-caption sfb fadeout text-right" data-x="right" data-y="270" data-speed="500" data-start="1000" data-easing="easeOutQuad">
+              <div class="large_white">Coaching</div>
+              <hr />
+              <div class="medium_white">
+                De waarheid is als een diamant die steeds van kleur verandert als je anders kijkt.
+              </div>
+            </div>
+            <div class="tp-caption sfb fadeout large_white tp-resizeme" data-x="left" data-y="330" data-speed="500" data-start="1300" data-easing="easeOutQuad">
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="da-slide">
-      <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
-      <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-      <div class="da-img"><img src="assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01" /></div>
-    </div>
-    <div class="da-arrows">
-      <span class="da-arrows-prev"></span>
-      <span class="da-arrows-next"></span>
-    </div>
   </div>
-</div><!--/slider-->
-<!--=== End Slider ===-->
+</div>
 
-<!--=== Purchase Block ===-->
 <div class="purchase">
   <div class="container">
     <div class="row">
@@ -39,12 +79,9 @@
       </div>
     </div>
   </div>
-</div><!--/row-->
-<!-- End Purchase Block -->
+</div>
 
-<!--=== Content Part ===-->
 <div class="container content-sm">
-  <!-- Service Blocks -->
   <div class="row margin-bottom-30">
     <div class="col-md-4">
       <div class="service">
@@ -83,7 +120,7 @@
       <div class="thumbnails thumbnail-style thumbnail-kenburn">
         <div class="thumbnail-img">
           <div class="overflow-hidden">
-            <img class="img-responsive" src="assets/img/main/img1.jpg" alt="">
+            <!-- <img class="img-responsive" src="assets/img/main/img1.jpg" alt=""> -->
           </div>
           <a class="btn-more hover-effect" href="#">read more +</a>
         </div>
@@ -97,7 +134,7 @@
       <div class="thumbnails thumbnail-style thumbnail-kenburn">
         <div class="thumbnail-img">
           <div class="overflow-hidden">
-            <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+            <!-- <img class="img-responsive" src="assets/img/main/img12.jpg" alt=""> -->
           </div>
           <a class="btn-more hover-effect" href="#">read more +</a>
         </div>
@@ -111,7 +148,7 @@
       <div class="thumbnails thumbnail-style thumbnail-kenburn">
         <div class="thumbnail-img">
           <div class="overflow-hidden">
-            <img class="img-responsive" src="assets/img/main/img3.jpg" alt="">
+            <!-- <img class="img-responsive" src="assets/img/main/img3.jpg" alt=""> -->
           </div>
           <a class="btn-more hover-effect" href="#">read more +</a>
         </div>
@@ -125,7 +162,7 @@
       <div class="thumbnails thumbnail-style thumbnail-kenburn">
         <div class="thumbnail-img">
           <div class="overflow-hidden">
-            <img class="img-responsive" src="assets/img/main/img17.jpg" alt="">
+            <!-- <img class="img-responsive" src="assets/img/main/img17.jpg" alt=""> -->
           </div>
           <a class="btn-more hover-effect" href="#">read more +</a>
         </div>
@@ -145,7 +182,7 @@
       <div class="headline"><h2>Welcome To Unify</h2></div>
       <div class="row">
         <div class="col-sm-4">
-          <img class="img-responsive margin-bottom-20" src="assets/img/main/img18.jpg" alt="">
+          <!-- <img class="img-responsive margin-bottom-20" src="assets/img/main/img18.jpg" alt=""> -->
         </div>
         <div class="col-sm-8">
           <p>Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals. It works on all major web browsers, tablets and phone.</p>
@@ -170,19 +207,19 @@
       <div id="myCarousel" class="carousel slide carousel-v1">
         <div class="carousel-inner">
           <div class="item active">
-            <img src="assets/img/main/img4.jpg" alt="">
+            <!-- <img src="assets/img/main/img4.jpg" alt=""> -->
             <div class="carousel-caption">
               <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
             </div>
           </div>
           <div class="item">
-            <img src="assets/img/main/img2.jpg" alt="">
+            <!-- <img src="assets/img/main/img2.jpg" alt=""> -->
             <div class="carousel-caption">
               <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
             </div>
           </div>
           <div class="item">
-            <img src="assets/img/main/img24.jpg" alt="">
+            <!-- <img src="assets/img/main/img24.jpg" alt=""> -->
             <div class="carousel-caption">
               <p>Justo cras odio apibus ac afilisis lingestas de.</p>
             </div>
@@ -207,5 +244,4 @@
   <div class="owl-clients-v1">
   </div>
   <!-- End Owl Clients v1 -->
-</div><!--/container-->
-<!-- End Content Part -->
+</div>
