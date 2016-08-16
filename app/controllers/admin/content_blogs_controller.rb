@@ -23,7 +23,7 @@ class Admin::ContentBlogsController < AdminController
 
     if @content_blog.save
       flash[:success] = 'Blog artikel is aangemaakt.'
-      redirect_to [:admin, @content_blog]
+      redirect_to admin_content_blogs_path
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class Admin::ContentBlogsController < AdminController
 
     if @content_blog.update_attributes(content_blog_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_blog]
+      redirect_to admin_content_blogs_path
     else
       render 'edit'
     end
@@ -51,7 +51,7 @@ class Admin::ContentBlogsController < AdminController
 
     flash[:success] = "Blog artikel is verwijderd."
     @content_blog.destroy
-    redirect_to admin_content_blogs_url
+    redirect_to admin_content_blogs_path
   end
 
   private

@@ -23,7 +23,7 @@ class Admin::ContentPagesController < AdminController
 
     if @content_page.save
       flash[:success] = 'Pagina is aangemaakt.'
-      redirect_to [:admin, @content_page]
+      redirect_to admin_content_pages_path
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class Admin::ContentPagesController < AdminController
 
     if @content_page.update_attributes(content_page_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_page]
+      redirect_to admin_content_pages_path
     else
       render 'edit'
     end
@@ -51,7 +51,7 @@ class Admin::ContentPagesController < AdminController
 
     flash[:success] = "Pagina is verwijderd."
     @content_page.destroy
-    redirect_to admin_content_pages_url
+    redirect_to admin_content_pages_path
   end
 
   private

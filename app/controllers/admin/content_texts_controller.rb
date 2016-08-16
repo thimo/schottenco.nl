@@ -23,7 +23,7 @@ class Admin::ContentTextsController < AdminController
 
     if @content_text.save
       flash[:success] = 'Tekst is aangemaakt.'
-      redirect_to [:admin, @content_text]
+      redirect_to admin_content_texts_path
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class Admin::ContentTextsController < AdminController
 
     if @content_text.update_attributes(content_text_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_text]
+      redirect_to admin_content_texts_path
     else
       render 'edit'
     end
@@ -51,7 +51,7 @@ class Admin::ContentTextsController < AdminController
 
     flash[:success] = "Tekst is verwijderd."
     @content_text.destroy
-    redirect_to admin_content_texts_url
+    redirect_to admin_content_texts_path
   end
 
   private

@@ -23,7 +23,7 @@ class Admin::ContentNewslettersController < AdminController
 
     if @content_newsletter.save
       flash[:success] = 'Nieuwsbrief is aangemaakt.'
-      redirect_to [:admin, @content_newsletter]
+      redirect_to admin_content_newsletters_path
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class Admin::ContentNewslettersController < AdminController
 
     if @content_newsletter.update_attributes(content_newsletter_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_newsletter]
+      redirect_to admin_content_newsletters_path
     else
       render 'edit'
     end
@@ -51,7 +51,7 @@ class Admin::ContentNewslettersController < AdminController
 
     flash[:success] = "Nieuwsbrief is verwijderd."
     @content_newsletter.destroy
-    redirect_to admin_content_newsletters_url
+    redirect_to admin_content_newsletters_path
   end
 
   private

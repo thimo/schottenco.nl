@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= link_to location.name, [:admin, location] %>
+    <%= link_to location.name, edit_admin_location_path(location) %>
   </td>
   <td>
     <%= location.address %>

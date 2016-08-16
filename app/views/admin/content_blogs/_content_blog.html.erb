@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= link_to content_blog.published_at, [:admin, content_blog] %>
+    <%= link_to content_blog.published_at, edit_admin_content_blog_path(content_blog) %>
   </td>
   <td>
     <%= content_blog.title %>

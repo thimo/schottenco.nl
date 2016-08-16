@@ -4,7 +4,7 @@
     <%= " - #{agenda_item.ends_at}" unless agenda_item.ends_at.blank? %>
   </td>
   <td>
-    <%= link_to agenda_item.title, [:admin, agenda_item] %>
+    <%= link_to agenda_item.title, edit_admin_agenda_item_path(agenda_item) %>
   </td>
   <td>
     <% unless agenda_item.location.nil? %>

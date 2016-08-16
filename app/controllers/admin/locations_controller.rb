@@ -22,7 +22,7 @@ class Admin::LocationsController < AdminController
 
     if @location.save
       flash[:success] = 'Locatie is aangemaakt.'
-      redirect_to [:admin, @location]
+      redirect_to admin_locations_path
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class Admin::LocationsController < AdminController
 
     if @location.update_attributes(location_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @location]
+      redirect_to admin_locations_path
     else
       render 'edit'
     end
@@ -50,7 +50,7 @@ class Admin::LocationsController < AdminController
 
     flash[:success] = "Locatie is verwijderd."
     @location.destroy
-    redirect_to admin_locations_url
+    redirect_to admin_locations_path
   end
 
   private
