@@ -48,6 +48,10 @@ nl:
         intro: Introductie
         body: Inhoud
       user:
+        first_name: Voornaam
+        middle_name: Tussenvoegsels
+        last_name: Achternaam
+        birthdate: Geboortedatum
         email: E-mail
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord

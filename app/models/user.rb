@@ -3,9 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  validates_presence_of :first_name, :last_name, :email
+
   enum user_type: {customer: 0, admin: 1}
   enum gender: {male: 0, female: 1, other: 2}
 
+  scope :asc, -> {order(first_name: :asc)}
 
   def name
     "#{first_name} #{middle_name} #{last_name}".squish

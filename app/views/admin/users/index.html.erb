@@ -1,2 +1,20 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<% provide(:title, "Gebruikers") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_admin_user_path, class: "btn-u btn-u-default", title: "Gebruiker toevoegen" %>
+</div>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>E-mail</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>

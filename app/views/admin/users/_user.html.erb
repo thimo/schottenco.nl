@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= link_to user.name, edit_admin_user_path(user) %>
+  </td>
+  <td>
+    <%= link_to user.email, edit_admin_user_path(user) if user.name.blank? %>
+    <%= user.email unless user.name.blank? %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, user],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>
