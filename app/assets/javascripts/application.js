@@ -11,6 +11,8 @@
 // about supported directives.
 //
 // require jquery.ui.sortable
+//= require modernizr
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker/core
@@ -25,6 +27,7 @@
 
 $(document).ready(function(){
   $('textarea').autosize();
+  
   if ($('.has-error').length > 0) {
     var fieldTypes = ".has-error input[type=text], .has-error input[type=email], .has-error input[type=number], .has-error textarea";
     $(fieldTypes).first().focus().select();
@@ -32,4 +35,6 @@ $(document).ready(function(){
     var fieldTypes = "form input[type=text], form input[type=email], form input[type=number], form input[type=url], form textarea";
     $(fieldTypes).filter("[data-provide!=datepicker]").first().focus().select();
   }
+
+  App.init();
 });
