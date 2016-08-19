@@ -9,10 +9,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Datum</th>
-      <th>Titel</th>
-      <th>Locatie</th>
-      <th>Aanmeldingen</th>
+      <%= label_tag_for_index AgendaItem, :date %>
+      <%= label_tag_for_index AgendaItem, :title %>
+      <%= label_tag_for_index AgendaItem, :price %>
+      <%= label_tag_for_index AgendaItem, :location %>
+      <%= label_tag_for_index AgendaItem, :registrations %>
       <th></th>
     </tr>
   </thead>

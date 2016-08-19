@@ -25,9 +25,9 @@
 // require bootstrap-toggle
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function (){
   $('textarea').autosize();
-  
+
   if ($('.has-error').length > 0) {
     var fieldTypes = ".has-error input[type=text], .has-error input[type=email], .has-error input[type=number], .has-error textarea";
     $(fieldTypes).first().focus().select();

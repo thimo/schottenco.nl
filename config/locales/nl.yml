@@ -4,6 +4,7 @@ nl:
   activerecord:
     attributes:
       agenda_item:
+        date: Datum
         starts_at: Startdatum
         ends_at: Einddatum
         title: Titel
@@ -13,6 +14,8 @@ nl:
         external_url: Externe URL
         content_page: Content pagina
         location: Locatie
+        price: Prijs
+        registrations: Aanmeldingen
       location:
         name: Naam
         address: Adres
@@ -56,6 +59,16 @@ nl:
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord
         remember_me: Login onthouden
+      registration:
+        name: Naam
+        email: E-mailadres
+        phone: Telefoonnummer
+        zip: Postcode
+        address: Adres
+        city: Woonplaats
+        country: Land
+        accepts: Akkoord algemene voorwaarden
+        created_at: Aangemeld op
 
   models:
     survey_config: Test

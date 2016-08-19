@@ -18,4 +18,19 @@ module ApplicationHelper
     end
   end
 
+  def label_tag_for_show(model, column_name)
+    label_tag column_name, label_for_column(model, column_name), class: "col-sm-3 control-label"
+  end
+
+  def label_tag_for_index(model, column_name)
+    content_tag :th, label_for_column(model, column_name)
+  end
+
+  private
+
+    def label_for_column(model, column_name)
+      return model.human_attribute_name(column_name) if model.class == Class
+      model.class.human_attribute_name(column_name) unless model.class == Class
+    end
+
 end

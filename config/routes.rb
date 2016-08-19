@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'registrations/index'
+  end
+
+  namespace :admin do
+    get 'registrations/show'
+  end
+
+  get 'registrations/new'
+  get 'registrations/show'
+
   devise_for :users
   root to: 'content_pages#index'
 
   get 'admin' => 'admin#show'
   namespace :admin do
-    resources :agenda_items
+    resources :agenda_items, shallow: true do
+      resources :registrations, only: [:index, :show]
+    end
     resources :locations
     resources :users
     resources :content_texts
@@ -21,6 +34,10 @@ Rails.application.routes.draw do
   get '/agenda/:id', to: 'agenda_items#show', as: 'agenda_item'
   get '/blog', to: 'blogs#index', as: 'blogs'
   get '/blog/:id', to: 'blog#show', as: 'blog'
+
+  get '/agenda/:agenda_item_id/aanmelden', to: 'registrations#new', as: 'new_agenda_item_registration'
+  post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'
+  get '/aanmelding/:id', to: 'registrations#show', as: 'registration'
 
   get '/*slug', to: 'content_pages#show' #, as: :page
 

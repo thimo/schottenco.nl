@@ -1,0 +1,44 @@
+<div class="posts margin-bottom-40 footer-v2">
+  <div class="headline">
+    <h2>
+      Samengevat
+    </h2>
+  </div>
+
+  <p>
+    Wat?<br />
+    <%= agenda_item.title %>
+  </p>
+
+  <p>
+    Wanneer?<br />
+    <%= I18n.l(agenda_item.starts_at, format: :long) %>
+    <% unless agenda_item.ends_at.blank? %>
+      - <%= I18n.l(agenda_item.ends_at, format: :long) %>
+    <% end %>
+  </p>
+
+  <% unless agenda_item.location.nil? %>
+  <p>
+    Waar?<br />
+    <%= agenda_item.location.name %>, <%= agenda_item.location.city %>
+  </p>
+  <% end %>
+
+  <% unless agenda_item.price.nil? %>
+  <p>
+    Kosten?<br />
+    <%= number_to_currency agenda_item.price %>
+  </p>
+  <% end %>
+
+
+  <% unless agenda_item.content_page.nil? && agenda_item.external_url.blank? %>
+    <p>
+      Meer info?<br />
+      <%= link_to agenda_item.content_page.title, "/#{agenda_item.content_page.url}" unless agenda_item.content_page.nil? %>
+      <%= link_to "Meer info of aanmelden", agenda_item.external_url, target: "_blank" unless agenda_item.external_url.blank? %>
+    </p>
+  <% end %>
+
+</div>

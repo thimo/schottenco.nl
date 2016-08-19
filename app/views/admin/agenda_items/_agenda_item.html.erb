@@ -7,11 +7,16 @@
     <%= link_to agenda_item.title, edit_admin_agenda_item_path(agenda_item) %>
   </td>
   <td>
+    <%= number_to_currency(agenda_item.price) %>
+  </td>
+  <td>
     <% unless agenda_item.location.nil? %>
     <%= agenda_item.location.name %>, <%= agenda_item.location.city %>
     <% end %>
   </td>
   <td>
+    <%# agenda_item.registrations.count if agenda_item.registrations.count > 0 %>
+    <%= link_to agenda_item.registrations.count, admin_agenda_item_registrations_path(agenda_item) if agenda_item.registrations.count > 0 %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, agenda_item],

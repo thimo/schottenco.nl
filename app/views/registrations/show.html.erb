@@ -1,0 +1,17 @@
+<% provide(:title, "#{@agenda_item.title}") %>
+
+<div class="container mb-60">
+  <div class="row">
+    <div class="col-md-9">
+      <%= render @agenda_item %>
+
+      <h3>Aanmelding</h3>
+
+      [ Iets met de aanmelding ]
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+  <%= render "agenda_items/sidebar", agenda_item: @agenda_item %>
+<% end %>

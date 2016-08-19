@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= link_to registration.name, [:admin, registration] %>
+  </td>
+  <td>
+    <%= I18n.l(registration.created_at, format: :long) %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, registration],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

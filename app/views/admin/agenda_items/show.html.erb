@@ -9,7 +9,7 @@
 </h1>
 
 <div class="row form-horizontal">
-  <label class="col-sm-3 control-label">Datum</label>
+  <%= label_tag_for_show @agenda_item, :date %>
   <p class="col-sm-9 form-control-static">
     <%= @agenda_item.starts_at %>
     <% unless @agenda_item.ends_at.blank? %>
@@ -17,39 +17,46 @@
     <% end %>
   </p>
 
-  <label class="col-sm-3 control-label">Titel</label>
+  <%= label_tag_for_show @agenda_item, :title %>
   <p class="col-sm-9 form-control-static">
     <%= @agenda_item.title %>
   </p>
 
   <% unless @agenda_item.intro.blank? %>
-  <label class="col-sm-3 control-label">Introductie</label>
+  <%= label_tag_for_show @agenda_item, :intro %>
   <div class="col-sm-9 form-control-static">
     <%= markdown(@agenda_item.intro).html_safe %>
   </div>
   <% end %>
 
-  <label class="col-sm-3 control-label">Inhoud</label>
+  <%= label_tag_for_show @agenda_item, :body %>
   <div class="col-sm-9 form-control-static">
     <%= markdown(@agenda_item.body).html_safe %>
   </div>
 
+  <% unless @agenda_item.price.blank? %>
+  <%= label_tag_for_show @agenda_item, :price %>
+  <div class="col-sm-9 form-control-static">
+    <%= number_to_currency @agenda_item.price %>
+  </div>
+  <% end %>
+
   <% unless @agenda_item.external_url.blank? %>
-  <label class="col-sm-3 control-label">Externe URL</label>
+  <%= label_tag_for_show @agenda_item, :external_url %>
   <p class="col-sm-9 form-control-static">
     <%= @agenda_item.external_url %>
   </p>
   <% end %>
 
   <% unless @agenda_item.content_page.nil? %>
-  <label class="col-sm-3 control-label"><%= t 'activerecord.attributes.agenda_item.content_page' %></label>
+  <%= label_tag_for_show @agenda_item, :content_page %>
   <p class="col-sm-9 form-control-static">
     <%= link_to @agenda_item.content_page.title, '/' + @agenda_item.content_page.url %>
   </p>
   <% end %>
 
   <% unless @agenda_item.location.nil? %>
-  <label class="col-sm-3 control-label"><%= t 'activerecord.attributes.agenda_item.location' %></label>
+  <%= label_tag_for_show @agenda_item, :location %>
   <div class="col-sm-9 form-control-static">
     <div><%= @agenda_item.location.name %></div>
     <div><%= @agenda_item.location.address %></div>

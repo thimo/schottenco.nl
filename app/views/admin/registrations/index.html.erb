@@ -1,0 +1,16 @@
+<% provide(:title, "Aanmeldingen voor #{@agenda_item.title}") %>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <%= label_tag_for_index Registration, :name %>
+      <%= label_tag_for_index Registration, :created_at %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @registrations %>
+  </tbody>
+</table>

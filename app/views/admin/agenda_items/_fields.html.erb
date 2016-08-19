@@ -7,6 +7,7 @@
 <%= f.input :title %>
 <%= f.input :intro %>
 <%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de Agenda item'.html_safe %>
+<%= f.input :price, as: :currency %>
 
 <%= f.input :registration_type, as: :radio_buttons, required: false %>
 <%= f.input :external_url, hint: "Vul bij externe registratie hier de URL in naar de externe informatie of registratie pagina" %>

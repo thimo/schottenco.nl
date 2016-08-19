@@ -8,7 +8,7 @@ class Admin::AgendaItemsController < AdminController
   def show
     @agenda_item = AgendaItem.find(params[:id])
 
-    add_breadcrumb @agenda_item.title
+    add_breadcrumb @agenda_item.title, [:admin, @agenda_item]
   end
 
   def new
@@ -31,7 +31,7 @@ class Admin::AgendaItemsController < AdminController
   def edit
     @agenda_item = AgendaItem.find(params[:id])
 
-    add_breadcrumb @agenda_item.title
+    add_breadcrumb @agenda_item.title, [:admin, @agenda_item]
   end
 
   def update
@@ -56,7 +56,7 @@ class Admin::AgendaItemsController < AdminController
   private
 
     def agenda_item_params
-      params.require(:agenda_item).permit(:starts_at, :ends_at, :title, :intro, :body, :external_url, :registration_type, :content_page_id, :location_id)
+      params.require(:agenda_item).permit(:starts_at, :ends_at, :title, :intro, :body, :external_url, :registration_type, :content_page_id, :location_id, :price)
     end
 
     def defaults

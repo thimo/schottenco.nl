@@ -28,6 +28,7 @@ gem 'rails-i18n',                 '>= 4.0.2'
 # gem 'kaminari',                   '>= 0.16.3'  # Paging
 # gem 'kaminari-bootstrap',         '>= 3.0.1'   # Bootstrap templates for paging
 gem 'simple_form',                '>= 3.2.0'
+gem 'country_select'
 gem 'enum_help',                  '>= 0.0.14'
 gem 'modernizr-rails',            '>= 2.7.1'
 # gem 'roo'
