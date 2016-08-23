@@ -5,9 +5,11 @@
 <%= horizontal_form [:admin, @content_page] do |f| %>
   <%= render 'fields', f: f %>
 
-  <div class="form-actions col-sm-offset-3">
-    <%= f.button :submit, 'Bijwerken' %>
-    <%= link_to 'Annuleren', admin_content_pages_path, class: "btn-u btn-u-default" %>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.button :submit, 'Bijwerken' %>
+      <%= link_to 'Annuleren', admin_content_pages_path, class: "btn-u btn-u-default" %>
+    </div>
   </div>
 <% end %>
 
@@ -21,7 +23,7 @@
     <% @content_page.content_images.each do |content_image| %>
       <li>
         <%= link_to content_image.image_url.to_s, target: "_blank" do %>
-          <%= image_tag content_image.image_url(:thumb).to_s %>
+          <%= image_tag content_image.image_url(:thumb_200).to_s %>
           <div><%= content_image.name %></div>
         <% end %>
       </li>

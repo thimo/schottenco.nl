@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822093506) do
+ActiveRecord::Schema.define(version: 20160823145544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160822093506) do
     t.datetime "updated_at",                                             null: false
     t.integer  "location_id"
     t.decimal  "price",             precision: 10, scale: 2
+    t.string   "image"
     t.index ["content_page_id"], name: "index_agenda_items_on_content_page_id", using: :btree
     t.index ["location_id"], name: "index_agenda_items_on_location_id", using: :btree
     t.index ["starts_at"], name: "index_agenda_items_on_starts_at", using: :btree
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160822093506) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.string   "image"
     t.index ["user_id"], name: "index_content_blogs_on_user_id", using: :btree
   end
 
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20160822093506) do
     t.text     "body"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "image"
   end
 
   create_table "content_newsletters", force: :cascade do |t|
@@ -70,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160822093506) do
     t.text     "body"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "image"
   end
 
   create_table "content_pages", force: :cascade do |t|
@@ -81,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160822093506) do
     t.datetime "updated_at",             null: false
     t.string   "menu_title"
     t.integer  "menu_type",  default: 1
+    t.string   "image"
     t.index ["url"], name: "index_content_pages_on_url", unique: true, using: :btree
   end
 

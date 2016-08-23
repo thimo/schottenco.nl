@@ -7,6 +7,16 @@
 <%= f.input :title %>
 <%= f.input :intro %>
 <%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de Agenda item'.html_safe %>
+
+<%= f.input :image, as: :file, hint: "Foto wordt groot bovenaan de pagina getoond. Tip: 1.000 tot 2.000 pixels breed, beperk de hoogte" %>
+<% if f.object.image.present? %>
+<div class="form-group">
+  <div class="col-sm-offset-3 col-sm-9">
+    <%= image_tag f.object.image_url(:thumb_200) %>
+  </div>
+</div>
+<% end %>
+
 <%= f.input :price, as: :currency %>
 
 <%= f.input :registration_type, as: :radio_buttons, required: false %>

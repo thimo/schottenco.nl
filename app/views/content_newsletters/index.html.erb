@@ -26,9 +26,13 @@
 			</li>
 		</ul> %>
 	</div>
-	<%# <div class="blog-img">
-		<img class="img-responsive" src="assets/img/main/img18.jpg" alt="">
-	</div> %>
+
+  <% if content_newsletter.image.present? %>
+  <div class="blog-img">
+    <%= image_tag content_newsletter.image_url(), class: "img-responsive" %>
+	</div>
+  <% end %>
+
   <span>
   <%= text = content_newsletter.intro
   text = truncate(content_newsletter.body, :length => 360,  :separator => ' ') if text.blank?

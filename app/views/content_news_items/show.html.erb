@@ -18,9 +18,11 @@
 		</ul> %>
 	</div>
 
-	<!-- <div class="blog-img">
-		<img class="img-responsive" src="assets/img/sliders/11.jpg" alt="">
-	</div> -->
+  <% if @content_news_item.image.present? %>
+  <div class="blog-img">
+    <%= image_tag @content_news_item.image_url(), class: "img-responsive" %>
+	</div>
+  <% end %>
 
   <% unless @content_news_item.intro.blank? %>
   <div class="lead">

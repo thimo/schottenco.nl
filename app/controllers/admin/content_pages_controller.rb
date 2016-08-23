@@ -57,6 +57,6 @@ class Admin::ContentPagesController < AdminController
   private
 
     def content_page_params
-      params.require(:content_page).permit(:url, :title, :menu_type, :menu_title, :intro, :body)
+      params.require(:content_page).permit(:url, :title, :menu_type, :menu_title, :intro, :body, :image)
     end
 end

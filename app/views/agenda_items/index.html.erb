@@ -45,6 +45,12 @@
                 </small>
               </p>
 
+              <% if agenda_item.image.present? %>
+              <div class="mb-20">
+                <%= image_tag agenda_item.image_url(), class: "img-responsive" %>
+              </div>
+              <% end %>
+
               <span>
               <%= text = agenda_item.intro
               text = truncate(agenda_item.body, :length => 360,  :separator => ' ') if text.blank?

@@ -2,6 +2,12 @@
 
 <h2><%= yield(:title) %></h2>
 
+<% if @content_page.image.present? %>
+<div class="mb-20">
+  <%= image_tag @content_page.image_url(), class: "img-responsive" %>
+</div>
+<% end %>
+
 <% unless @content_page.intro.blank? %>
 <div class="lead">
   <%= markdown(@content_page.intro).html_safe %>

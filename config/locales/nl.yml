@@ -16,6 +16,7 @@ nl:
         location: Locatie
         price: Prijs
         registrations: Aanmeldingen
+        image: Kopfoto
       location:
         name: Naam
         address: Adres
@@ -32,25 +33,29 @@ nl:
         menu_title: Titel in menu
         intro: Introductie
         body: Inhoud
+        image: Kopfoto
       content_image:
         name: Naam
-        image: Plaatje
+        image: Foto
       content_blog:
         published_at: Publicatiedatum
         title: Titel
         intro: Introductie
         body: Inhoud
         user_id: Auteur
+        image: Kopfoto
       content_news_item:
         published_at: Publicatiedatum
         title: Titel
         intro: Introductie
         body: Inhoud
+        image: Kopfoto
       content_newsletter:
         published_at: Publicatiedatum
         title: Titel
         intro: Introductie
         body: Inhoud
+        image: Kopfoto
       user:
         first_name: Voornaam
         middle_name: Tussenvoegsels

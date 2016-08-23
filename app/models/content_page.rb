@@ -1,6 +1,7 @@
 class ContentPage < ApplicationRecord
   has_many :content_images, as: :imageable
   has_many :agenda_items
+  mount_uploader :image, ImageUploader
 
   validates_presence_of :url, :title, :body
 
