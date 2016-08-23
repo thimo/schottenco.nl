@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'registrations/index'
-  end
-
-  namespace :admin do
-    get 'registrations/show'
-  end
-
-  get 'registrations/new'
-  get 'registrations/show'
-
   devise_for :users
   root to: 'content_pages#index'
 
@@ -28,12 +17,14 @@ Rails.application.routes.draw do
     resources :content_images
   end
 
-  get '/nieuws/:id', to: 'content_news_items#show', as: 'content_news_items'
-  get '/blog/:id', to: 'content_blogs#show', as: 'content_blogs'
+  get '/nieuws', to: 'content_news_items#index', as: 'content_news_items'
+  get '/nieuws/:id', to: 'content_news_items#show', as: 'content_news_item'
+  get '/blog', to: 'content_blogs#index', as: 'content_blogs'
+  get '/blog/:id', to: 'content_blogs#show', as: 'content_blog'
   get '/agenda', to: 'agenda_items#index', as: 'agenda_items'
   get '/agenda/:id', to: 'agenda_items#show', as: 'agenda_item'
-  get '/blog', to: 'blogs#index', as: 'blogs'
-  get '/blog/:id', to: 'blog#show', as: 'blog'
+  get '/nieuwsbrief', to: 'content_newsletters#index', as: 'content_newsletters'
+  get '/nieuwsbrief/:id', to: 'content_newsletters#show', as: 'content_newsletter'
 
   get '/agenda/:agenda_item_id/aanmelden', to: 'registrations#new', as: 'new_agenda_item_registration'
   post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'

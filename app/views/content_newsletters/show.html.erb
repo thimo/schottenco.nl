@@ -1,14 +1,11 @@
-<% provide(:title, @content_blog.title) %>
+<% provide(:title, @content_newsletter.title) %>
 
 <div class="blog margin-bottom-40">
 	<h2><%= yield(:title) %></h2>
 
   <div class="blog-post-tags">
 		<ul class="list-unstyled list-inline blog-info">
-			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_blog.published_at.to_date, format: :long) %></li>
-      <%= content_tag :li do %>
-      <i class="fa fa-pencil"></i> <%= @content_blog.user.name %>
-      <% end unless @content_blog.user.nil? %>
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_newsletter.published_at.to_date, format: :long) %></li>
 		</ul>
 		<%# <ul class="list-unstyled list-inline blog-tags">
 			<li>
@@ -25,13 +22,13 @@
 		<img class="img-responsive" src="assets/img/sliders/11.jpg" alt="">
 	</div> -->
 
-  <% unless @content_blog.intro.blank? %>
+  <% unless @content_newsletter.intro.blank? %>
   <div class="lead">
-    <%= markdown(@content_blog.intro).html_safe %>
+    <%= markdown(@content_newsletter.intro).html_safe %>
   </div>
   <% end %>
 
-  <%= markdown(@content_blog.body).html_safe %>
+  <%= markdown(@content_newsletter.body).html_safe %>
 
 </div>
 

@@ -25,8 +25,8 @@ gem 'font-awesome-rails'
 # gem 'jquery-ui-sass-rails',       '>= 4.0.3' # Incompatible with Rails 5
 gem 'sdoc',                       '>= 0.4.0', group: :doc
 gem 'rails-i18n',                 '>= 4.0.2'
-# gem 'kaminari',                   '>= 0.16.3'  # Paging
-# gem 'kaminari-bootstrap',         '>= 3.0.1'   # Bootstrap templates for paging
+gem 'kaminari',                   '>= 0.16.3'  # Paging
+gem 'kaminari-bootstrap',         '>= 3.0.1'   # Bootstrap templates for paging
 gem 'simple_form',                '>= 3.2.0'
 gem 'country_select'
 gem 'enum_help',                  '>= 0.0.14'

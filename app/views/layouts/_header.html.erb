@@ -38,18 +38,26 @@
           <%= link_to "Agenda", agenda_items_path %>
         </li>
         <li class="<%= 'active' if controller.controller_path == 'blogs' %>">
-          <%= link_to "Blog", blogs_path %>
+          <%= link_to "Blog", content_blogs_path %>
         </li>
       </ul>
     </div>
   </div>
 </div>
 
-<% breadcrumbs = render_breadcrumbs :tag => :li, :separator => "" %>
-<% unless breadcrumbs.blank? %>
-<div class="container">
+<% unless @breadcrumbs.nil? %>
+<!-- <div class="container">
   <ol class="breadcrumb">
     <%= breadcrumbs %>
   </ol>
+</div> -->
+<div class="breadcrumbs">
+	<div class="container">
+		<!-- <h1 class="pull-left"><%= yield(:title) %></h1> -->
+		<h1 class="pull-left"><%= @breadcrumbs.second.name unless @breadcrumbs.second.nil? %></h1>
+		<ul class="pull-right breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+		</ul>
+	</div>
 </div>
 <% end %>

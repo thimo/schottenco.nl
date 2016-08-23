@@ -1,0 +1,2 @@
+module ContentNewsItemsHelper
+end

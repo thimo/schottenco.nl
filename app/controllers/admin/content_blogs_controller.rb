@@ -57,10 +57,10 @@ class Admin::ContentBlogsController < AdminController
   private
 
     def content_blog_params
-      params.require(:content_blog).permit(:published_at, :title, :intro, :body)
+      params.require(:content_blog).permit(:published_at, :title, :intro, :body, :user_id)
     end
 
     def defaults
-      {published_at: Time.zone.now}
+      {published_at: Time.zone.now, user_id: current_user.id}
     end
 end

@@ -1,11 +1,12 @@
 class AgendaItemsController < ApplicationController
   load_and_authorize_resource
-  add_breadcrumb "Home", :root_path
-  add_breadcrumb "Agenda", :agenda_items_path
   layout "application_with_sidebar", except: [:index]
 
+  add_breadcrumb "Home", :root_path
+  add_breadcrumb "Agenda", :agenda_items_path
+
   def index
-    @agenda_items = AgendaItem.up_next
+    @agenda_items = AgendaItem.up_next.page params[:page]
   end
 
   def show

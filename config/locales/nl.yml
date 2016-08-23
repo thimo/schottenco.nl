@@ -40,6 +40,7 @@ nl:
         title: Titel
         intro: Introductie
         body: Inhoud
+        user_id: Auteur
       content_news_item:
         published_at: Publicatiedatum
         title: Titel
@@ -94,3 +95,11 @@ nl:
       menu_type:
         menu_hidden: Niet zichtbaar in navigatie
         menu_visible: Zichtbaar in navigatie en footer
+
+  views:
+    pagination:
+      truncate: "..."
+      previous: '<i class="fa fa-angle-left" aria-hidden="true"></i>'
+      first: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>'
+      next: '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+      last: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>'

@@ -46,7 +46,7 @@
             <ul class="list-unstyled blog-latest-posts">
               <% ContentNewsItem.desc.limit(5).each do |content_news_item| %>
                 <li>
-                  <h3><%= link_to content_news_item.title, content_news_items_path(content_news_item) %></h3>
+                  <h3><%= link_to content_news_item.title, content_news_item_path(content_news_item) %></h3>
   								<small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
                 </li>
               <% end %>
@@ -83,7 +83,7 @@
             <ul class="list-unstyled blog-latest-posts">
               <% ContentBlog.desc.limit(5).each do |content_blog| %>
                 <li>
-                  <h3><%= link_to content_blog.title, content_blogs_path(content_blog) %></h3>
+                  <h3><%= link_to content_blog.title, content_blog_path(content_blog) %></h3>
   								<small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_blog.published_at.to_date, format: :long %></small>
                   <%= markdown(content_blog.intro).html_safe %>
                 </li>

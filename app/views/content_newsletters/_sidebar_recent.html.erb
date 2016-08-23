@@ -1,0 +1,15 @@
+<div class="mb-20">
+  <div class="headline">
+    <h2 class="heading-sm">Laatste nieuwsbrieven</h2>
+  </div>
+
+  <ul class="list-unstyled blog-latest-posts">
+    <% ContentNewsletter.desc.limit(8).each do |content_newsletter| %>
+      <li>
+        <h3><%= link_to content_newsletter.title, content_newsletter_path(content_newsletter) %></h3>
+        <small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_newsletter.published_at.to_date, format: :long %></small>
+        <%= markdown(content_newsletter.intro).html_safe %>
+      </li>
+    <% end %>
+  </ul>
+</div>
