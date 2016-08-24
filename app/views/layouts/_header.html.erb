@@ -6,7 +6,9 @@
       <ul class="loginbar pull-right">
         <li><a href="page_faq.html">Contact</a></li>
         <li class="topbar-devider"></li>
-        <li><a href="page_faq.html">Nieuwsbrief</a></li>
+        <li>
+          <%= link_to "Nieuwsbrief", content_newsletters_path %>
+        </li>
         <li class="topbar-devider"></li>
         <li>
           <%= link_to "Inloggen", new_user_session_path unless user_signed_in? %>
