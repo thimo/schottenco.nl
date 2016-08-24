@@ -6,4 +6,8 @@ class ContentImage < ApplicationRecord
   validates_presence_of :name, :image
 
   scope :asc, -> {order(name: :asc)}
+
+  def create_version(version)
+    image.now.recreate_versions!(version)
+  end
 end

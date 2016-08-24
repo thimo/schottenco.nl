@@ -17,4 +17,7 @@ class ContentPage < ApplicationRecord
     self.url.split("/")[0]
   end
 
+  def create_version(version)
+    image.now.recreate_versions!(version)
+  end
 end
