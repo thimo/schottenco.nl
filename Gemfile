@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker',                      '>= 1.6.0'
 gem 'carrierwave',                '>= 0.10.0'
+gem 'carrierwave-imageoptimizer' # also do: brew install optipng jpegoptim (or via 'apt-get' on Ubuntu)
 gem 'mini_magick',                '>= 4.3.6'
 gem 'bootstrap-sass',             '>= 3.3.6'
 gem 'bootstrap-datepicker-rails'           # Datepicker for Bootstrap

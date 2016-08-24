@@ -10,10 +10,10 @@
 <%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de tekst'.html_safe %>
 
 <%= f.input :image, as: :file, hint: "Foto wordt groot bovenaan de pagina getoond. Tip: 1.000 tot 2.000 pixels breed, beperk de hoogte" %>
-<% if f.object.image.present? %>
+<% if f.object.image? %>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <%= image_tag f.object.image_url(:thumb_200) %>
+    <%= image_tag f.object.image_url(:thumb200) %>
   </div>
 </div>
 <% end %>

@@ -30,6 +30,15 @@ Rails.application.routes.draw do
   post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'
   get '/aanmelding/:id', to: 'registrations#show', as: 'registration'
 
+  # /uploads/block/image/1/default_7fd5acc8-5c06-4dcc-955e-f4fc5f76be01.jpg
+  get '/uploads/:klass/:field/:id/(:version)_(:file)',
+      to: 'missing#show',
+      constraints: {
+          klass: /\D*/,   # anything but numbers
+          id: /\d*/,      # numbers only
+          version: /[^\_]+/     # exclude underscores
+      }
+
   get '/*slug', to: 'content_pages#show' #, as: :page
 
 end

@@ -57,7 +57,7 @@ class Admin::ContentNewslettersController < AdminController
   private
 
     def content_newsletter_params
-      params.require(:content_newsletter).permit(:published_at, :title, :intro, :body, :image)
+      params.require(:content_newsletter).permit(:published_at, :title, :intro, :body, :image, :image_cache, :remove_image)
     end
 
     def defaults

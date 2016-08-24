@@ -12,9 +12,9 @@
   </small>
 </p>
 
-<% if agenda_item.image.present? %>
+<% if agenda_item.image? %>
 <div class="mb-20">
-  <%= image_tag agenda_item.image_url(), class: "img-responsive" %>
+  <%= image_tag agenda_item.image_url(:large), class: "img-responsive" %>
 </div>
 <% end %>
 

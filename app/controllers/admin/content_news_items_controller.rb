@@ -57,7 +57,7 @@ class Admin::ContentNewsItemsController < AdminController
   private
 
     def content_news_item_params
-      params.require(:content_news_item).permit(:published_at, :title, :intro, :body, :image)
+      params.require(:content_news_item).permit(:published_at, :title, :intro, :body, :image, :image_cache, :remove_image)
     end
 
     def defaults

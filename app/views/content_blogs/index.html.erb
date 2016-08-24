@@ -30,9 +30,9 @@
 		</ul> %>
 	</div>
 
-  <% if content_blog.image.present? %>
+  <% if content_blog.image? %>
   <div class="blog-img">
-    <%= image_tag content_blog.image_url(), class: "img-responsive" %>
+    <%= image_tag content_blog.image_url(:large), class: "img-responsive" %>
 	</div>
   <% end %>
 

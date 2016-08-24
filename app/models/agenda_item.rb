@@ -11,4 +11,8 @@ class AgendaItem < ApplicationRecord
   scope :up_next, -> {order(starts_at: :asc).where(starts_at: 1.day.ago..1.year.from_now) }
 
   enum registration_type: {registration_disabled: 0, registration_internal: 1, registration_external: 2}
+
+  def create_version(version)
+    image.now.recreate_versions!(version)
+  end
 end

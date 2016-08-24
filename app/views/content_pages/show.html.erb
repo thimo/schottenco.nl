@@ -2,9 +2,9 @@
 
 <h2><%= yield(:title) %></h2>
 
-<% if @content_page.image.present? %>
+<% if @content_page.image? %>
 <div class="mb-20">
-  <%= image_tag @content_page.image_url(), class: "img-responsive" %>
+  <%= image_tag @content_page.image_url(:large), class: "img-responsive" %>
 </div>
 <% end %>
 

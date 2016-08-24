@@ -57,7 +57,7 @@ class Admin::ContentBlogsController < AdminController
   private
 
     def content_blog_params
-      params.require(:content_blog).permit(:published_at, :title, :intro, :body, :user_id, :image)
+      params.require(:content_blog).permit(:published_at, :title, :intro, :body, :user_id, :image, :image_cache, :remove_image)
     end
 
     def defaults

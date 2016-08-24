@@ -18,9 +18,9 @@
 		</ul> %>
 	</div>
 
-  <% if @content_newsletter.image.present? %>
+  <% if @content_newsletter.image? %>
   <div class="blog-img">
-    <%= image_tag @content_newsletter.image_url(), class: "img-responsive" %>
+    <%= image_tag @content_newsletter.image_url(:large), class: "img-responsive" %>
 	</div>
   <% end %>
 
