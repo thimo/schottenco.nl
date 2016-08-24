@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823145544) do
+ActiveRecord::Schema.define(version: 20160824142503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,20 @@ ActiveRecord::Schema.define(version: 20160823145544) do
     t.index ["name"], name: "index_content_texts_on_name", unique: true, using: :btree
   end
 
+  create_table "email_logs", force: :cascade do |t|
+    t.string   "from"
+    t.string   "to"
+    t.string   "subject"
+    t.text     "body"
+    t.text     "body_plain"
+    t.integer  "user_id"
+    t.integer  "registration_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["registration_id"], name: "index_email_logs_on_registration_id", using: :btree
+    t.index ["user_id"], name: "index_email_logs_on_user_id", using: :btree
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -162,6 +176,8 @@ ActiveRecord::Schema.define(version: 20160823145544) do
   add_foreign_key "agenda_items", "content_pages"
   add_foreign_key "agenda_items", "locations"
   add_foreign_key "content_blogs", "users"
+  add_foreign_key "email_logs", "registrations"
+  add_foreign_key "email_logs", "users"
   add_foreign_key "registrations", "agenda_items"
   add_foreign_key "registrations", "users"
 end

@@ -1,0 +1,7 @@
+Hallo <%= @registration.name %>,
+
+Bedankt voor je aanmelding voor <%= @registration.agenda_item.title %>.
+
+Hallo admin,
+
+Er is een nieuwe aanmelding (<%= admin_registration_url(@registration) %>) binnengekomen van <%= @registration.name %> voor <%= @registration.agenda_item.title %>.

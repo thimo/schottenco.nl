@@ -1,6 +1,13 @@
 nl:
   company:
     name: Schott & Co
+    url: https://www.schottenco.nl
+    address: Bogerdweg 7
+    zip: 4315 CB
+    city: Dreischor
+    email: info@schottenco.nl
+    phone: 06-18665115
+    contact_name: Carel Schott
   activerecord:
     attributes:
       agenda_item:
@@ -62,6 +69,11 @@ nl:
         last_name: Achternaam
         birthdate: Geboortedatum
         email: E-mail
+        phone: Telefoonnummer
+        zip: Postcode
+        address: Adres
+        city: Woonplaats
+        country: Land
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord
         remember_me: Login onthouden

@@ -7,7 +7,230 @@
     </style>
   </head>
 
-  <body>
-    <%= yield %>
+  <body style="margin: 0; padding: 0;">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td>
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+              <td style="padding:15px 0 0 0;">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+                  <tr>
+                    <td>
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="220" style="border-collapse: collapse;">
+                        <tr>
+                          <td align="left">
+                            <%= link_to image_tag("schottenco_logo-220.png", alt: "#{I18n.t("company.name")}"), I18n.t('company.url') %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <table align="left" border="0" cellpadding="0" cellspacing="0" width="350" style="border-collapse: collapse;">
+                        <tr>
+                          <td height="28" style="text-align: right; vertical-align: middle;">
+                            <a href="<%= I18n.t("company.url") %>/opleiding" style="font-family:helvetica, Arial, sans-serif; color: #333333; font-size: 16px; text-decoration: none;">Opleiding</a> &nbsp;&nbsp;
+                            <a href="<%= I18n.t("company.url") %>/training" style="font-family:helvetica, Arial, sans-serif; color: #333333; font-size: 16px; text-decoration: none;">Training</a> &nbsp;&nbsp;
+                            <a href="<%= I18n.t("company.url") %>/vorming" style="font-family:helvetica, Arial, sans-serif; color: #333333; font-size: 16px; text-decoration: none;">Vorming</a> &nbsp;&nbsp;
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+              <td>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+                  <tr>
+                    <td>
+                      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                        <tr>
+                          <td>
+                            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                              </tr>
+                            </table>
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="540" style="border-collapse: collapse;">
+                              <tr>
+                                <td>
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                                    <tr>
+                                      <td width="100%" align="left" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#343434;">
+                                        <%= yield(:title) %>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                                    <!-- Space -->
+                                    <tr>
+                                      <td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <td width="100%" align="left" style="font-size: 15px; line-height: 22px; font-family:helvetica, Arial, sans-serif; color:#777777;">
+                                        <%= yield %>
+
+                                        <p>
+                                          Met vriendelijke groet,
+                                        </p>
+
+                                        <p>
+                                          <strong><%= I18n.t("company.name") %></strong>
+                                        </p>
+
+                                        <p>
+                                          PS: Deze e-mail is geautomatiseerd verstuurd door onze Mail Robot. Wil je persoonlijk contact of een reactie sturen? Kijk op de <a href="<%= I18n.t("company.url") %>"><%= I18n.t("company.name") %> website</a>.
+                                        </p>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
+                            <!-- Space -->
+                            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+              <td>
+                <table bgcolor="#ffffff" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+                  <tr>
+                    <td>
+                      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <table align="center" border="0" cellpadding="0" cellspacing="0" width="540" style="border-collapse: collapse;">
+                        <tr>
+                          <td>
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="330" style="border-collapse: collapse;">
+                              <tr>
+                                <td>
+                                  <%= link_to image_tag("schottenco_logo-220.png", alt: "#{I18n.t("company.name")}"), I18n.t("company.url") %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif;">
+                                  <p><em>De</em> Academie voor Leefstijl, Sport en Vitaliteit. De opleider en trainer waar kwaliteit, kennis en passie voor het vak elkaar ontmoeten.</p>
+
+                                  <p>Onze opleidingen bieden meer dan kennisoverdracht. Jouw ontwikkeling als mens staat bij ons centraal.</p>
+                                </td>
+                              </tr>
+                            </table>
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="40" style="border-collapse: collapse;">
+                              <tr>
+                                <td>
+                                  &nbsp;
+                                </td>
+                              </tr>
+                            </table>
+                            <table align="left" border="0" cellpadding="0" cellspacing="0" width="170" style="border-collapse: collapse;">
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="66">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="22">
+                                  <%= image_tag "email/marker-icon.png" %>
+                                </td>
+                                <td style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif;"><%= I18n.t("company.address") %>
+                                  <br> <%= I18n.t("company.zip") %> <%= I18n.t("company.city") %></td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="22">
+                                  <%= image_tag "email/phone-icon.png" %>
+                                </td>
+                                <td style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif;"><%= I18n.t("company.phone") %><br />
+                                (<%= I18n.t("company.contact_name") %>)</td>
+                              </tr>
+                              <tr>
+                                <td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="22">
+                                  <%= image_tag "email/mail-icon.png" %>
+                                </td>
+                                <td>
+                                  <a style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif; text-decoration:none;" href="mailto:<%= I18n.t("company.email") %>"><%= I18n.t("company.email") %></a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+              <td>
+                <table bgcolor="#f5f5f5" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+                  <tr>
+                    <td>
+                      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" bgcolor="#eaeaea" height="1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                        </tr>
+                      </table>
+                      <table align="center" border="0" cellpadding="0" cellspacing="0" width="540" style="border-collapse: collapse;">
+                        <tr>
+                          <td align="center" style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif;">
+                            Copyright © <%= Time.now.year %> <a href="<%= I18n.t("company.url") %>/" style="color: #3697d9; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif; text-decoration:none;"><%= I18n.t("company.name") %></a>. Alle rechten voorbehouden
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- Space -->
+                      <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                        <tr>
+                          <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
+
 </html>

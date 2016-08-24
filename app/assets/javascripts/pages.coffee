@@ -2,7 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+# $(document).ready ->
+$(document).on 'turbolinks:load', ->
   # Revolution Slider
   if $('.slider-banner-container').length > 0
     $('.slider-banner-container .slider-banner-fullwidth').show().revolution

@@ -5,8 +5,10 @@
 <%= horizontal_form [:admin, @location] do |f| %>
   <%= render 'fields', f: f %>
 
-  <div class="form-actions col-sm-offset-3">
-    <%= f.button :submit, 'Aanmaken' %>
-    <%= link_to 'Annuleren', admin_locations_path, class: "btn-u btn-u-default" %>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.button :submit, 'Aanmaken' %>
+      <%= link_to 'Annuleren', admin_locations_path, class: "btn-u btn-u-default" %>
+    </div>
   </div>
 <% end %>
