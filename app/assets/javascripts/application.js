@@ -36,5 +36,10 @@ $(document).on('turbolinks:load', function (){
     $(fieldTypes).filter("[data-provide!=datepicker]").first().focus().select();
   }
 
+  if ($('#registration-tag-box').length > 0) {
+    // debugger;
+    // jQuery.scrollTo('#registration-tag-box', 250, {offset: -0})
+  }
+
   App.init();
 });

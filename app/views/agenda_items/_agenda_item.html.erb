@@ -12,6 +12,8 @@
   </small>
 </p>
 
+<%= yield %>
+
 <% if agenda_item.image? %>
 <div class="mb-20">
   <%= image_tag agenda_item.image_url(:large), class: "img-responsive" %>
