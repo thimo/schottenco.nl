@@ -85,7 +85,7 @@ nl:
         address: Adres
         city: Woonplaats
         country: Land
-        accepts: Akkoord algemene voorwaarden
+        general_terms: Akkoord algemene voorwaarden
         created_at: Aangemeld op
 
   models:
