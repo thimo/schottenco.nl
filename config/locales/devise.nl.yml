@@ -4,7 +4,7 @@
 nl:
   devise:
     confirmations:
-      confirmed: "Je account is bevestigd, je bent nu ingelogd."
+      confirmed: "Je account is bevestigd."
       send_instructions: "Je ontvangt over een paar minuten een e-mail met instructies hoe je je account kunt bevestigen."
       send_paranoid_instructions: "Als je e-mailadres bestaat in onze database, ontvang je over een paar minuten een e-mail met instructies hoe je je account kunt bevestigen."
     failure:
