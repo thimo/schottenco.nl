@@ -28,7 +28,7 @@ class User < ApplicationRecord
     %("#{self.name}" <#{self.email}>)
   end
 
-  def create_from_registration(registration)
+  def self.create_from_registration(registration)
     generated_password = Devise.friendly_token.first(8)
     user = User.create!(
         email: registration.email,
