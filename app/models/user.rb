@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :registrations
   has_many :blogs
-  has_many :email_logs
+  has_many :email_logs, dependent: :destroy
 
   validates_presence_of :first_name, :last_name, :email
 
@@ -41,7 +41,9 @@ class User < ApplicationRecord
         country: registration.country
       )
 
-    RegistrationMailer.welcome(user, generated_password).deliver
+    UserMailer.new_account_notification(user, generated_password).deliver_now
+    
+    user
   end
 
 end

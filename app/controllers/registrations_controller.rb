@@ -16,21 +16,20 @@ class RegistrationsController < ApplicationController
 
   def create
     @registration = Registration.new(registration_params)
-    @registration.user = current_user
     @agenda_item = AgendaItem.find(params[:agenda_item_id])
     @registration.agenda_item = @agenda_item
+    if current_user.nil?
+      user = User.find_by(email: @registration.email.downcase)
+      if user.nil? && @registration.valid?
+        user = User.create_from_registration(@registration)
+        # sign_in(:user, user)
+      end
+      @registration.user = user
+    else
+      @registration.user = current_user
+    end
 
     if @registration.save
-      if current_user.nil?
-        user = User.find_by(email: @registration.email.downcase)
-        if user.nil?
-          user = User.create_from_registration(@registration)
-          # sign_in(:user, user)
-        end
-        @registration.user = user
-        @registration.save
-      end
-
       flash[:success] = 'Bedankt voor je aanmelding. We hebben ter bevestiging een e-mail gestuurd.'
       @registration.send_confirmation_email
       @registration.send_admin_notification_email
