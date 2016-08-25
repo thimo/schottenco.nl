@@ -28,7 +28,8 @@ Rails.application.routes.draw do
 
   get '/agenda/:agenda_item_id/aanmelden', to: 'registrations#new', as: 'new_agenda_item_registration'
   post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'
-  get '/aanmelding/:id', to: 'registrations#show', as: 'registration'
+  # Clashes with Devise:
+  # get '/aanmelding/:id', to: 'registrations#show', as: 'registration'
 
   # /uploads/block/image/1/default_7fd5acc8-5c06-4dcc-955e-f4fc5f76be01.jpg
   get '/uploads/:klass/:field/:id/(:version)_(:file)',
