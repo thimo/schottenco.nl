@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-md-offset-2 col-md-8 animated fadeInLeft">
         <span class="text-center"><%= I18n.t("company.name") %> - <%= text_body_as_text :company_slogan %></span>
-        <p><%= text_body :homepage_company_description %></p>
+        <%= text_body :homepage_company_description %>
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@
         <i class="fa fa-graduation-cap service-icon"></i>
         <div class="desc">
           <h4>Opleiding</h4>
-          <p><%= text_body :homepage_opleiding_description %></p>
+          <%= text_body :homepage_opleiding_description %>
 
           <%= render "list_for_page", url: "opleiding" %>
         </div>
@@ -96,7 +96,7 @@
         <i class="fa fa-line-chart service-icon"></i>
         <div class="desc">
           <h4>Training</h4>
-          <p><%= text_body :homepage_training_description %></p>
+          <%= text_body :homepage_training_description %>
 
           <%= render "list_for_page", url: "training" %>
         </div>
@@ -107,7 +107,7 @@
         <i class="fa fa-user service-icon"></i>
         <div class="desc">
           <h4>Vorming</h4>
-          <p><%= text_body :homepage_vorming_description %></p>
+          <%= text_body :homepage_vorming_description %>
 
           <%= render "list_for_page", url: "vorming" %>
         </div>
