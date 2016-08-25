@@ -1,3 +1,18 @@
+ContentText.find_or_create_by(name: 'company_slogan') do |text|
+  text.body = 'Academie voor Leefstijl, Sport en Vitaliteit'
+end
+ContentText.find_or_create_by(name: 'homepage_company_description') do |text|
+  text.body = 'De Academie voor Leefstijl, Sport en Vitaliteit. De opleider en trainer waar kwaliteit, kennis en passie voor het vak elkaar ontmoeten.'
+end
+ContentText.find_or_create_by(name: 'homepage_opleiding_description') do |text|
+  text.body = 'De beschrijving voor Opleiding'
+end
+ContentText.find_or_create_by(name: 'homepage_training_description') do |text|
+  text.body = 'De beschrijving voor Training'
+end
+ContentText.find_or_create_by(name: 'homepage_vorming_description') do |text|
+  text.body = 'De beschrijving voor Vorming'
+end
 ContentText.find_or_create_by(name: 'footer_company_description') do |text|
   text.body = '*De* Academie voor Leefstijl, Sport en Vitaliteit. De opleider en trainer waar kwaliteit, kennis en passie voor het vak elkaar ontmoeten.
 
@@ -83,4 +98,10 @@ ContentPage.find_or_create_by(url: 'vorming/gems-atletiek-en-looptraining') do |
   page.title = 'Vorming GEMS Atletiek en Looptraining'
   page.menu_title = 'GEMS Atletiek en Looptraining'
   page.body = 'Inhoud voor Vorming GEMS Atletiek en Looptraining'
+end
+ContentPage.find_or_create_by(url: 'contact') do |page|
+  page.title = 'Contact'
+  page.menu_title = ''
+  page.body = 'Inhoud voor Contact'
+  page.menu_type = 0
 end

@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "\"Schott & Co \" <mailrobot@schottenco.nl>"
+  default from: "\"#{ I18n.t("company.name") }\" <mailrobot@schottenco.nl>"
   layout 'mailer'
 
   ActionMailer::Base.register_observer(::MailLoggerObserver)
