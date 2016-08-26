@@ -1,4 +1,5 @@
 <div class="header header-sticky">
+  <% cache current_user do # Cache per user, so the 'Logged in" etc. links works properly %>
   <div class="container">
     <%= link_to image_tag("schottenco_logo.svg", alt: I18n.t('company.name')), root_path, class: "logo" %>
 
@@ -28,7 +29,9 @@
       <span class="fa fa-bars"></span>
     </button>
   </div>
+  <% end %>
 
+  <% cache_unless current_user.admin? do # No cache name to make it unique per page -- needed for menu highlighting %>
   <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
     <div class="container">
       <ul class="nav navbar-nav">
@@ -39,20 +42,16 @@
         <li class="<%= 'active' if controller.controller_path == 'agenda_items' %>">
           <%= link_to "Agenda", agenda_items_path %>
         </li>
-        <li class="<%= 'active' if controller.controller_path == 'blogs' %>">
+        <li class="<%= 'active' if controller.controller_path == 'content_blogs' %>">
           <%= link_to "Blog", content_blogs_path %>
         </li>
       </ul>
     </div>
   </div>
+  <% end %>
 </div>
 
 <% unless @breadcrumbs.nil? %>
-<!-- <div class="container">
-  <ol class="breadcrumb">
-    <%= breadcrumbs %>
-  </ol>
-</div> -->
 <div class="breadcrumbs">
 	<div class="container">
 		<!-- <h1 class="pull-left"><%= yield(:title) %></h1> -->

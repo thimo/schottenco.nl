@@ -35,8 +35,10 @@
 
       <%= content_for?(:content) ? yield(:content) : yield %>
 
-      <%= render 'layouts/footer' %>
-
+      <% cache_unless current_user.admin?, "footer" do %>
+        <%= render 'layouts/footer' %>
+      <% end %>
+      
       <%= debug(params) if Rails.env.development? %>
   	</div>
   </body>

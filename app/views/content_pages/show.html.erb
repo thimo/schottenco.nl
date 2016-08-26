@@ -1,23 +1,25 @@
 <% provide(:title, @content_page.title) %>
 
-<h2><%= yield(:title) %></h2>
+<% cache_unless current_user.admin?, @content_page do %>
+  <h2><%= yield(:title) %></h2>
 
-<% if @content_page.image? %>
-<div class="mb-20">
-  <%= image_tag @content_page.image_url(:large), class: "img-responsive" %>
-</div>
-<% end %>
+  <% if @content_page.image? %>
+  <div class="mb-20">
+    <%= image_tag @content_page.image_url(:large), class: "img-responsive" %>
+  </div>
+  <% end %>
 
-<% unless @content_page.intro.blank? %>
-<div class="lead">
-  <%= markdown(@content_page.intro).html_safe %>
-</div>
-<% end %>
+  <% unless @content_page.intro.blank? %>
+  <div class="lead">
+    <%= markdown(@content_page.intro).html_safe %>
+  </div>
+  <% end %>
 
-<%= markdown(@content_page.body).html_safe %>
+  <%= markdown(@content_page.body).html_safe %>
 
-<% content_for :sidebar do %>
-  <%= render "sidebar_nav", url: @content_page.top_level_path, current_page: @content_page %>
+  <% content_for :sidebar do %>
+    <%= render "sidebar_nav", url: @content_page.top_level_path, current_page: @content_page %>
 
-  <%= render "sidebar_agenda", current_page: @content_page %>
+    <%= render "sidebar_agenda", current_page: @content_page %>
+  <% end %>
 <% end %>
