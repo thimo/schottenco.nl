@@ -6,7 +6,7 @@ class AgendaItemsController < ApplicationController
   add_breadcrumb "Agenda", :agenda_items_path
 
   def index
-    @agenda_items = AgendaItem.up_next.page params[:page]
+    @agenda_items = AgendaItem.up_next.page(params[:page])
   end
 
   def show

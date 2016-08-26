@@ -11,6 +11,7 @@ class Ability
         can :read, Registration, :user_id => user.id
       end
       can :create, Registration
+      can :create, Contact
 
       can :read, ContentPage
       can :read, ContentNewsItem

@@ -89,6 +89,12 @@ nl:
         created_at: Aangemeld op
         invoice_sent_at: Factuur
         paid_for_at: Betaald
+      contact:
+        name: Naam
+        email: E-mailadres
+        phone: Telefoonnummer
+        message: Bericht
+        created_at: Aanvraag
 
   models:
     survey_config: Test

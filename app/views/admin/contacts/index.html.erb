@@ -1,0 +1,21 @@
+<% provide(:title, "Aanvragen via contactformulier") %>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <%= label_tag_for_index Contact, :created_at %>
+      <%= label_tag_for_index Contact, :name %>
+      <%= label_tag_for_index Contact, :message %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @contacts %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginate @contacts %>
+</div>

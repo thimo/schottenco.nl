@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :content_news_items
     resources :content_newsletters
     resources :content_images
+    resources :contacts
   end
 
   get '/nieuws', to: 'content_news_items#index', as: 'content_news_items'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   get '/agenda/:id', to: 'agenda_items#show', as: 'agenda_item'
   get '/nieuwsbrief', to: 'content_newsletters#index', as: 'content_newsletters'
   get '/nieuwsbrief/:id', to: 'content_newsletters#show', as: 'content_newsletter'
+  get '/contact/formulier', to: 'contacts#new', as: 'new_contact'
+  post '/contact/formulier', to: 'contacts#create', as: 'contacts'
 
   get '/agenda/:agenda_item_id/aanmelden', to: 'registrations#new', as: 'new_agenda_item_registration'
   post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'

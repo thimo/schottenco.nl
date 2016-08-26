@@ -24,6 +24,10 @@
             <%= link_to "Gebruikers", admin_users_path %>
             <i class="fa fa-angle-right"></i>
           </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/contacts' %>">
+            <%= link_to "Contactformulier", admin_contacts_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
         </ul>
       </div>
 

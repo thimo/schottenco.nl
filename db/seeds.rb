@@ -39,6 +39,9 @@ end
 ContentText.find_or_create_by(name: 'footer_newsletter') do |text|
   text.body = 'Op de hoogte blijven? Stuur ons een mail en ontvang onze nieuwsbrief: [nieuwsbrief@schottenco.nl](mailto:nieuwsbrief@schottenco.nl).'
 end
+ContentText.find_or_create_by(name: 'contactform_intro') do |text|
+  text.body = 'Gebruik onderstaande formulier om je bericht door te geven. We nemen snel contact met je op!'
+end
 
 ContentPage.find_or_create_by(url: 'opleiding') do |page|
   page.title = 'Opleiding'

@@ -1,0 +1,16 @@
+<% provide(:title, "Nieuwe aanvraag") %>
+
+<p>
+  Hallo admin,
+</p>
+
+<p>
+  Er is een <%= link_to "nieuwe aanvraag", admin_contact_url(@contact) %> binnengekomen via het contactformulier.
+</p>
+
+<ul>
+  <li>Naam: <%= @contact.name %></li>
+  <li>E-mail: <%= @contact.email %></li>
+  <li>Telefoon: <%= @contact.phone %></li>
+  <li>Bericht: <%= @contact.message %></li>
+</ul>
