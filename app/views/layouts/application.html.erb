@@ -35,7 +35,7 @@
 
       <%= content_for?(:content) ? yield(:content) : yield %>
 
-      <% cache_unless current_user.admin?, "footer" do %>
+      <% cache_unless current_user && current_user.admin?, "footer" do %>
         <%= render 'layouts/footer' %>
       <% end %>
       

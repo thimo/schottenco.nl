@@ -31,7 +31,7 @@
   </div>
   <% end %>
 
-  <% cache_unless current_user.admin? do # No cache name to make it unique per page -- needed for menu highlighting %>
+  <% cache_unless current_user && current_user.admin? do # No cache name to make it unique per page -- needed for menu highlighting %>
   <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
     <div class="container">
       <ul class="nav navbar-nav">
