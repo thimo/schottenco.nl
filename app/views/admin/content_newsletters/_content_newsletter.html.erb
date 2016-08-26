@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= link_to content_newsletter.published_at, edit_admin_content_newsletter_path(content_newsletter) %>
+    <%= link_to content_newsletter.published_at.localtime, edit_admin_content_newsletter_path(content_newsletter) %>
   </td>
   <td>
     <%= content_newsletter.title %>

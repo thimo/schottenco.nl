@@ -2,9 +2,9 @@
 
 <p>
   <small>
-    <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(agenda_item.starts_at, format: :long) %>
+    <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
     <% unless agenda_item.ends_at.blank? %>
-      - <%= I18n.l(agenda_item.ends_at, format: :long) %>
+      - <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
     <% end %>
     <% unless agenda_item.location.nil? %>
       <i class="fa fa-map-marker mr-05 ml-10"></i><%= agenda_item.location.name %>, <%= agenda_item.location.city %>

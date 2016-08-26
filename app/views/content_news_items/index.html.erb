@@ -13,7 +13,7 @@
 	<h2><%= link_to content_news_item.title, content_news_item %></h2>
 	<div class="blog-post-tags">
 		<ul class="list-unstyled list-inline blog-info">
-			<li><i class="fa fa-calendar"></i> <%= I18n.l(content_news_item.published_at.to_date, format: :long) %></li>
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(content_news_item.published_at.localtime.to_date, format: :long) %></li>
 			<%# <li><i class="fa fa-comments"></i> <a href="#">24 Comments</a></li> %>
 		</ul>
 		<%# <ul class="list-unstyled list-inline blog-tags">

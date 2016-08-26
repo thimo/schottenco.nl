@@ -5,7 +5,7 @@
 
   <div class="blog-post-tags">
 		<ul class="list-unstyled list-inline blog-info">
-			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_blog.published_at.to_date, format: :long) %></li>
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_blog.published_at.localtime.to_date, format: :long) %></li>
       <%= content_tag :li do %>
       <i class="fa fa-pencil"></i> <%= @content_blog.user.name %>
       <% end unless @content_blog.user.nil? %>

@@ -7,7 +7,7 @@
     <% ContentNewsItem.desc.limit(8).each do |content_news_item| %>
       <li>
         <h3><%= link_to content_news_item.title, content_news_item_path(content_news_item) %></h3>
-        <small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_news_item.published_at.to_date, format: :long %></small>
+        <small><i class="fa fa-calendar-o mr-05"></i><%= I18n.l content_news_item.published_at.localtime.to_date, format: :long %></small>
         <%= markdown(content_news_item.intro).html_safe %>
       </li>
     <% end %>

@@ -12,9 +12,9 @@
 
   <p>
     Wanneer?<br />
-    <%= I18n.l(agenda_item.starts_at, format: :long) %>
+    <%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
     <% unless agenda_item.ends_at.blank? %>
-      - <%= I18n.l(agenda_item.ends_at, format: :long) %>
+      - <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
     <% end %>
   </p>
 
