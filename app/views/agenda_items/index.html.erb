@@ -47,7 +47,9 @@
 
               <% if agenda_item.image? %>
               <div class="mb-20">
+                <%= link_to agenda_item do %>
                 <%= image_tag agenda_item.image_url(:large), class: "img-responsive" %>
+                <% end %>
               </div>
               <% end %>
 

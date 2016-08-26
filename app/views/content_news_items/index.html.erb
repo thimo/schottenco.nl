@@ -29,7 +29,9 @@
 
   <% if content_news_item.image? %>
   <div class="blog-img">
-    <%= image_tag content_news_item.image_url(:large), class: "img-responsive" %>
+    <%= link_to content_news_item do %>
+      <%= image_tag content_news_item.image_url(:large), class: "img-responsive" %>
+    <% end %>
 	</div>
   <% end %>
 

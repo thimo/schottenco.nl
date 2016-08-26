@@ -32,7 +32,9 @@
 
   <% if content_blog.image? %>
   <div class="blog-img">
-    <%= image_tag content_blog.image_url(:large), class: "img-responsive" %>
+    <%= link_to content_blog do %>
+      <%= image_tag content_blog.image_url(:large), class: "img-responsive" %>
+    <% end %>
 	</div>
   <% end %>
 
