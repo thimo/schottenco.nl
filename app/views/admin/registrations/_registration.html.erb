@@ -3,7 +3,13 @@
     <%= link_to registration.name, [:admin, registration] %>
   </td>
   <td>
-    <%= I18n.l(registration.created_at, format: :long) %>
+    <%= I18n.l(registration.created_at.localtime, format: :long) %>
+  </td>
+  <td>
+    <%= I18n.l(registration.invoice_sent_at.localtime.to_date, format: :long) unless registration.invoice_sent_at.blank? %>
+  </td>
+  <td>
+    <%= I18n.l(registration.paid_for_at.localtime.to_date, format: :long) unless registration.paid_for_at.blank? %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, registration],

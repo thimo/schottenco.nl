@@ -1,0 +1,8 @@
+<div class="col-sm-offset-3">
+  <%= render 'shared/error_messages', object: f.object %>
+</div>
+
+<%= render "read_only_fields" %>
+
+<%= f.input :invoice_sent_at, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>
+<%= f.input :paid_for_at, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>

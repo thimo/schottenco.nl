@@ -1,0 +1,14 @@
+<% provide(:title, "Aanmelding aanpassen") %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= horizontal_form [:admin, @registration] do |f| %>
+  <%= render 'fields', f: f %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.button :submit, 'Bijwerken' %>
+      <%= link_to 'Annuleren', admin_agenda_item_registrations_path(@agenda_item), class: "btn-u btn-u-default" %>
+    </div>
+  </div>
+<% end %>

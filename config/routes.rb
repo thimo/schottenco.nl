@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#show'
   namespace :admin do
     resources :agenda_items, shallow: true do
-      resources :registrations, only: [:index, :show]
+      resources :registrations
     end
     resources :locations
     resources :users
