@@ -105,3 +105,7 @@ ContentPage.find_or_create_by(url: 'contact') do |page|
   page.body = 'Inhoud voor Contact'
   page.menu_type = 0
 end
+ContentPage.find_or_create_by(url: 'over-ons') do |page|
+  page.title = 'Over ons'
+  page.body = 'Inhoud voor Over ons'
+end

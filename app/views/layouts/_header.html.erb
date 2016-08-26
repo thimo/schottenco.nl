@@ -42,6 +42,9 @@
         <li class="<%= 'active' if controller.controller_path == 'agenda_items' %>">
           <%= link_to "Agenda", agenda_items_path %>
         </li>
+
+        <%= render "layouts/header_nav_for_page", url: "over-ons" %>
+
         <li class="<%= 'active' if controller.controller_path == 'content_blogs' %>">
           <%= link_to "Blog", content_blogs_path %>
         </li>
