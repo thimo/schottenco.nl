@@ -6,15 +6,15 @@
 <div class="container mb-60">
   <div class="row">
     <div class="col-md-9">
-      <h2><%= yield(:title) %></h2>
+      <!-- <h2><%= yield(:title) %></h2> -->
 
       <% if @agenda_items.count == 0 %>
-        <div class="alert alert-warning">
+        <div class="alert alert-warning mt-40">
         Er staat op dit moment niets op de agenda.
         </div>
       <% end %>
 
-      <ul class="timeline-v2">
+      <ul class="timeline-v2 mt-40">
         <% @agenda_items.each do |agenda_item| %>
           <li class="equal-height-columns">
             <div class="cbp_tmtime equal-height-column" style="height: 162px;">
