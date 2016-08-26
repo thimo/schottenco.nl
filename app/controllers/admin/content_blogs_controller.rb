@@ -1,5 +1,5 @@
 class Admin::ContentBlogsController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Blog artikelen", :admin_content_blogs_path
 
   def index

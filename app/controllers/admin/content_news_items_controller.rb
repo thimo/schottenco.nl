@@ -1,5 +1,5 @@
 class Admin::ContentNewsItemsController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Nieuwsberichten", :admin_content_news_items_path
 
   def index

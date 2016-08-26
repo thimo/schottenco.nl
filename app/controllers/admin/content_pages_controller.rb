@@ -1,5 +1,5 @@
 class Admin::ContentPagesController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Pagina's", :admin_content_pages_path
 
   def index

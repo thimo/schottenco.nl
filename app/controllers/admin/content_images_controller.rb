@@ -1,5 +1,5 @@
 class Admin::ContentImagesController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Plaatjes", :admin_content_images_path
 
   def index
