@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/weppos/breadcrumbs_on_rails.git
-  revision: 8d3ef09135d6673788c477120702076cd28670ab
+  revision: 666ae1a2ad5a3d869d6ffbb349a3d2fa1aac424c
   specs:
-    breadcrumbs_on_rails (3.0.0)
+    breadcrumbs_on_rails (3.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -49,7 +49,7 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     ansi (1.5.0)
     arel (7.1.1)
-    autoprefixer-rails (6.4.0.2)
+    autoprefixer-rails (6.4.0.3)
       execjs
     autosize-rails (1.18.17)
       rails (>= 3.1)
@@ -73,7 +73,7 @@ GEM
     byebug (9.0.5)
     callsite (0.0.11)
     cancancan (1.15.0)
-    capistrano (3.6.0)
+    capistrano (3.6.1)
       airbrussh (>= 1.0.0)
       capistrano-harrow
       i18n
@@ -284,7 +284,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
-    simple_form (3.2.1)
+    simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
     slop (3.6.0)
