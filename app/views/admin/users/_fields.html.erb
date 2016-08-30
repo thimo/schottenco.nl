@@ -11,6 +11,6 @@
 <%= f.input :address %>
 <%= f.input :zip %>
 <%= f.input :city %>
-<%= f.input :country %>
+<%= f.input :country, priority: ['NL', 'BE', 'DE'] %>
 
 <%= f.input :birthdate, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>
