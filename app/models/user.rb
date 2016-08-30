@@ -21,7 +21,7 @@ class User < ApplicationRecord
   def name=(name)
     split = name.split(' ', 2)
     self.first_name = split.first
-    self.last_name = split.second
+    self.last_name = split.last
   end
 
   def email_with_name
@@ -42,7 +42,7 @@ class User < ApplicationRecord
       )
 
     UserMailer.new_account_notification(user, generated_password).deliver_now
-    
+
     user
   end
 
