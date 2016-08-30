@@ -102,6 +102,10 @@ ContentPage.find_or_create_by(url: 'vorming/gems-atletiek-en-looptraining') do |
   page.menu_title = 'GEMS Atletiek en Looptraining'
   page.body = 'Inhoud voor Vorming GEMS Atletiek en Looptraining'
 end
+ContentPage.find_or_create_by(url: 'workshop') do |page|
+  page.title = 'Workshop'
+  page.body = 'Inhoud voor Workshop'
+end
 ContentPage.find_or_create_by(url: 'contact') do |page|
   page.title = 'Contact'
   page.menu_title = ''
