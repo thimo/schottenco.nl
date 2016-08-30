@@ -12,7 +12,9 @@
 
 <%= f.input :price, as: :currency %>
 
-<%= f.input :registration_type, as: :radio_buttons, required: false %>
+<%# f.input :registration_type, as: :radio_buttons, required: false %>
+<%= f.input :registration_type, as: :radio_buttons, required: false, collection: [:registration_disabled, :registration_internal, :registration_external] %>
+<%# f.input :registration_type, as: :radio_buttons, required: false, collection: AgendaItem.registration_types.keys %>
 <%= f.input :external_url, hint: "Vul bij externe registratie hier de URL in naar de externe informatie of registratie pagina" %>
 <%= f.association :content_page, include_blank: "Geen pagina", collection: ContentPage.asc %>
 <%= f.association :location, include_blank: "Geen locatie" %>

@@ -128,3 +128,10 @@ nl:
       first: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>'
       next: '<i class="fa fa-angle-right" aria-hidden="true"></i>'
       last: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>'
+
+  enums:
+    agenda_item:
+      registration_type:
+        registration_disabled: Uitgeschakeld
+        registration_internal: Aanmelding via eigen site
+        registration_external: Aanmelding via externe website
