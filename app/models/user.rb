@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :blogs
   has_many :email_logs, dependent: :destroy
 
-  validates_presence_of :first_name, :last_name, :email
+  validates_presence_of :name, :first_name, :last_name, :email
 
   enum user_type: {customer: 0, admin: 1}
   enum gender: {male: 0, female: 1, other: 2}

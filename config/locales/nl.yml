@@ -67,6 +67,7 @@ nl:
         first_name: Voornaam
         middle_name: Tussenvoegsels
         last_name: Achternaam
+        name: Naam
         birthdate: Geboortedatum
         email: E-mail
         phone: Telefoonnummer
