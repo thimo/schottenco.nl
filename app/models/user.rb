@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :registrations
+  has_many :bookings
   has_many :blogs
   has_many :email_logs, dependent: :destroy
 
@@ -28,17 +28,17 @@ class User < ApplicationRecord
     %("#{self.name}" <#{self.email}>)
   end
 
-  def self.create_from_registration(registration)
+  def self.create_from_booking(booking)
     generated_password = Devise.friendly_token.first(8)
     user = User.create!(
-        email: registration.email,
-        name: registration.name,
+        email: booking.email,
+        name: booking.name,
         password: generated_password,
-        phone: registration.phone,
-        address: registration.address,
-        zip: registration.zip,
-        city: registration.city,
-        country: registration.country
+        phone: booking.phone,
+        address: booking.address,
+        zip: booking.zip,
+        city: booking.city,
+        country: booking.country
       )
 
     UserMailer.new_account_notification(user, generated_password).deliver_now

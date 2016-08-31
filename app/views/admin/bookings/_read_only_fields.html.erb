@@ -13,10 +13,10 @@
 
 <%= label_tag :address, "Gegevens", class: "col-sm-3 control-label" %>
 <div class="col-sm-9 form-control-static">
-  <div><%= @registration.name %></div>
-  <div><%= mail_to @registration.email %></div>
-  <div><%= @registration.phone %></div>
-  <div class="mt-10"><%= @registration.address %></div>
-  <div><%= @registration.zip %>  <%= @registration.city %></div>
-  <div><%= country_name(@registration.country) %></div>
+  <div><%= @booking.name %></div>
+  <div><%= mail_to @booking.email %></div>
+  <div><%= @booking.phone %></div>
+  <div class="mt-10"><%= @booking.address %></div>
+  <div><%= @booking.zip %>  <%= @booking.city %></div>
+  <div><%= country_name(@booking.country) %></div>
 </div>

@@ -15,8 +15,8 @@
     <% end %>
   </td>
   <td>
-    <%# agenda_item.registrations.count if agenda_item.registrations.count > 0 %>
-    <%= link_to agenda_item.registrations.count, admin_agenda_item_registrations_path(agenda_item) if agenda_item.registrations.count > 0 %>
+    <%# agenda_item.bookings.count if agenda_item.bookings.count > 0 %>
+    <%= link_to agenda_item.bookings.count, admin_agenda_item_bookings_path(agenda_item) if agenda_item.bookings.count > 0 %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, agenda_item],

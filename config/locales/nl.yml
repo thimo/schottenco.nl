@@ -17,12 +17,12 @@ nl:
         title: Titel
         intro: Introductie
         body: Inhoud
-        registration_type: Registratie
+        booking_type: Registratie
         external_url: Externe URL
         content_page: Content pagina
         location: Locatie
         price: Prijs
-        registrations: Aanmeldingen
+        bookings: Aanmeldingen
         image: Kopfoto
       location:
         name: Naam
@@ -77,7 +77,7 @@ nl:
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord
         remember_me: Login onthouden
-      registration:
+      booking:
         name: Naam
         email: E-mailadres
         phone: Telefoonnummer
@@ -112,7 +112,7 @@ nl:
       other: enkele fouten
   enums:
     agenda_item:
-      registration_type:
+      booking_type:
         disabled: Uitgeschakeld
         internal: Interne aanmelding
         external: Externe aanmelding (via link)
@@ -131,7 +131,7 @@ nl:
 
   enums:
     agenda_item:
-      registration_type:
-        registration_disabled: Uitgeschakeld
-        registration_internal: Aanmelding via eigen site
-        registration_external: Aanmelding via externe website
+      booking_type:
+        booking_disabled: Uitgeschakeld
+        booking_internal: Aanmelding via eigen site
+        booking_external: Aanmelding via externe website

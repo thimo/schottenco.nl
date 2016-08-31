@@ -56,7 +56,7 @@ class Admin::AgendaItemsController < AdminController
   private
 
     def agenda_item_params
-      params.require(:agenda_item).permit(:starts_at, :ends_at, :title, :intro, :body, :external_url, :registration_type, :content_page_id, :location_id, :price, :image, :image_cache, :remove_image)
+      params.require(:agenda_item).permit(:starts_at, :ends_at, :title, :intro, :body, :external_url, :booking_type, :content_page_id, :location_id, :price, :image, :image_cache, :remove_image)
     end
 
     def defaults

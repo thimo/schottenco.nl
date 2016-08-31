@@ -1,14 +1,14 @@
 <% provide(:title, "#{@agenda_item.title}") %>
 
 <%= render @agenda_item do %>
-  <div id="registration-tag-box" class="tag-box tag-box-v3 mt-20 clearfix">
+  <div id="booking-tag-box" class="tag-box tag-box-v3 mt-20 clearfix">
     <%= link_to "×", @agenda_item, class: "close" %>
 
     <h2 class="title">Aanmelden</h2>
 
     <hr>
 
-    <%= horizontal_form [@agenda_item, @registration] do |f| %>
+    <%= horizontal_form [@agenda_item, @booking] do |f| %>
       <%= render 'fields', f: f %>
 
       <div class="form-actions col-sm-offset-3 col-sm-9">

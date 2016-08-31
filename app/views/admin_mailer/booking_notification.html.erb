@@ -1,0 +1,9 @@
+<% provide(:title, "Nieuwe aanmelding") %>
+
+<p>
+  Hallo admin,
+</p>
+
+<p>
+  Er is een <%= link_to "nieuwe aanmelding", admin_booking_url(@booking) %> binnengekomen van <%= @booking.name %> voor <%= @booking.agenda_item.title %>.
+</p>

@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class BookingsController < ApplicationController
   load_and_authorize_resource
   layout "application_with_sidebar"
 
@@ -6,8 +6,8 @@ class RegistrationsController < ApplicationController
   add_breadcrumb "Agenda", :agenda_items_path
 
   def new
-    @registration = Registration.new(defaults)
-    @registration.user = current_user
+    @booking = Booking.new(defaults)
+    @booking.user = current_user
     @agenda_item = AgendaItem.find(params[:agenda_item_id])
 
     add_breadcrumb @agenda_item.title, agenda_item_path(@agenda_item)
@@ -15,29 +15,29 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @registration = Registration.new(registration_params)
+    @booking = Booking.new(booking_params)
     @agenda_item = AgendaItem.find(params[:agenda_item_id])
-    @registration.agenda_item = @agenda_item
+    @booking.agenda_item = @agenda_item
     if current_user.nil?
-      user = User.find_by(email: @registration.email.downcase)
-      if user.nil? && @registration.valid?
-        user = User.create_from_registration(@registration)
+      user = User.find_by(email: @booking.email.downcase)
+      if user.nil? && @booking.valid?
+        user = User.create_from_booking(@booking)
         # sign_in(:user, user)
       end
-      @registration.user = user
+      @booking.user = user
     else
-      @registration.user = current_user
+      @booking.user = current_user
     end
 
-    if @registration.save
+    if @booking.save
       flash[:success] = 'Bedankt voor je aanmelding. We hebben ter bevestiging een e-mail gestuurd.'
-      @registration.send_confirmation_email
-      @registration.send_admin_notification_email
+      @booking.send_confirmation_email
+      @booking.send_admin_notification_email
 
       # if current_user.nil?
       redirect_to @agenda_item
       # else
-      #   redirect_to @registration
+      #   redirect_to @booking
       # end
     else
       render 'new'
@@ -45,8 +45,8 @@ class RegistrationsController < ApplicationController
   end
 
   def show
-    @registration = Registration.find(params[:id])
-    @agenda_item = @registration.agenda_item
+    @booking = Booking.find(params[:id])
+    @agenda_item = @booking.agenda_item
 
     add_breadcrumb @agenda_item.title, agenda_item_path(@agenda_item)
     add_breadcrumb "Aanmelding"
@@ -54,8 +54,8 @@ class RegistrationsController < ApplicationController
 
   private
 
-    def registration_params
-      params.require(:registration).permit(:name, :email, :address, :phone, :zip, :city, :country, :general_terms)
+    def booking_params
+      params.require(:booking).permit(:name, :email, :address, :phone, :zip, :city, :country, :general_terms)
     end
 
     def defaults

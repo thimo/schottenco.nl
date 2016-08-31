@@ -1,4 +1,4 @@
-class Registration < ApplicationRecord
+class Booking < ApplicationRecord
   belongs_to :agenda_item
   belongs_to :user
 
@@ -12,11 +12,11 @@ class Registration < ApplicationRecord
   end
 
   def send_confirmation_email
-    UserMailer.registration_confirmation(self).deliver_now
+    UserMailer.booking_confirmation(self).deliver_now
   end
 
   def send_admin_notification_email
-    AdminMailer.registration_notification(self).deliver_now
+    AdminMailer.booking_notification(self).deliver_now
   end
 
 end

@@ -7,7 +7,7 @@ one:
   intro: MyText
   body: MyText
   external_url: MyString
-  registration_type: 1
+  booking_type: 1
   content_page: one
 
 two:
@@ -17,5 +17,5 @@ two:
   intro: MyText
   body: MyText
   external_url: MyString
-  registration_type: 1
+  booking_type: 1
   content_page: two

@@ -1,0 +1,19 @@
+<tr>
+  <td>
+    <%= link_to booking.name, [:admin, booking] %>
+  </td>
+  <td>
+    <%= I18n.l(booking.created_at.localtime, format: :long) %>
+  </td>
+  <td>
+    <%= I18n.l(booking.invoice_sent_at.localtime.to_date, format: :long) unless booking.invoice_sent_at.blank? %>
+  </td>
+  <td>
+    <%= I18n.l(booking.paid_for_at.localtime.to_date, format: :long) unless booking.paid_for_at.blank? %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, booking],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

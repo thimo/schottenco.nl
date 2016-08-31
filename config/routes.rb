@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#show'
   namespace :admin do
     resources :agenda_items, shallow: true do
-      resources :registrations
+      resources :bookings
     end
     resources :locations
     resources :users
@@ -29,10 +29,10 @@ Rails.application.routes.draw do
   get '/contact/formulier', to: 'contacts#new', as: 'new_contact'
   post '/contact/formulier', to: 'contacts#create', as: 'contacts'
 
-  get '/agenda/:agenda_item_id/aanmelden', to: 'registrations#new', as: 'new_agenda_item_registration'
-  post '/agenda/:agenda_item_id/aanmelden', to: 'registrations#create', as: 'agenda_item_registrations'
+  get '/agenda/:agenda_item_id/aanmelden', to: 'bookings#new', as: 'new_agenda_item_booking'
+  post '/agenda/:agenda_item_id/aanmelden', to: 'bookings#create', as: 'agenda_item_bookings'
   # Clashes with Devise:
-  # get '/aanmelding/:id', to: 'registrations#show', as: 'registration'
+  # get '/aanmelding/:id', to: 'bookings#show', as: 'booking'
 
   # /uploads/block/image/1/default_7fd5acc8-5c06-4dcc-955e-f4fc5f76be01.jpg
   get '/uploads/:klass/:field/:id/(:version)_(:file)',

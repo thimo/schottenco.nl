@@ -41,9 +41,9 @@
     </p>
   <% end %>
 
-  <% if agenda_item.registration_internal? && params[:controller] != "registrations"  %>
+  <% if agenda_item.booking_internal? && params[:controller] != "bookings"  %>
   <p>
-    <%= link_to new_agenda_item_registration_path(agenda_item), class: "btn-u" do %>
+    <%= link_to new_agenda_item_booking_path(agenda_item), class: "btn-u" do %>
       Aanmelden <i class="fa fa-chevron-right pl-05" aria-hidden="true"></i>
     <% end %>
   </p>

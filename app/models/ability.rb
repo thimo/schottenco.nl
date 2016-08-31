@@ -8,9 +8,9 @@ class Ability
     else
       # can :read, :all
       unless user.id.nil?
-        can :read, Registration, :user_id => user.id
+        can :read, Booking, :user_id => user.id
       end
-      can :create, Registration
+      can :create, Booking
       can :create, Contact
 
       can :read, ContentPage

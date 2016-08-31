@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826111127) do
+ActiveRecord::Schema.define(version: 20160831202432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,16 +22,34 @@ ActiveRecord::Schema.define(version: 20160826111127) do
     t.text     "intro"
     t.text     "body"
     t.string   "external_url"
-    t.integer  "registration_type",                          default: 0
+    t.integer  "booking_type",                             default: 0
     t.integer  "content_page_id"
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.integer  "location_id"
-    t.decimal  "price",             precision: 10, scale: 2
+    t.decimal  "price",           precision: 10, scale: 2
     t.string   "image"
     t.index ["content_page_id"], name: "index_agenda_items_on_content_page_id", using: :btree
     t.index ["location_id"], name: "index_agenda_items_on_location_id", using: :btree
     t.index ["starts_at"], name: "index_agenda_items_on_starts_at", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "agenda_item_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.datetime "paid_for_at"
+    t.datetime "invoice_sent_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["agenda_item_id"], name: "index_bookings_on_agenda_item_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -131,24 +149,6 @@ ActiveRecord::Schema.define(version: 20160826111127) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "registrations", force: :cascade do |t|
-    t.integer  "agenda_item_id"
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "email"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "zip"
-    t.string   "city"
-    t.string   "country"
-    t.datetime "paid_for_at"
-    t.datetime "invoice_sent_at"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["agenda_item_id"], name: "index_registrations_on_agenda_item_id", using: :btree
-    t.index ["user_id"], name: "index_registrations_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -184,9 +184,9 @@ ActiveRecord::Schema.define(version: 20160826111127) do
 
   add_foreign_key "agenda_items", "content_pages"
   add_foreign_key "agenda_items", "locations"
+  add_foreign_key "bookings", "agenda_items"
+  add_foreign_key "bookings", "users"
   add_foreign_key "content_blogs", "users"
-  add_foreign_key "email_logs", "registrations"
+  add_foreign_key "email_logs", "bookings", column: "registration_id"
   add_foreign_key "email_logs", "users"
-  add_foreign_key "registrations", "agenda_items"
-  add_foreign_key "registrations", "users"
 end
