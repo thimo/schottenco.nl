@@ -9,9 +9,6 @@
     <%= markdown(content_newsletter.intro).html_safe %>
   </td>
   <td>
-    <%= markdown(content_newsletter.body).html_safe %>
-  </td>
-  <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_newsletter],
       method: :delete, title: "Verwijderen",
       data: { confirm: "Weet je het zeker?" } %>
