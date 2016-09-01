@@ -78,6 +78,7 @@ nl:
         password: Wachtwoord
         password_confirmation: Bevestig wachtwoord
         remember_me: Login onthouden
+        user_type: Rol
       booking:
         name: Naam
         email: E-mailadres
@@ -136,3 +137,7 @@ nl:
         booking_disabled: Uitgeschakeld
         booking_internal: Aanmelding via eigen site
         booking_external: Aanmelding via externe website
+    user:
+      user_type:
+        customer: Gebruiker
+        admin: Administrator
