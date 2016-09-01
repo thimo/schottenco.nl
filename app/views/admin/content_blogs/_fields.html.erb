@@ -8,7 +8,7 @@
 <%= f.input :intro %>
 <%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de tekst'.html_safe %>
 
-<%= f.input :user_id, collection: User.asc %>
+<%= f.input :user_id, collection: User.asc.admin %>
 
 <%= f.input :image, as: :file, hint: "Foto wordt groot bovenaan de pagina getoond. Tip: 1.000 tot 2.000 pixels breed, beperk de hoogte" %>
 <% if f.object.image? %>

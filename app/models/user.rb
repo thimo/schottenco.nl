@@ -12,6 +12,7 @@ class User < ApplicationRecord
   enum gender: {male: 0, female: 1, other: 2}
 
   scope :asc, -> {order(first_name: :asc)}
+  scope :admin, -> {where(user_type: :admin)}
 
   def name
     "#{first_name} #{middle_name} #{last_name}".squish
