@@ -44,7 +44,7 @@ gem 'cancancan'
 gem 'rolify',                     '>= 5.0.0'
 # gem 'bootstrap3_autocomplete_input'
 # gem 'deep_cloneable',             '>= 2.2.0'
-gem 'redcarpet',                  '>= 3.3.4' # Markdown parser
+gem 'kramdown'                     # Markdown parser
 # gem 'comfortable_mexican_sofa', '~> 1.12.9'
 
 group :development, :test do
