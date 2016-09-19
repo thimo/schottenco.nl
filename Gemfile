@@ -33,8 +33,7 @@ gem 'country_select'
 gem 'enum_help',                  '>= 0.0.14'
 gem 'modernizr-rails',            '>= 2.7.1'
 # gem 'roo'
-# gem 'breadcrumbs_on_rails',       '>= 3.0.0'   # Breadcrumbs in admin
-gem 'breadcrumbs_on_rails',       git: 'https://github.com/weppos/breadcrumbs_on_rails.git'
+gem 'breadcrumbs_on_rails',       '>= 3.0.1'   # Breadcrumbs in admin
 gem 'net-ssh',                    '>= 3.0.2'
 gem 'figaro',                     '>= 1.1.1'
 gem 'autosize-rails',             '>= 1.18.17' # Auto-resize textarea's
