@@ -3,6 +3,7 @@ menu_item = ContentPage.find_by(url: url)
 menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
 %>
 
+<% unless menu_item.blank? %>
 <div class="mb-20">
   <div class="headline">
     <h2 class="heading-sm">
@@ -18,3 +19,4 @@ menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: Cont
     <% end %>
   </ul>
 </div>
+<% end %>
