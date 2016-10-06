@@ -5,14 +5,16 @@
 
     <div class="topbar">
       <ul class="loginbar pull-right">
+        <li><a href="/over-ons">Over ons</a></li>
+        <li class="topbar-devider"></li>
         <li><%= link_to "Bel me terug", new_contact_path %></li>
         <li class="topbar-devider"></li>
         <li><a href="/contact">Contact</a></li>
         <li class="topbar-devider"></li>
-        <li>
-          <%= link_to "Nieuwsbrief", content_newsletters_path %>
-        </li>
-        <li class="topbar-devider"></li>
+        <!-- <li> -->
+          <!-- <%= link_to "Nieuwsbrief", content_newsletters_path %> -->
+        <!-- </li> -->
+        <!-- <li class="topbar-devider"></li> -->
         <li>
           <%= link_to "Inloggen", new_user_session_path unless user_signed_in? %>
           <%= link_to "Uitloggen", destroy_user_session_path,  method: :delete if user_signed_in? %>
