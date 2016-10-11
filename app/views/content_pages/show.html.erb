@@ -1,6 +1,6 @@
 <% provide(:title, @content_page.title) %>
 
-<% cache_unless current_user && current_user.admin?, @content_page do %>
+<%# cache_unless current_user && current_user.admin?, @content_page do %>
   <h2><%= yield(:title) %></h2>
 
   <% if @content_page.image? %>
@@ -22,4 +22,4 @@
 
     <%= render "sidebar_agenda", current_page: @content_page %>
   <% end %>
-<% end %>
+<%# end %>
