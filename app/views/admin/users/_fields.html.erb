@@ -1,0 +1,18 @@
+<div class="col-sm-offset-3">
+  <%= render 'shared/error_messages', object: f.object %>
+</div>
+
+<%= f.input :first_name %>
+<%= f.input :middle_name %>
+<%= f.input :last_name %>
+
+<%= f.input :email %>
+<%= f.input :phone %>
+<%= f.input :address %>
+<%= f.input :zip %>
+<%= f.input :city %>
+<%= f.input :country, priority: ['NL', 'BE', 'DE'] %>
+
+<%= f.input :birthdate, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>
+
+<%= f.input :user_type, as: :radio_buttons, required: false %>

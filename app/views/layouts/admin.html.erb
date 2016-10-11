@@ -1,8 +1,3 @@
-<!-- <% content_for :stylesheets do %>
-  #top_menu {display: none}
-  #right_menu {float: right; background-color: yellow; color: black}
-<% end %> -->
-
 <% content_for :content do %>
 <div class="container mb-60">
   <div class="row">
@@ -13,32 +8,63 @@
     <div class="col-md-3">
       <div class="posts margin-bottom-40 footer-v2">
         <div class="headline headline-md">
+          <h2>Admin</h2>
+        </div>
+
+        <ul class="list-unstyled link-list">
+          <li class="<%= 'active' if controller.controller_path == 'admin/agenda_items' %>">
+            <%= link_to "Agenda", admin_agenda_items_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/locations' %>">
+            <%= link_to "Locaties", admin_locations_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/users' %>">
+            <%= link_to "Gebruikers", admin_users_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/contacts' %>">
+            <%= link_to "Contactformulier", admin_contacts_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+        </ul>
+      </div>
+
+      <div class="posts margin-bottom-40 footer-v2">
+        <div class="headline headline-md">
           <h2>Content</h2>
         </div>
 
         <ul class="list-unstyled link-list">
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_texts' %>">
             <%= link_to "Teksten", admin_content_texts_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_pages' %>">
             <%= link_to "Pagina's", admin_content_pages_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_images' %>">
+            <%= link_to "Plaatjes", admin_content_images_path %>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_blogs' %>">
             <%= link_to "Blog artikelen", admin_content_blogs_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_news_items' %>">
             <%= link_to "Nieuwsberichten", admin_content_news_items_path %>
             <i class="fa fa-angle-right"></i>
           </li>
-          <li>
+          <li class="<%= 'active' if controller.controller_path == 'admin/content_newsletters' %>">
             <%= link_to "Nieuwsbrieven", admin_content_newsletters_path %>
             <i class="fa fa-angle-right"></i>
           </li>
         </ul>
       </div>
+
+      <%= yield(:sidebar) %>
     </div>
   </div>
 </div>

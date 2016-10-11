@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
+lock '3.6.1'
 
-set :repo_url, 'git@bitbucket.org:thimo/schottenco.git'
+set :repo_url, 'git@gitlab.com:schottenco/schottenco.git'
 # set :branch, :master
 # set :deploy_to, '/home/thimo/vivoforto_portal'
 set :pty, true

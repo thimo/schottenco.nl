@@ -1,15 +1,12 @@
 <tr>
   <td>
-    <%= link_to content_newsletter.published_at, [:admin, content_newsletter] %>
+    <%= link_to content_newsletter.published_at.localtime, edit_admin_content_newsletter_path(content_newsletter) %>
   </td>
   <td>
     <%= content_newsletter.title %>
   </td>
   <td>
     <%= markdown(content_newsletter.intro).html_safe %>
-  </td>
-  <td>
-    <%= markdown(content_newsletter.body).html_safe %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_newsletter],

@@ -1,0 +1,7 @@
+Hallo <%= @booking.name %>,
+
+Bedankt voor je aanmelding voor <%= @booking.agenda_item.title %>.
+
+Hallo admin,
+
+Er is een nieuwe aanmelding (<%= admin_booking_url(@booking) %>) binnengekomen van <%= @booking.name %> voor <%= @booking.agenda_item.title %>.

@@ -1,0 +1,32 @@
+<% provide(:title, "Aanvraag via contactformulier") %>
+
+<h1>
+  <%= yield(:title) %>
+</h1>
+
+<div class="row form-horizontal">
+  <%= label_tag_for_show @contact, :created_at %>
+  <p class="col-sm-9 form-control-static">
+    <%= I18n.l(@contact.created_at, format: :long) %>
+  </p>
+
+  <%= label_tag_for_show @contact, :name %>
+  <p class="col-sm-9 form-control-static">
+    <%= @contact.name %>
+  </p>
+
+  <%= label_tag_for_show @contact, :email %>
+  <p class="col-sm-9 form-control-static">
+    <%= @contact.email %>
+  </p>
+
+  <%= label_tag_for_show @contact, :phone %>
+  <p class="col-sm-9 form-control-static">
+    <%= @contact.phone %>
+  </p>
+
+  <%= label_tag_for_show @contact, :message %>
+  <p class="col-sm-9 form-control-static">
+    <%= @contact.message %>
+  </p>
+</div>

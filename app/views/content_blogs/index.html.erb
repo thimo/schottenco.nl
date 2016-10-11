@@ -1,0 +1,54 @@
+<% provide(:title, "Blog") %>
+
+<% if @content_blogs.count == 0 %>
+  <div class="alert alert-warning mt-40">
+  Er staan op dit moment geen blogs klaar.
+  </div>
+<% end %>
+
+<% @content_blogs.each do |content_blog| %>
+<div class="blog margin-bottom-40">
+	<h2><%= link_to content_blog.title, content_blog %></h2>
+	<div class="blog-post-tags">
+		<ul class="list-unstyled list-inline blog-info">
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(content_blog.published_at.localtime.to_date, format: :long) %></li>
+      <%= content_tag :li do %>
+      <i class="fa fa-pencil"></i> <%= content_blog.user.name %>
+      <% end unless content_blog.user.nil? %>
+			<%# <li><i class="fa fa-comments"></i> <a href="#">24 Comments</a></li> %>
+		</ul>
+		<%# <ul class="list-unstyled list-inline blog-tags">
+			<li>
+				<i class="fa fa-tags"></i>
+				<a href="#">Technology</a>
+				<a href="#">Education</a>
+				<a href="#">Internet</a>
+				<a href="#">Media</a>
+			</li>
+		</ul> %>
+	</div>
+
+  <% if content_blog.image? %>
+  <div class="blog-img">
+    <%= link_to content_blog do %>
+      <%= image_tag content_blog.image_url(:large), class: "img-responsive" %>
+    <% end %>
+	</div>
+  <% end %>
+
+  <span>
+  <%= text = content_blog.intro
+  text = truncate(content_blog.body, :length => 360,  :separator => ' ') if text.blank?
+  markdown(text).html_safe
+  %>
+  </span>
+
+  <!-- <div class="text-right"> -->
+  <%= link_to 'Lees meer <i class="ml-05 fa fa-chevron-right"></i>'.html_safe, content_blog , class: "btn-u" %>
+  <!-- </div> -->
+</div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @content_blogs %>
+</div>

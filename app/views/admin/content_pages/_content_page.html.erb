@@ -1,6 +1,11 @@
 <tr>
   <td>
-    <%= link_to content_page.url, [:admin, content_page] %>
+    <% if content_page.menu_visible? %>
+    <i class="fa fa-list"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to content_page.url, edit_admin_content_page_path(content_page) %>
   </td>
   <td>
     <%= content_page.title %>
@@ -8,12 +13,13 @@
   <td>
     <%= markdown(content_page.intro).html_safe %>
   </td>
-  <td>
-    <%= markdown(content_page.body).html_safe %>
-  </td>
+  <!-- <td>
+    <%# markdown(content_page.body).html_safe %>
+  </td> -->
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_page],
       method: :delete, title: "Verwijderen",
-      data: { confirm: "Weet je het zeker?" } %>
+      data: { confirm: "Weet je het zeker?" },
+      class: 'ml-10' %>
   </td>
 </tr>

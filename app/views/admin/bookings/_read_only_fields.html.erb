@@ -1,0 +1,22 @@
+<%= label_tag_for_show @agenda_item, :date %>
+<p class="col-sm-9 form-control-static">
+  <%= @agenda_item.starts_at %>
+  <% unless @agenda_item.ends_at.blank? %>
+    - <%= @agenda_item.ends_at %>
+  <% end %>
+</p>
+
+<%= label_tag_for_show @agenda_item, :title %>
+<p class="col-sm-9 form-control-static">
+  <%= @agenda_item.title %>
+</p>
+
+<%= label_tag :address, "Gegevens", class: "col-sm-3 control-label" %>
+<div class="col-sm-9 form-control-static">
+  <div><%= @booking.name %></div>
+  <div><%= mail_to @booking.email %></div>
+  <div><%= @booking.phone %></div>
+  <div class="mt-10"><%= @booking.address %></div>
+  <div><%= @booking.zip %>  <%= @booking.city %></div>
+  <div><%= country_name(@booking.country) %></div>
+</div>

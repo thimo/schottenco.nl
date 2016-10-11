@@ -9,7 +9,7 @@
   	<meta charset="utf-8">
 
     <meta name="description" content="<%= full_title(yield(:title)) %>">
-    <meta name="author" content="Schott & Co">
+    <meta name="author" content="<%= I18n.t('company.name') %>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<%= image_url "favicon.ico" %>">
 
@@ -18,58 +18,28 @@
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag :modernizr %>
-    <%= javascript_include_tag :jquery %>
-
-  	<link rel="stylesheet" href="/plugins/parallax-slider/css/parallax-slider.css">
-  	<link rel="stylesheet" href="/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="header-fixed header-fixed-space-default">
-  <% unless Rails.env.production? %>
-    <div style="padding: 4px; background-color: #E51A55; color: white; text-align: center;">
-      -= <%= Rails.env %> =-
-    </div>
-  <% end %>
+    <% unless Rails.env.production? || Rails.env.development? %>
+      <div style="padding: 4px; background-color: #E51A55; color: white; text-align: center;">
+        -= <%= Rails.env %> =-
+      </div>
+    <% end %>
 
-	<div class="wrapper">
-    <%= render 'layouts/header' %>
+  	<div class="wrapper">
+      <%= render 'layouts/header' %>
 
-    <!-- TODO niet zichtbaar als breadcrumb leeg -->
-    <!-- <div class="container">
-      <ol class="breadcrumb">
-        <%= render_breadcrumbs :tag => :li, :separator => "" %>
-      </ol>
-    </div> -->
+      <%= render 'layouts/flash' %>
 
-    <%= render 'layouts/flash' %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
 
-    <%= content_for?(:content) ? yield(:content) : yield %>
+      <%# cache_unless current_user && current_user.admin?, "footer" do %>
+        <%= render 'layouts/footer' %>
+      <%# end %>
 
-    <%= render 'layouts/footer' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%= debug(params) if Rails.env.development? %>
-	</div>
-
-	<!-- JS Implementing Plugins -->
-	<script type="text/javascript" src="/plugins/back-to-top.js"></script>
-	<script type="text/javascript" src="/plugins/smoothScroll.js"></script>
-	<script type="text/javascript" src="/plugins/parallax-slider/js/jquery.cslider.js"></script>
-	<script type="text/javascript" src="/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
-	<!-- JS Customization -->
-	<script type="text/javascript" src="/js/custom.js"></script>
-	<!-- JS Page Level -->
-	<script type="text/javascript" src="/js/app.js"></script>
-	<script type="text/javascript" src="/js/plugins/owl-carousel.js"></script>
-	<script type="text/javascript" src="/js/plugins/parallax-slider.js"></script>
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-			OwlCarousel.initOwlCarousel();
-			ParallaxSlider.initParallaxSlider();
-		});
-	</script>
-</body>
+      <%= debug(params) if Rails.env.development? %>
+  	</div>
+  </body>
 </html>

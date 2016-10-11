@@ -1,0 +1,53 @@
+<div class="posts margin-bottom-40 footer-v2">
+  <div class="headline">
+    <h2>
+      Samengevat
+    </h2>
+  </div>
+
+  <p>
+    Wat?<br />
+    <%= agenda_item.title %>
+  </p>
+
+  <p>
+    Wanneer?<br />
+    <%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
+    <% unless agenda_item.ends_at.blank? %>
+      - <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
+    <% end %>
+  </p>
+
+  <% unless agenda_item.location.nil? %>
+  <p>
+    Waar?<br />
+    <%= agenda_item.location.name %>, <%= agenda_item.location.city %>
+  </p>
+  <% end %>
+
+  <% unless agenda_item.price.nil? %>
+  <p>
+    Kosten?<br />
+    <%= number_to_currency agenda_item.price %>
+  </p>
+  <% end %>
+
+
+  <% unless agenda_item.content_page.nil? && agenda_item.external_url.blank? %>
+    <p>
+      Meer info?<br />
+      <%= link_to agenda_item.content_page.title, "/#{agenda_item.content_page.url}" unless agenda_item.content_page.nil? %>
+      <%= link_to "Meer info of aanmelden", agenda_item.external_url, target: "_blank" unless agenda_item.external_url.blank? %>
+    </p>
+  <% end %>
+
+  <% if agenda_item.booking_internal? && params[:controller] != "bookings"  %>
+  <p>
+    <%= link_to new_agenda_item_booking_path(agenda_item), class: "btn-u" do %>
+      Aanmelden <i class="fa fa-chevron-right pl-05" aria-hidden="true"></i>
+    <% end %>
+  </p>
+  <% end %>
+
+
+</div>

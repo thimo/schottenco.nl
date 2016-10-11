@@ -1,0 +1,24 @@
+<% provide(:title, "Aanmelding voor #{@agenda_item.title}") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_booking_path(@booking), class: "btn-u btn-u-default", title: "Aanpassen" %>
+</div>
+
+<h1>
+  <%= yield(:title) %>
+</h1>
+
+<div class="row form-horizontal">
+  <%= render "read_only_fields" %>
+
+  <%= label_tag_for_show @booking, :invoice_sent_at %>
+  <p class="col-sm-9 form-control-static">
+    <%= I18n.l(@booking.invoice_sent_at.localtime, format: :long) unless @booking.invoice_sent_at.nil? %>
+  </p>
+
+  <%= label_tag_for_show @booking, :paid_for_at %>
+  <p class="col-sm-9 form-control-static">
+    <%= I18n.l(@booking.paid_for_at.localtime, format: :long) unless @booking.paid_for_at.nil? %>
+  </p>
+
+</div>

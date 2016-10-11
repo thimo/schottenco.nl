@@ -28,7 +28,15 @@
  @import "theme/header-default";
  @import "theme/footer-v2";
  @import "theme/page_log_reg_v1";
+ @import "theme/shortcode_timeline2";
  @import "theme/blue";
  @import "theme/animate";
+ @import "theme/blog";
+
+ @import "plugins/rs-plugin/settings";
+ @import "plugins/rs-plugin/slideshow";
+
+
+ // @import "slideshow";
 
  @import "custom";

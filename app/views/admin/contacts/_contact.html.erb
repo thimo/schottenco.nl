@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= link_to I18n.l(contact.created_at.localtime, format: :long), [:admin, contact] %>
+  </td>
+  <td>
+    <%= contact.name %>
+  </td>
+  <td>
+    <%= contact.message %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, contact],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

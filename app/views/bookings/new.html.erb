@@ -1,0 +1,26 @@
+<% provide(:title, "#{@agenda_item.title}") %>
+
+<%= render @agenda_item do %>
+  <div id="booking-tag-box" class="tag-box tag-box-v3 mt-20 clearfix">
+    <%= link_to "×", @agenda_item, class: "close" %>
+
+    <h2 class="title">Aanmelden</h2>
+
+    <hr>
+
+    <%= horizontal_form [@agenda_item, @booking] do |f| %>
+      <%= render 'fields', f: f %>
+
+      <div class="form-actions col-sm-offset-3 col-sm-9">
+        <%= f.button :button do %>
+          Aanmelden <i class="fa fa-chevron-right pl-05" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to 'Annuleren', @agenda_item, class: "btn-u btn-u-default" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "agenda_items/sidebar", agenda_item: @agenda_item %>
+<% end %>

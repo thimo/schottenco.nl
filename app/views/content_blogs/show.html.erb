@@ -1,0 +1,42 @@
+<% provide(:title, @content_blog.title) %>
+
+<div class="blog margin-bottom-40">
+	<h2><%= yield(:title) %></h2>
+
+  <div class="blog-post-tags">
+		<ul class="list-unstyled list-inline blog-info">
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_blog.published_at.localtime.to_date, format: :long) %></li>
+      <%= content_tag :li do %>
+      <i class="fa fa-pencil"></i> <%= @content_blog.user.name %>
+      <% end unless @content_blog.user.nil? %>
+		</ul>
+		<%# <ul class="list-unstyled list-inline blog-tags">
+			<li>
+				<i class="fa fa-tags"></i>
+				<a href="#">Technology</a>
+				<a href="#">Education</a>
+				<a href="#">Internet</a>
+				<a href="#">Media</a>
+			</li>
+		</ul> %>
+	</div>
+
+  <% if @content_blog.image? %>
+  <div class="blog-img">
+    <%= image_tag @content_blog.image_url(:large), class: "img-responsive" %>
+	</div>
+  <% end %>
+
+  <% unless @content_blog.intro.blank? %>
+  <div class="lead">
+    <%= markdown(@content_blog.intro).html_safe %>
+  </div>
+  <% end %>
+
+  <%= markdown(@content_blog.body).html_safe %>
+
+</div>
+
+<% content_for :sidebar do %>
+  <%= render "sidebar_recent" %>
+<% end %>

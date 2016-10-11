@@ -1,15 +1,15 @@
 class Admin::ContentPagesController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Pagina's", :admin_content_pages_path
 
   def index
-    @content_pages = ContentPage.all.order(:url)
+    @content_pages = ContentPage.asc
   end
 
   def show
     @content_page = ContentPage.find(params[:id])
 
-    add_breadcrumb @content_page.name
+    add_breadcrumb @content_page.url
   end
 
   def new
@@ -23,7 +23,7 @@ class Admin::ContentPagesController < AdminController
 
     if @content_page.save
       flash[:success] = 'Pagina is aangemaakt.'
-      redirect_to [:admin, @content_page]
+      redirect_to admin_content_pages_path
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class Admin::ContentPagesController < AdminController
   def edit
     @content_page = ContentPage.find(params[:id])
 
-    add_breadcrumb @content_page.name
+    add_breadcrumb @content_page.url
   end
 
   def update
@@ -40,7 +40,7 @@ class Admin::ContentPagesController < AdminController
 
     if @content_page.update_attributes(content_page_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_page]
+      redirect_to admin_content_pages_path
     else
       render 'edit'
     end
@@ -49,14 +49,14 @@ class Admin::ContentPagesController < AdminController
   def destroy
     @content_page = ContentPage.find(params[:id])
 
-    flash[:success] = "Pagina \"#{@content_page.name}\" verwijderd."
+    flash[:success] = "Pagina is verwijderd."
     @content_page.destroy
-    redirect_to admin_content_pages_url
+    redirect_to admin_content_pages_path
   end
 
   private
 
     def content_page_params
-      params.require(:content_page).permit(:name, :title, :body)
+      params.require(:content_page).permit(:url, :title, :menu_type, :menu_title, :intro, :body, :image, :image_cache, :remove_image)
     end
 end

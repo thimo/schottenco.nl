@@ -1,0 +1,23 @@
+<% provide(:title, "Agenda") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_admin_agenda_item_path, class: "btn-u btn-u-default", title: "Agenda item toevoegen" %>
+</div>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <%= label_tag_for_index AgendaItem, :date %>
+      <%= label_tag_for_index AgendaItem, :title %>
+      <%= label_tag_for_index AgendaItem, :price %>
+      <%= label_tag_for_index AgendaItem, :location %>
+      <%= label_tag_for_index AgendaItem, :bookings %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @agenda_items %>
+  </tbody>
+</table>

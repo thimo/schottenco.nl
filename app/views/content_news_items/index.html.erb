@@ -1,0 +1,53 @@
+<% provide(:title, "Nieuws") %>
+
+<!-- <h2><%= yield(:title) %></h2> -->
+
+<% if @content_news_items.count == 0 %>
+  <div class="alert alert-warning">
+  Er staat op dit moment geen nieuws klaar.
+  </div>
+<% end %>
+
+<% @content_news_items.each do |content_news_item| %>
+<div class="blog margin-bottom-40">
+	<h2><%= link_to content_news_item.title, content_news_item %></h2>
+	<div class="blog-post-tags">
+		<ul class="list-unstyled list-inline blog-info">
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(content_news_item.published_at.localtime.to_date, format: :long) %></li>
+			<%# <li><i class="fa fa-comments"></i> <a href="#">24 Comments</a></li> %>
+		</ul>
+		<%# <ul class="list-unstyled list-inline blog-tags">
+			<li>
+				<i class="fa fa-tags"></i>
+				<a href="#">Technology</a>
+				<a href="#">Education</a>
+				<a href="#">Internet</a>
+				<a href="#">Media</a>
+			</li>
+		</ul> %>
+	</div>
+
+  <% if content_news_item.image? %>
+  <div class="blog-img">
+    <%= link_to content_news_item do %>
+      <%= image_tag content_news_item.image_url(:large), class: "img-responsive" %>
+    <% end %>
+	</div>
+  <% end %>
+
+  <span>
+  <%= text = content_news_item.intro
+  text = truncate(content_news_item.body, :length => 360,  :separator => ' ') if text.blank?
+  markdown(text).html_safe
+  %>
+  </span>
+
+  <!-- <div class="text-right"> -->
+  <%= link_to 'Lees meer <i class="ml-05 fa fa-chevron-right"></i>'.html_safe, content_news_item , class: "btn-u" %>
+  <!-- </div> -->
+</div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @content_news_items %>
+</div>

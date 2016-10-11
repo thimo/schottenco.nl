@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <%= agenda_item.starts_at %>
+    <%= " - #{agenda_item.ends_at}" unless agenda_item.ends_at.blank? %>
+  </td>
+  <td>
+    <%= link_to agenda_item.title, edit_admin_agenda_item_path(agenda_item) %>
+  </td>
+  <td>
+    <%= number_to_currency(agenda_item.price) %>
+  </td>
+  <td>
+    <% unless agenda_item.location.nil? %>
+    <%= agenda_item.location.name %>, <%= agenda_item.location.city %>
+    <% end %>
+  </td>
+  <td>
+    <%# agenda_item.bookings.count if agenda_item.bookings.count > 0 %>
+    <%= link_to agenda_item.bookings.count, admin_agenda_item_bookings_path(agenda_item) if agenda_item.bookings.count > 0 %>
+  </td>
+  <td>
+    <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, agenda_item],
+      method: :delete, title: "Verwijderen",
+      data: { confirm: "Weet je het zeker?" } %>
+  </td>
+</tr>

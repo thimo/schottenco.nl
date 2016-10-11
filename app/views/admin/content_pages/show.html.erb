@@ -1,4 +1,4 @@
-<% provide(:title, "Pagina #{@content_page.name}") %>
+<% provide(:title, "Pagina #{@content_page.url}") %>
 
 <div class="action_bar_right">
   <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_page_path(@content_page), class: "btn-u btn-u-default", title: "Aanpassen" %>
@@ -9,9 +9,9 @@
 </h1>
 
 <div class="row form-horizontal">
-  <label class="col-sm-3 control-label">Naam</label>
+  <label class="col-sm-3 control-label">URL</label>
   <p class="col-sm-9 form-control-static">
-    <%= @content_page.name %>
+    <%= @content_page.url %>
   </p>
 
   <label class="col-sm-3 control-label">Titel</label>
@@ -19,8 +19,44 @@
     <%= @content_page.title %>
   </p>
 
+  <% unless @content_page.menu_title.blank? %>
+  <label class="col-sm-3 control-label">Titel in menu</label>
+  <p class="col-sm-9 form-control-static">
+    <%= @content_page.menu_title %>
+  </p>
+  <% end %>
+
+  <% unless @content_page.intro.blank? %>
+  <label class="col-sm-3 control-label">Inleiding</label>
+  <div class="col-sm-9 form-control-static">
+    <%= markdown(@content_page.intro).html_safe %>
+  </div>
+  <% end %>
+
   <label class="col-sm-3 control-label">Inhoud</label>
   <div class="col-sm-9 form-control-static">
     <%= markdown(@content_page.body).html_safe %>
   </div>
 </div>
+
+<% content_for :sidebar do %>
+<div class="posts margin-bottom-40 footer-v2">
+  <div class="headline headline-md">
+    <h2>Plaatjes</h2>
+  </div>
+
+  <p><%= link_to "Toevoegen", new_admin_content_image_path(imageable_id: @content_page.id, imageable_type: @content_page.class.name), class: "btn-u btn-u-default" %></p>
+
+  <ul class="list-unstyled blog-latest-posts">
+    <% @content_page.content_images.each do |content_image| %>
+      <li>
+        <%= link_to content_image.image_url(:large).to_s, target: "_blank" do %>
+          <%= image_tag content_image.image_url(:thumb200).to_s %>
+          <div><%= content_image.name %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
+<% end %>

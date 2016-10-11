@@ -1,4 +1,4 @@
-<% provide(:title, "Nieuwsbericht #{@content_news_item.name}") %>
+<% provide(:title, "Nieuwsbericht #{@content_news_item.title}") %>
 
 <div class="action_bar_right">
   <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_content_news_item_path(@content_news_item), class: "btn-u btn-u-default", title: "Aanpassen" %>
@@ -9,9 +9,9 @@
 </h1>
 
 <div class="row form-horizontal">
-  <label class="col-sm-3 control-label">Naam</label>
+  <label class="col-sm-3 control-label">Datum</label>
   <p class="col-sm-9 form-control-static">
-    <%= @content_news_item.name %>
+    <%= @content_news_item.published_at %>
   </p>
 
   <label class="col-sm-3 control-label">Titel</label>

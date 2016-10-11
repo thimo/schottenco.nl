@@ -1,0 +1,10 @@
+<%= f.input :image, as: :file, hint: "Foto wordt groot bovenaan de pagina getoond. Tip: beperk de hoogte van de foto" %>
+<% if f.object.image? %>
+<div class="form-group">
+  <div class="col-sm-offset-3 col-sm-9">
+    <%= image_tag f.object.image_url(:thumb200) %>
+  </div>
+</div>
+<%= f.input :remove_image, as: :boolean, label: "Foto verwijderen" %>
+<% end %>
+<%= f.hidden_field :image_cache %>

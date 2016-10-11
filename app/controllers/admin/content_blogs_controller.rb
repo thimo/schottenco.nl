@@ -1,15 +1,15 @@
 class Admin::ContentBlogsController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Blog artikelen", :admin_content_blogs_path
 
   def index
-    @content_blogs = ContentBlog.all.order(:published_at)
+    @content_blogs = ContentBlog.desc
   end
 
   def show
     @content_blog = ContentBlog.find(params[:id])
 
-    add_breadcrumb @content_blog.name
+    add_breadcrumb @content_blog.title
   end
 
   def new
@@ -23,7 +23,7 @@ class Admin::ContentBlogsController < AdminController
 
     if @content_blog.save
       flash[:success] = 'Blog artikel is aangemaakt.'
-      redirect_to [:admin, @content_blog]
+      redirect_to admin_content_blogs_path
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class Admin::ContentBlogsController < AdminController
   def edit
     @content_blog = ContentBlog.find(params[:id])
 
-    add_breadcrumb @content_blog.name
+    add_breadcrumb @content_blog.title
   end
 
   def update
@@ -40,7 +40,7 @@ class Admin::ContentBlogsController < AdminController
 
     if @content_blog.update_attributes(content_blog_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_blog]
+      redirect_to admin_content_blogs_path
     else
       render 'edit'
     end
@@ -49,18 +49,18 @@ class Admin::ContentBlogsController < AdminController
   def destroy
     @content_blog = ContentBlog.find(params[:id])
 
-    flash[:success] = "Blog artikel \"#{@content_blog.name}\" verwijderd."
+    flash[:success] = "Blog artikel is verwijderd."
     @content_blog.destroy
-    redirect_to admin_content_blogs_url
+    redirect_to admin_content_blogs_path
   end
 
   private
 
     def content_blog_params
-      params.require(:content_blog).permit(:name, :title, :body)
+      params.require(:content_blog).permit(:published_at, :title, :intro, :body, :user_id, :image, :image_cache, :remove_image)
     end
 
     def defaults
-      {published_at: Time.zone.now}
+      {published_at: Time.zone.now, user_id: current_user.id}
     end
 end

@@ -25,6 +25,10 @@
   margin-top: 0px;
 }
 
+li.active {
+  font-weight: bold;
+}
+
 // Extra alert CSS to support Devise
 .alert-alert {
   background-color: #f2dede;
@@ -67,6 +71,11 @@
   }
 }
 
+input.form-control[type=radio] {
+  height: inherit;
+  width: inherit;
+}
+
 // Admin
 
 .action_bar_right {
@@ -83,12 +92,9 @@
   padding-top: 10px;
 }
 
-// .action_bar_right, .action_bar_left {
-//   .btn-default {
-//     border-width: 1px;
-//     border-style: solid;
-//   }
-// }
+h4 a {
+  color: #555;
+}
 
 // Spaces
 

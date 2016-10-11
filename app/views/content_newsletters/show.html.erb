@@ -1,0 +1,39 @@
+<% provide(:title, @content_newsletter.title) %>
+
+<div class="blog margin-bottom-40">
+	<h2><%= yield(:title) %></h2>
+
+  <div class="blog-post-tags">
+		<ul class="list-unstyled list-inline blog-info">
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(@content_newsletter.published_at.localtime.to_date, format: :long) %></li>
+		</ul>
+		<%# <ul class="list-unstyled list-inline blog-tags">
+			<li>
+				<i class="fa fa-tags"></i>
+				<a href="#">Technology</a>
+				<a href="#">Education</a>
+				<a href="#">Internet</a>
+				<a href="#">Media</a>
+			</li>
+		</ul> %>
+	</div>
+
+  <% if @content_newsletter.image? %>
+  <div class="blog-img">
+    <%= image_tag @content_newsletter.image_url(:large), class: "img-responsive" %>
+	</div>
+  <% end %>
+
+  <% unless @content_newsletter.intro.blank? %>
+  <div class="lead">
+    <%= markdown(@content_newsletter.intro).html_safe %>
+  </div>
+  <% end %>
+
+  <%= markdown(@content_newsletter.body).html_safe %>
+
+</div>
+
+<% content_for :sidebar do %>
+  <%= render "sidebar_recent" %>
+<% end %>

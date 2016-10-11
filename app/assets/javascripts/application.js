@@ -11,6 +11,8 @@
 // about supported directives.
 //
 // require jquery.ui.sortable
+//= require modernizr
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-datepicker/core
@@ -23,8 +25,9 @@
 // require bootstrap-toggle
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function (){
   $('textarea').autosize();
+
   if ($('.has-error').length > 0) {
     var fieldTypes = ".has-error input[type=text], .has-error input[type=email], .has-error input[type=number], .has-error textarea";
     $(fieldTypes).first().focus().select();
@@ -32,4 +35,11 @@ $(document).ready(function(){
     var fieldTypes = "form input[type=text], form input[type=email], form input[type=number], form input[type=url], form textarea";
     $(fieldTypes).filter("[data-provide!=datepicker]").first().focus().select();
   }
+
+  if ($('#registration-tag-box').length > 0) {
+    // debugger;
+    // jQuery.scrollTo('#registration-tag-box', 250, {offset: -0})
+  }
+
+  App.init();
 });

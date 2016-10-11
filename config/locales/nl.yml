@@ -1,5 +1,103 @@
 nl:
+  company:
+    name: Schott & Co
+    url: https://www.schottenco.nl
+    address: Bogerdweg 7
+    zip: 4315 CB
+    city: Dreischor
+    email: info@schottenco.nl
+    phone: 06-18665115
+    contact_name: Carel Schott
   activerecord:
+    attributes:
+      agenda_item:
+        date: Datum
+        starts_at: Startdatum
+        ends_at: Einddatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+        booking_type: Registratie
+        external_url: Externe URL
+        content_page: Content pagina
+        location: Locatie
+        price: Prijs
+        bookings: Aanmeldingen
+        image: Kopfoto
+      location:
+        name: Naam
+        address: Adres
+        zip: Postcode
+        city: Plaats
+        phone: Telefoon
+      content_text:
+        name: Naam
+        body: Inhoud
+      content_page:
+        url: URL
+        title: Titel
+        menu_type:
+        menu_title: Titel in menu
+        intro: Introductie
+        body: Inhoud
+        image: Kopfoto
+      content_image:
+        name: Naam
+        image: Foto
+      content_blog:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+        user_id: Auteur
+        image: Kopfoto
+      content_news_item:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+        image: Kopfoto
+      content_newsletter:
+        published_at: Publicatiedatum
+        title: Titel
+        intro: Introductie
+        body: Inhoud
+        image: Kopfoto
+      user:
+        first_name: Voornaam
+        middle_name: Tussenvoegsels
+        last_name: Achternaam
+        name: Naam
+        birthdate: Geboortedatum
+        email: E-mail
+        phone: Telefoonnummer
+        zip: Postcode
+        address: Adres
+        city: Woonplaats
+        country: Land
+        password: Wachtwoord
+        password_confirmation: Bevestig wachtwoord
+        remember_me: Login onthouden
+        user_type: Rol
+      booking:
+        name: Naam
+        email: E-mailadres
+        phone: Telefoonnummer
+        zip: Postcode
+        address: Adres
+        city: Woonplaats
+        country: Land
+        general_terms: Akkoord algemene voorwaarden
+        created_at: Aangemeld op
+        invoice_sent_at: Factuur
+        paid_for_at: Betaald
+      contact:
+        name: Naam
+        email: E-mailadres
+        phone: Telefoonnummer
+        message: Bericht
+        created_at: Aanvraag
+
   models:
     survey_config: Test
   attributes:
@@ -10,3 +108,36 @@ nl:
       email: "E-mail"
       password: "Wachtwoord"
       password_confirmation: "Bevestiging"
+  form:
+    an_error:
+      one: een fout
+      other: enkele fouten
+  enums:
+    agenda_item:
+      booking_type:
+        disabled: Uitgeschakeld
+        internal: Interne aanmelding
+        external: Externe aanmelding (via link)
+    content_page:
+      menu_type:
+        menu_hidden: Niet zichtbaar in navigatie
+        menu_visible: Zichtbaar in navigatie en footer
+
+  views:
+    pagination:
+      truncate: "..."
+      previous: '<i class="fa fa-angle-left" aria-hidden="true"></i>'
+      first: '<i class="fa fa-angle-double-left" aria-hidden="true"></i>'
+      next: '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+      last: '<i class="fa fa-angle-double-right" aria-hidden="true"></i>'
+
+  enums:
+    agenda_item:
+      booking_type:
+        booking_disabled: Uitgeschakeld
+        booking_internal: Aanmelding via eigen site
+        booking_external: Aanmelding via externe website
+    user:
+      user_type:
+        customer: Gebruiker
+        admin: Administrator

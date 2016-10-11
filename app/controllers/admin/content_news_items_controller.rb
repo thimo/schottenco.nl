@@ -1,15 +1,15 @@
 class Admin::ContentNewsItemsController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Nieuwsberichten", :admin_content_news_items_path
 
   def index
-    @content_news_items = ContentNewsItem.all.order(:published_at)
+    @content_news_items = ContentNewsItem.desc
   end
 
   def show
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    add_breadcrumb @content_news_item.name
+    add_breadcrumb @content_news_item.title
   end
 
   def new
@@ -23,7 +23,7 @@ class Admin::ContentNewsItemsController < AdminController
 
     if @content_news_item.save
       flash[:success] = 'Nieuwsbericht is aangemaakt.'
-      redirect_to [:admin, @content_news_item]
+      redirect_to admin_content_news_items_path
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class Admin::ContentNewsItemsController < AdminController
   def edit
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    add_breadcrumb @content_news_item.name
+    add_breadcrumb @content_news_item.title
   end
 
   def update
@@ -40,7 +40,7 @@ class Admin::ContentNewsItemsController < AdminController
 
     if @content_news_item.update_attributes(content_news_item_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_news_item]
+      redirect_to admin_content_news_items_path
     else
       render 'edit'
     end
@@ -49,17 +49,17 @@ class Admin::ContentNewsItemsController < AdminController
   def destroy
     @content_news_item = ContentNewsItem.find(params[:id])
 
-    flash[:success] = "Nieuwsbericht \"#{@content_news_item.name}\" verwijderd."
+    flash[:success] = "Nieuwsbericht is verwijderd."
     @content_news_item.destroy
-    redirect_to admin_content_news_items_url
+    redirect_to admin_content_news_items_path
   end
 
   private
 
     def content_news_item_params
-      params.require(:content_news_item).permit(:name, :title, :body)
+      params.require(:content_news_item).permit(:published_at, :title, :intro, :body, :image, :image_cache, :remove_image)
     end
-    
+
     def defaults
       {published_at: Time.zone.now}
     end

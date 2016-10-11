@@ -1,0 +1,34 @@
+<%
+# menu_item = ContentPage.find_by(url: url)
+# menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
+%>
+
+<% if current_page.agenda_items.count > 0 %>
+<div class="posts margin-bottom-40 footer-v2">
+  <div class="headline">
+    <h2>
+      Agenda
+    </h2>
+  </div>
+  <ul class="list-unstyled blog-latest-posts">
+    <% current_page.agenda_items.each do |agenda_item| %>
+    <li>
+			<h3><%= link_to agenda_item.title, agenda_item %></h3>
+      <small>
+        <div>
+          <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
+          <% unless agenda_item.ends_at.blank? %>
+            - <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
+          <% end %>
+        </div>
+        <div>
+          <% unless agenda_item.location.nil? %>
+            <i class="fa fa-map-marker mr-05"></i><%= agenda_item.location.name %>, <%= agenda_item.location.city %>
+          <% end %>
+        </div>
+      </small>
+		</li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

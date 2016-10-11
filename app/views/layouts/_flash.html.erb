@@ -2,7 +2,7 @@
 <div class="container">
   <div class="<%= 'alert-popup' if controller.class.parent  == Admin %>">
     <% flash.each do |message_type, message| %>
-      <div class="alert alert-icon alert-<%= message_type %> alert-dismissible fade in">
+      <div class="alert alert-icon alert-<%= message_type %> alert-dismissible fade in mt-20">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <i class="fa fa-<%= message_type %>"></i>
         <%= message %>

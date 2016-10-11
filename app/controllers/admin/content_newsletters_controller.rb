@@ -1,15 +1,15 @@
 class Admin::ContentNewslettersController < AdminController
-  add_breadcrumb "Content"
+  # add_breadcrumb "Content"
   add_breadcrumb "Nieuwsbrieven", :admin_content_newsletters_path
 
   def index
-    @content_newsletters = ContentNewsletter.all.order(:published_at)
+    @content_newsletters = ContentNewsletter.desc
   end
 
   def show
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    add_breadcrumb @content_newsletter.name
+    add_breadcrumb @content_newsletter.title
   end
 
   def new
@@ -23,7 +23,7 @@ class Admin::ContentNewslettersController < AdminController
 
     if @content_newsletter.save
       flash[:success] = 'Nieuwsbrief is aangemaakt.'
-      redirect_to [:admin, @content_newsletter]
+      redirect_to admin_content_newsletters_path
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class Admin::ContentNewslettersController < AdminController
   def edit
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    add_breadcrumb @content_newsletter.name
+    add_breadcrumb @content_newsletter.title
   end
 
   def update
@@ -40,7 +40,7 @@ class Admin::ContentNewslettersController < AdminController
 
     if @content_newsletter.update_attributes(content_newsletter_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to [:admin, @content_newsletter]
+      redirect_to admin_content_newsletters_path
     else
       render 'edit'
     end
@@ -49,15 +49,15 @@ class Admin::ContentNewslettersController < AdminController
   def destroy
     @content_newsletter = ContentNewsletter.find(params[:id])
 
-    flash[:success] = "Nieuwsbrief \"#{@content_newsletter.name}\" verwijderd."
+    flash[:success] = "Nieuwsbrief is verwijderd."
     @content_newsletter.destroy
-    redirect_to admin_content_newsletters_url
+    redirect_to admin_content_newsletters_path
   end
 
   private
 
     def content_newsletter_params
-      params.require(:content_newsletter).permit(:name, :title, :body)
+      params.require(:content_newsletter).permit(:published_at, :title, :intro, :body, :image, :image_cache, :remove_image)
     end
 
     def defaults

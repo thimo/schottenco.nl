@@ -1,0 +1,13 @@
+<% provide(:title, "#{@agenda_item.title}") %>
+
+<%= render @agenda_item %>
+
+<h3>Aanmelding</h3>
+
+<div id="booking-tag-box">
+  [ TODO Iets met de aanmelding ]
+</div>
+
+<% content_for :sidebar do %>
+  <%= render "agenda_items/sidebar", agenda_item: @agenda_item %>
+<% end %>

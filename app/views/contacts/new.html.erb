@@ -1,0 +1,28 @@
+<% provide(:title, "Contactformulier") %>
+
+<h2><%= yield(:title) %></h2>
+
+<%= text_body :contactform_intro %>
+
+<hr />
+
+<%= horizontal_form @contact do |f| %>
+<div class="col-sm-offset-3">
+  <%= render 'shared/error_messages', object: f.object %>
+</div>
+
+<%= f.input :name %>
+<%= f.input :phone %>
+<%= f.input :email %>
+<%= f.input :message %>
+
+  <div class="form-actions col-sm-offset-3 col-sm-9">
+    <%= f.button :button do %>
+      Versturen <i class="fa fa-chevron-right pl-05" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to 'Annuleren', "/contact", class: "btn-u btn-u-default" %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+<% end %>

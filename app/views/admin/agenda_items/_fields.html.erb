@@ -1,0 +1,18 @@
+<div class="col-sm-offset-3">
+  <%= render 'shared/error_messages', object: f.object %>
+</div>
+
+<%= f.input :starts_at, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}} %>
+<%= f.input :ends_at, as: :string, placeholder: "dd-mm-jjjj", input_html: {data: {provide: "datepicker", "date-format": "dd-mm-yyyy", "date-today-highlight": true, "date-autoclose": true, "date-language": "nl"}}, hint: "Alleen invullen bij een meerdaags item" %>
+<%= f.input :title %>
+<%= f.input :intro %>
+<%= f.input :body, hint: 'Gebruik <a href="https://en.support.wordpress.com/markdown-quick-reference/" target="_new">Markdown</a> bij het opmaken van de Agenda item'.html_safe %>
+
+<%= render 'shared/fields_image', f: f %>
+
+<%= f.input :price, as: :currency %>
+
+<%= f.input :booking_type, as: :radio_buttons, required: false %>
+<%= f.input :external_url, hint: "Vul bij externe registratie hier de URL in naar de externe informatie of registratie pagina" %>
+<%= f.association :content_page, include_blank: "Geen pagina", collection: ContentPage.asc %>
+<%= f.association :location, include_blank: "Geen locatie" %>

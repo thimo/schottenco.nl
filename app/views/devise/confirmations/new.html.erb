@@ -1,15 +1,15 @@
-<% provide(:title, "Bevestigingsinstructies opnieuw versturen") %>
+<% provide(:title, "Bevestiging opnieuw versturen") %>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :confirmation_token %>
 
   <div class="form-inputs">
-    <%= f.input :email, label: "E-mailadres", required: true, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Bevestigingsinstructies opnieuw versturen" %>
+    <%= f.button :submit, "Opnieuw versturen" %>
   </div>
 <% end %>
 

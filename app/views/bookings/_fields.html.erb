@@ -1,0 +1,13 @@
+<div class="col-sm-offset-3">
+  <%= render 'shared/error_messages', object: f.object %>
+</div>
+
+<%= f.input :name %>
+<%= f.input :phone %>
+<%= f.input :email %>
+<%= f.input :zip %>
+<%= f.input :address %>
+<%= f.input :city %>
+<%= f.input :country, priority: ['NL', 'BE', 'DE'] %>
+
+<%= f.input :general_terms, as: :boolean, required: false, label: "Ik ga akkoord met de algemene voorwaarden" %>

@@ -1,0 +1,21 @@
+<% provide(:title, "Gebruikers") %>
+
+<div class="action_bar_right">
+  <%= link_to '<i class="fa fa-plus"></i>'.html_safe, new_admin_user_path, class: "btn-u btn-u-default", title: "Gebruiker toevoegen" %>
+</div>
+
+<h1><%= yield(:title) %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <%= label_tag_for_index User, :name %>
+      <%= label_tag_for_index User, :email %>
+      <%= label_tag_for_index User, :user_type %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>

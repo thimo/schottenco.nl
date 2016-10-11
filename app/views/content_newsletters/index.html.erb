@@ -1,0 +1,53 @@
+<% provide(:title, "Nieuwsbrieven") %>
+
+<!-- <h2><%= yield(:title) %></h2> -->
+
+<% if @content_newsletters.count == 0 %>
+  <div class="alert alert-warning">
+  Er staan op dit moment geen nieuwsbrieven klaar.
+  </div>
+<% end %>
+
+<% @content_newsletters.each do |content_newsletter| %>
+<div class="blog margin-bottom-40">
+	<h2><%= link_to content_newsletter.title, content_newsletter %></h2>
+	<div class="blog-post-tags">
+		<ul class="list-unstyled list-inline blog-info">
+			<li><i class="fa fa-calendar"></i> <%= I18n.l(content_newsletter.published_at.localtime.to_date, format: :long) %></li>
+			<%# <li><i class="fa fa-comments"></i> <a href="#">24 Comments</a></li> %>
+		</ul>
+		<%# <ul class="list-unstyled list-inline blog-tags">
+			<li>
+				<i class="fa fa-tags"></i>
+				<a href="#">Technology</a>
+				<a href="#">Education</a>
+				<a href="#">Internet</a>
+				<a href="#">Media</a>
+			</li>
+		</ul> %>
+	</div>
+
+  <% if content_newsletter.image? %>
+  <div class="blog-img">
+    <%= link_to content_newsletter do %>
+      <%= image_tag content_newsletter.image_url(:large), class: "img-responsive" %>
+    <% end %>
+	</div>
+  <% end %>
+
+  <span>
+  <%= text = content_newsletter.intro
+  text = truncate(content_newsletter.body, :length => 360,  :separator => ' ') if text.blank?
+  markdown(text).html_safe
+  %>
+  </span>
+
+  <!-- <div class="text-right"> -->
+  <%= link_to 'Lees meer <i class="ml-05 fa fa-chevron-right"></i>'.html_safe, content_newsletter , class: "btn-u" %>
+  <!-- </div> -->
+</div>
+<% end %>
+
+<div class="text-center">
+  <%= paginate @content_newsletters %>
+</div>

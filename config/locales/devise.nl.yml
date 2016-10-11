@@ -4,7 +4,7 @@
 nl:
   devise:
     confirmations:
-      confirmed: "Je account is bevestigd, je bent nu ingelogd."
+      confirmed: "Je account is bevestigd."
       send_instructions: "Je ontvangt over een paar minuten een e-mail met instructies hoe je je account kunt bevestigen."
       send_paranoid_instructions: "Als je e-mailadres bestaat in onze database, ontvang je over een paar minuten een e-mail met instructies hoe je je account kunt bevestigen."
     failure:
@@ -16,7 +16,7 @@ nl:
       not_found_in_database: "Ongeldig e-mailadres of wachtwoord."
       timeout: "Je sessie is verlopen, log alsjeblieft opnieuw in om verder te gaan."
       unauthenticated: "Log in of meld je aan om verder te gaan."
-      unconfirmed: "Bevestig je account voordat je verder kunt gaan"
+      unconfirmed: "Bevestig je account voordat je verder kunt gaan."
     mailer:
       confirmation_instructions:
         subject: "Bevestigingsinstructies"
