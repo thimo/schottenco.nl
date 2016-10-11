@@ -1,6 +1,6 @@
 class AgendaItemsController < ApplicationController
   load_and_authorize_resource
-  layout "application_with_sidebar", except: [:index]
+  layout "application_with_sidebar"#, except: [:index]
 
   add_breadcrumb "Home", :root_path
   add_breadcrumb "Agenda", :agenda_items_path

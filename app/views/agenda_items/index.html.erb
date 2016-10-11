@@ -3,74 +3,68 @@
   previous_month = ""
 %>
 
-<div class="container mb-60">
-  <div class="row">
-    <div class="col-md-9">
-      <!-- <h2><%= yield(:title) %></h2> -->
+<% if @agenda_items.count == 0 %>
+  <div class="alert alert-warning mt-40">
+    Er staat op dit moment niets op de agenda.
+  </div>
+<% end %>
 
-      <% if @agenda_items.count == 0 %>
-        <div class="alert alert-warning mt-40">
-        Er staat op dit moment niets op de agenda.
-        </div>
-      <% end %>
-
-      <ul class="timeline-v2 mt-40">
-        <% @agenda_items.each do |agenda_item| %>
-          <li class="equal-height-columns">
-            <div class="cbp_tmtime equal-height-column" style="height: 162px;">
-              <span>
-                <%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
-              </span>
-              <span>
-                <% current_month = I18n.l(agenda_item.starts_at, format: '%B')
+<ul class="timeline-v2 mt-40">
+  <% @agenda_items.each do |agenda_item| %>
+  <li class="equal-height-columns">
+    <div class="cbp_tmtime equal-height-column" style="height: 162px;">
+      <span>
+        <%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
+      </span>
+      <span>
+        <% current_month = I18n.l(agenda_item.starts_at, format: '%B')
                 if current_month != previous_month
                   previous_month = current_month %>
-                <%= current_month %>
-                <% end %>
-              </span>
-            </div>
-            <i class="cbp_tmicon rounded-x hidden-xs"></i>
-            <div class="cbp_tmlabel equal-height-column" style="height: 192px;">
-              <h2><%= link_to agenda_item.title, agenda_item %></h2>
+        <%= current_month %>
+        <% end %>
+      </span>
+    </div>
+    <i class="cbp_tmicon rounded-x hidden-xs"></i>
+    <div class="cbp_tmlabel equal-height-column" style="height: 192px;">
+      <h2><%= link_to agenda_item.title, agenda_item %></h2>
 
-              <p>
-                <small>
-                  <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
-                  <% unless agenda_item.ends_at.blank? %>
-                    - <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
-                  <% end %>
-                  <% unless agenda_item.location.nil? %>
-                    <i class="fa fa-map-marker mr-05 ml-10"></i><%= agenda_item.location.name %>, <%= agenda_item.location.city %>
-                  <% end %>
-                </small>
-              </p>
+      <p>
+        <small>
+          <i class="fa fa-calendar-o mr-05"></i><%= I18n.l(agenda_item.starts_at.to_date, format: :long) %>
+          <% unless agenda_item.ends_at.blank? %>
+          -
+          <%= I18n.l(agenda_item.ends_at.to_date, format: :long) %>
+          <% end %>
+          <% unless agenda_item.location.nil? %>
+          <i class="fa fa-map-marker mr-05 ml-10"></i><%= agenda_item.location.name %>,
+          <%= agenda_item.location.city %>
+          <% end %>
+        </small>
+      </p>
 
-              <% if agenda_item.image? %>
-              <div class="mb-20">
-                <%= link_to agenda_item do %>
-                <%= image_tag agenda_item.image_url(:large), class: "img-responsive" %>
-                <% end %>
-              </div>
-              <% end %>
+      <% if agenda_item.image? %>
+      <div class="mb-20">
+        <%= link_to agenda_item do %>
+        <%= image_tag agenda_item.image_url(:large), class: "img-responsive" %>
+        <% end %>
+      </div>
+      <% end %>
 
-              <span>
-              <%= text = agenda_item.intro
+      <span>
+        <%= text = agenda_item.intro
               text = truncate(agenda_item.body, :length => 360,  :separator => ' ') if text.blank?
               markdown(text).html_safe
               %>
-              </span>
+      </span>
 
-              <div class="text-right">
-                <%= link_to 'Lees meer <i class="ml-05 fa fa-chevron-right"></i>'.html_safe, agenda_item, class: "btn-u" %>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-
-      <div class="text-center">
-        <%= paginate @agenda_items %>
+      <div class="text-right">
+        <%= link_to 'Lees meer <i class="ml-05 fa fa-chevron-right"></i>'.html_safe, agenda_item, class: "btn-u" %>
       </div>
     </div>
-  </div>
+  </li>
+  <% end %>
+</ul>
+
+<div class="text-center">
+  <%= paginate @agenda_items %>
 </div>
