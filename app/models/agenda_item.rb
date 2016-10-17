@@ -9,7 +9,9 @@ class AgendaItem < ApplicationRecord
 
   scope :asc, -> {order(starts_at: :asc)}
   scope :desc, -> {order(starts_at: :desc)}
-  scope :up_next, -> {order(starts_at: :asc).where(starts_at: 1.day.ago..1.year.from_now) }
+  scope :up_next, -> {order(starts_at: :asc).where('starts_at >= ?', Date.today) }
+  scope :current, -> {order(starts_at: :asc).where('starts_at <= ?', Date.today).where('ends_at >= ?', Date.today) }
+  scope :past, -> {order(starts_at: :asc).where('ends_at < ?', Date.today) }
 
   enum booking_type: {booking_disabled: 0, booking_internal: 1, booking_external: 2}
 

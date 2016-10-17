@@ -5,6 +5,11 @@
   </td>
   <td>
     <%= link_to agenda_item.title, [:admin, agenda_item] %>
+    <% unless agenda_item.content_page.nil? %>
+    <div class="small">
+      Pagina: <%= link_to agenda_item.content_page.title, [:admin, agenda_item.content_page] %>
+    </div>
+    <% end %>
   </td>
   <td>
     <%= number_to_currency(agenda_item.price) %>

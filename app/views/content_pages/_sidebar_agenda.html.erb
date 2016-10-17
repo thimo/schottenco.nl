@@ -3,7 +3,7 @@
 # menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
 %>
 
-<% if current_page.agenda_items.count > 0 %>
+<% if current_page.agenda_items.up_next.count > 0 %>
 <div class="posts margin-bottom-40 footer-v2">
   <div class="headline">
     <h2>
@@ -11,7 +11,7 @@
     </h2>
   </div>
   <ul class="list-unstyled blog-latest-posts">
-    <% current_page.agenda_items.each do |agenda_item| %>
+    <% current_page.agenda_items.up_next.each do |agenda_item| %>
     <li>
 			<h3><%= link_to agenda_item.title, agenda_item %></h3>
       <small>
@@ -32,3 +32,5 @@
   </ul>
 </div>
 <% end %>
+
+<%# TODO toevoegen lijst van actieve items %>
