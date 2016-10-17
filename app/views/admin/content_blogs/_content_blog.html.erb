@@ -1,12 +1,17 @@
 <tr>
   <td>
-    <%= link_to content_blog.published_at.localtime, edit_admin_content_blog_path(content_blog) %>
+    <%= link_to content_blog.published_at.localtime, [:admin, content_blog] %>
   </td>
   <td>
     <%= content_blog.title %>
   </td>
   <td>
     <%= markdown(content_blog.intro).html_safe %>
+  </td>
+  <td>
+    <%= link_to edit_admin_content_blog_path(content_blog), title: "Bewerken" do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_blog],

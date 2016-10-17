@@ -1,6 +1,6 @@
 <% provide(:title, "Agenda item #{@agenda_item.title}") %>
 
-<div class="action_bar_right">
+<div class="action_bar_right mt-10">
   <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_admin_agenda_item_path(@agenda_item), class: "btn-u btn-u-default", title: "Aanpassen" %>
 </div>
 
@@ -67,3 +67,7 @@
   <% end %>
 
 </div>
+
+<% content_for :sidebar do %>
+  <%= render "admin/content_images/sidebar_list", imageable: @agenda_item %>
+<% end %>

@@ -5,7 +5,7 @@
     <% end %>
   </td>
   <td>
-    <%= link_to content_page.url, edit_admin_content_page_path(content_page) %>
+    <%= link_to content_page.url, [:admin, content_page] %>
   </td>
   <td>
     <%= content_page.title %>
@@ -13,9 +13,11 @@
   <td>
     <%= markdown(content_page.intro).html_safe %>
   </td>
-  <!-- <td>
-    <%# markdown(content_page.body).html_safe %>
-  </td> -->
+  <td>
+    <%= link_to edit_admin_content_page_path(content_page), title: "Bewerken" do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
+  </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_page],
       method: :delete, title: "Verwijderen",

@@ -22,7 +22,7 @@ class Admin::AgendaItemsController < AdminController
 
     if @agenda_item.save
       flash[:success] = 'Agenda item is aangemaakt.'
-      redirect_to admin_agenda_items_path
+      redirect_to [:admin, @agenda_item]
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class Admin::AgendaItemsController < AdminController
 
     if @agenda_item.update_attributes(agenda_item_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to admin_agenda_items_path
+      redirect_to [:admin, @agenda_item]
     else
       render 'edit'
     end

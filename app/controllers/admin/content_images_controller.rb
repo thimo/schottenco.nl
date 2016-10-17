@@ -27,7 +27,7 @@ class Admin::ContentImagesController < AdminController
     if @content_image.save
       flash[:success] = 'Plaatje is aangemaakt.'
       if @content_image.imageable.nil?
-        redirect_to admin_content_images_path
+        redirect_to [:admin, @content_image]
       else
         redirect_to [:admin, @content_image.imageable]
       end
@@ -47,7 +47,7 @@ class Admin::ContentImagesController < AdminController
 
     if @content_image.update_attributes(content_image_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to admin_content_images_path
+      redirect_to [:admin, @content_image]
     else
       render 'edit'
     end

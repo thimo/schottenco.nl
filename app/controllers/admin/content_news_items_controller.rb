@@ -23,7 +23,7 @@ class Admin::ContentNewsItemsController < AdminController
 
     if @content_news_item.save
       flash[:success] = 'Nieuwsbericht is aangemaakt.'
-      redirect_to admin_content_news_items_path
+      redirect_to [:admin, @content_news_item]
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class Admin::ContentNewsItemsController < AdminController
 
     if @content_news_item.update_attributes(content_news_item_params)
       flash[:success] = "De wijzigingen zijn verwerkt."
-      redirect_to admin_content_news_items_path
+      redirect_to [:admin, @content_news_item]
     else
       render 'edit'
     end

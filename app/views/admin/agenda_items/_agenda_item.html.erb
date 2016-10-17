@@ -4,7 +4,12 @@
     <%= " - #{agenda_item.ends_at}" unless agenda_item.ends_at.blank? %>
   </td>
   <td>
-    <%= link_to agenda_item.title, edit_admin_agenda_item_path(agenda_item) %>
+    <%= link_to agenda_item.title, [:admin, agenda_item] %>
+    <% unless agenda_item.content_page.nil? %>
+    <div class="small">
+      Pagina: <%= link_to agenda_item.content_page.title, [:admin, agenda_item.content_page] %>
+    </div>
+    <% end %>
   </td>
   <td>
     <%= number_to_currency(agenda_item.price) %>
@@ -15,8 +20,12 @@
     <% end %>
   </td>
   <td>
-    <%# agenda_item.bookings.count if agenda_item.bookings.count > 0 %>
     <%= link_to agenda_item.bookings.count, admin_agenda_item_bookings_path(agenda_item) if agenda_item.bookings.count > 0 %>
+  </td>
+  <td>
+    <%= link_to edit_admin_agenda_item_path(agenda_item), title: "Bewerken" do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, agenda_item],
