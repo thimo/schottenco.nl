@@ -12,3 +12,7 @@
     </div>
   </div>
 <% end %>
+
+<% content_for :sidebar do %>
+  <%= render "admin/content_images/sidebar_list", imageable: @content_text %>
+<% end %>

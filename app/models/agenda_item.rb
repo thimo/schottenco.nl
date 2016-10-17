@@ -2,6 +2,7 @@ class AgendaItem < ApplicationRecord
   belongs_to :content_page
   belongs_to :location
   has_many :bookings
+  has_many :content_images, as: :imageable
   mount_uploader :image, ImageUploader
 
   validates_presence_of :starts_at, :title, :body, :booking_type

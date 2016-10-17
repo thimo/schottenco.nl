@@ -1,12 +1,17 @@
 <tr>
   <td>
-    <%= link_to content_news_item.published_at.localtime, edit_admin_content_news_item_path(content_news_item) %>
+    <%= link_to content_news_item.published_at.localtime, [:admin, content_news_item] %>
   </td>
   <td>
     <%= content_news_item.title %>
   </td>
   <td>
     <%= markdown(content_news_item.intro).html_safe %>
+  </td>
+  <td>
+    <%= link_to edit_admin_content_news_item_path(content_news_item), title: "Bewerken" do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
   </td>
   <td>
     <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, [:admin, content_news_item],
