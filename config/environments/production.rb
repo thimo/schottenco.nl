@@ -90,6 +90,6 @@ Rails.application.configure do
     :email => {
       :email_prefix => "[ERROR] ",
       :sender_address => %{"#{I18n.t('company.name')} notifier" <mailrobot@schottenco.nl>},
-      :exception_recipients => %w{error@schottenco.nl}
+      :exception_recipients => %w{error@defrog.nl}
     }
 end
