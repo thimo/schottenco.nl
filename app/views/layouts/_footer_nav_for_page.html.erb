@@ -1,6 +1,6 @@
 <%
 menu_item = ContentPage.find_by(url: url)
-menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible])
+menu_childs = ContentPage.where('url ILIKE ?', "#{url}/%").where(menu_type: ContentPage.menu_types[:menu_visible]).order(:order)
 %>
 
 <% unless menu_item.blank? %>

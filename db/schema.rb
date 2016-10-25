@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831202432) do
+ActiveRecord::Schema.define(version: 20161025135051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20160831202432) do
     t.string   "menu_title"
     t.integer  "menu_type",  default: 1
     t.string   "image"
+    t.integer  "order"
     t.index ["url"], name: "index_content_pages_on_url", unique: true, using: :btree
   end
 
