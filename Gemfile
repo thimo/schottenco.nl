@@ -2,46 +2,45 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
-gem 'rails', '~> 5.0.0'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'rails', '~> 5.1.0'
+gem 'pg'
+gem 'puma'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5.x'
-gem 'jbuilder', '~> 2.0'
-gem 'redis', '~> 3.0'
-gem 'bcrypt', '~> 3.1.7'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'redis'
+gem 'bcrypt'
 
-gem 'faker',                      '>= 1.6.0'
-gem 'carrierwave',                '>= 0.10.0'
+gem 'faker'
+gem 'carrierwave'
 gem 'carrierwave-imageoptimizer' # also do: brew install optipng jpegoptim (or via 'apt-get' on Ubuntu)
-gem 'mini_magick',                '>= 4.3.6'
-gem 'bootstrap-sass',             '>= 3.3.6'
+gem 'mini_magick'
+gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'           # Datepicker for Bootstrap
 gem 'font-awesome-rails'
-# gem 'jquery-ui-sass-rails',       '>= 4.0.3' # Incompatible with Rails 5
-gem 'sdoc',                       '>= 0.4.0', group: :doc
-gem 'rails-i18n',                 '>= 4.0.2'
-gem 'kaminari',                   '>= 0.16.3'  # Paging
-gem 'kaminari-bootstrap',         '>= 3.0.1'   # Bootstrap templates for paging
-gem 'simple_form',                '>= 3.2.0'
+gem 'sdoc', group: :doc
+gem 'rails-i18n'
+gem 'kaminari' # Paging
+gem 'kaminari-bootstrap'
+gem 'simple_form'
 gem 'country_select'
-gem 'enum_help',                  '>= 0.0.14'
-gem 'modernizr-rails',            '>= 2.7.1'
+gem 'enum_help'
+gem 'modernizr-rails'
 # gem 'roo'
-gem 'breadcrumbs_on_rails',       '>= 3.0.1'   # Breadcrumbs in admin
-gem 'net-ssh',                    '>= 3.0.2'
-gem 'figaro',                     '>= 1.1.1'
-gem 'autosize-rails',             '>= 1.18.17' # Auto-resize textarea's
+gem 'breadcrumbs_on_rails' # Breadcrumbs in admin
+gem 'net-ssh'
+gem 'figaro'
+gem 'autosize-rails' # Auto-resize textarea's
 # gem 'axlsx',                      git: 'https://github.com/randym/axlsx.git' # Generate XLSX
 # gem 'axlsx_rails',                '>= 0.4.0'
 gem 'devise'
 gem 'cancancan'
-gem 'rolify',                     '>= 5.0.0'
+gem 'rolify'#,                     '>= 5.0.0'
 # gem 'bootstrap3_autocomplete_input'
 # gem 'deep_cloneable',             '>= 2.2.0'
 gem 'kramdown'                     # Markdown parser
@@ -56,9 +55,9 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 
   gem 'letter_opener'
   gem 'capistrano'
@@ -81,7 +80,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'rails_12factor',         '>= 0.0.2'
+  gem 'rails_12factor'
   gem 'exception_notification'
 end
 
